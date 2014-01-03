@@ -8,8 +8,8 @@ namespace CrmUtil.Commands
 {
     public abstract class CommonOptions
     {
-        [Option("host", Required = false, HelpText = "CRM Host Server. https://contoso.api.crm.dynamics.com")]
-        public string HostUrl { get; set; }
+        [Option("server", Required = false, HelpText = "CRM Host Server. https://contoso.api.crm.dynamics.com")]
+        public string ServerUrl { get; set; }
 
         [Option("username", Required = false, HelpText = "CRM Username.")]
         public string Username { get; set; }

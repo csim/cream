@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using CommandLine;
 using CommandLine.Text;
+using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
@@ -44,7 +45,8 @@ namespace CrmUtil.Commands
     {
         private List<FileInfo> _files;
 
-        public UpdateWebResource(UpdateWebResourceOptions options) : base(options)
+        public UpdateWebResource(IConfigurationProvider configurationProvider, Logger logProvider, UpdateWebResourceOptions options)
+            : base(configurationProvider, logProvider, options)
         {
         }
 
@@ -61,20 +63,21 @@ namespace CrmUtil.Commands
                 Options.Path = new DirectoryInfo(Options.Path).FullName;
             }
 
+            Logger.Write("BasePath", Options.Path);
+
             _files = FindFiles();
             if (_files == null || _files.Count == 0)
             {
-                Console.WriteLine("No matching files, exiting.");
+                Logger.Write(BaseName, "No matching files, exiting.");
                 return;
             }
 
-            Console.WriteLine("Target File{0}:", _files.Count == 1 ? "" : "s");
+            Logger.Write("TargetFile", "Count: {0:N0}".Compose(_files.Count));
             foreach (var file in _files)
             {
-                Console.WriteLine("{0}", GetRelativePath(file, Options.Path));
+                Logger.Write("TargetFile", GetRelativePath(file, Options.Path));
             }
 
-            Console.WriteLine("");
             WarmupService();
 
             if (Options.Watch)
@@ -102,7 +105,7 @@ namespace CrmUtil.Commands
                     {
                         // Some editors need some time to save the file completely, wait 100 ms here
                         System.Threading.Thread.Sleep(100);
-                        Console.WriteLine(string.Format("{0} {1}", GetRelativePath(e.FullPath, Options.Path), e.ChangeType));
+                        Logger.Write(e.ChangeType.ToString(), GetRelativePath(file, Options.Path));
                         //Console.WriteLine(string.Format("{0:s}  --  {1} {2}", lastWriteTime, filepath, e.ChangeType));
                         //Console.WriteLine(string.Format("read: {0:s} -- write: {1:s}", lastReadTime, lastWriteTime));
                         var result = UpdateSingleResource(file);
@@ -117,7 +120,7 @@ namespace CrmUtil.Commands
                 watcher.Deleted += new FileSystemEventHandler(updater);
                 watcher.Renamed += new RenamedEventHandler(updater);
 
-                Console.WriteLine("Waiting for changes (q<enter> to quit)...");
+                Logger.Write("Waiting for changes (q<enter> to quit) ...");
                 while (Console.Read() != 'q') ; 
             }
             else
@@ -129,9 +132,10 @@ namespace CrmUtil.Commands
         private void UpdateResources()
         {
             var result = false;
+            var index = 1;
             foreach (var file in _files)
             {
-                result = UpdateSingleResource(file) || result;
+                result = UpdateSingleResource(file, index++) || result;
             }
 
             if (result && !Options.NoPublish)
@@ -147,7 +151,7 @@ namespace CrmUtil.Commands
             var validPatterns = new List<string>();
             foreach (var pat in Options.Filters)
             {
-                var p = "^" + pat.Replace("?", @"(\w?)").Replace("*", @"(\w*?)").Replace(".", @"\.") + "$";
+                var p = "^" + pat.Replace("?", @"([\w\W]?)").Replace("*", @"([\w\W]*?)").Replace(".", @"\.") + "$";
                 //Console.WriteLine(p);
                 validPatterns.Add(p);
             }
@@ -176,11 +180,13 @@ namespace CrmUtil.Commands
             return ret;
         }
 
-        private bool UpdateSingleResource(FileInfo file)
+        private bool UpdateSingleResource(FileInfo file, int? index = null)
         {
             var ret = true;
+            string category = null;
             try
             {
+                category = null;
                 var type = GetWebResourceType(file);
                 if (type == 0)
                 {
@@ -190,14 +196,14 @@ namespace CrmUtil.Commands
                     }
                     else
                     {
-                        Console.WriteLine("{0} :: Skipping, Invalid extension.", GetRelativePath(file, Options.Path));
+                        Logger.Write("Skip", "{0} :: Invalid extension".Compose(GetRelativePath(file, Options.Path)));
                         return false;
                     }                    
                 }
 
                 var name = file.Name;
                 var fileBytes = File.ReadAllBytes(file.FullName);
-                var resource = Context.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
+                var resource = CrmContext.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
 
                 var nresource = new Entity("webresource");
                 nresource.Attributes["name"] = name;
@@ -218,13 +224,18 @@ namespace CrmUtil.Commands
                     request = new CreateRequest() { Target = nresource };
                 }
 
-                Console.Write("{0} Updating ({1}) ... ", GetRelativePath(file, Options.Path), file.Name);
-                Service.Execute(request);
-                Console.WriteLine("Done.");
+                category = "Update";
+                if (index.HasValue)
+                {
+                    category = "Update({0:N0})".Compose(index);
+                }
+                Logger.Write(category, "{0} ... ".Compose(GetRelativePath(file, Options.Path)));
+                CrmService.Execute(request);
+                Logger.Write(category, "Done.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Logger.Write(!string.IsNullOrEmpty(category) ? category : BaseName, ex);
                 ret = false;
             }
 
@@ -267,7 +278,7 @@ namespace CrmUtil.Commands
             {
                 return 8;
             }
-            else if (ext == ".xsl")
+            else if (ext == ".xsl" || ext == ".xslt")
             {
                 return 9;
             }

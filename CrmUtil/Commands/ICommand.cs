@@ -5,8 +5,9 @@ using System.Text;
 
 namespace CrmUtil.Commands
 {
-    interface ICommand
+    interface ICommand : IDisposable
     {
         void Execute();
+        void Dispose();
     }
 }

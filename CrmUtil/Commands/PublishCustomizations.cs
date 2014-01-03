@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using CommandLine;
 using CommandLine.Text;
+using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
@@ -24,7 +25,8 @@ namespace CrmUtil.Commands
 
     class PublishCustomizations : CommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizations(PublishCustomizationsOptions options) : base(options)
+        public PublishCustomizations(IConfigurationProvider configuration, Logger logger, PublishCustomizationsOptions options)
+            : base(configuration, logger, options)
         {
         }
 

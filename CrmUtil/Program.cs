@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
 using CrmUtil.Commands;
+using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
@@ -46,14 +47,17 @@ namespace CrmUtil
 
         public ICommand GetCommand(string verb, object options)
         {
+            var configurationProvider = new DefaultConfigurationProvider();
+            var logProvider = new DefaultLogger(configurationProvider);
+
             if (options == null) return null;
             if (options is UpdateWebResourceOptions)
             {
-                return new UpdateWebResource((UpdateWebResourceOptions)options);
+                return new UpdateWebResource(configurationProvider, logProvider, (UpdateWebResourceOptions)options);
             }
             else if (options is PublishCustomizationsOptions) 
             {
-                return new PublishCustomizations((PublishCustomizationsOptions)options);
+                return new PublishCustomizations(configurationProvider, logProvider, (PublishCustomizationsOptions)options);
             }
 
             return null;
@@ -79,7 +83,10 @@ namespace CrmUtil
                       var command = GetCommand(verb, subOptions);
                       if (command != null)
                       {
-                          command.Execute();
+                          using (command)
+                          {
+                              command.Execute();
+                          }
                       }
                   }
                   catch (Exception ex)
