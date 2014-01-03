@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using Microsoft.Crm.Sdk.Messages;
@@ -59,10 +60,43 @@ namespace CrmUtil.Commands
 
         protected CrmConnection GetCrmConnection()
         {
-            var connstring = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;", Options.HostUrl, Options.Username, Options.Password);
+            var host = Options.HostUrl;
+            var username = Options.Username;
+            var password = Options.Password;
+            var domain = Options.Domain;
+
+            if (string.IsNullOrEmpty(host))
+            {
+                host = ConfigurationManager.AppSettings["host"];
+                if (string.IsNullOrEmpty(host))
+                {
+                    throw new Exception("Unable to determine CRM host.");
+                }
+            }
+
+            if (string.IsNullOrEmpty(username))
+            {
+                username = ConfigurationManager.AppSettings["username"];
+                if (string.IsNullOrEmpty(username))
+                {
+                    throw new Exception("Unable to determine CRM username.");
+                }
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                password = ConfigurationManager.AppSettings["password"];
+                if (string.IsNullOrEmpty(password))
+                {
+                    throw new Exception("Unable to determine CRM password.");
+                }
+            }
+
+            var connstring = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;", 
+                host, username, password);
             if (!string.IsNullOrEmpty(Options.Domain))
             {
-                connstring += string.Format(" Domain={0}", Options.Domain);
+                connstring += string.Format(" Domain={0};", Options.Domain);
             }
 
             return CrmConnection.Parse(connstring);
