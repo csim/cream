@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandLine;
+using CommandLine.Text;
 using CrmUtil.Commands;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
@@ -12,6 +14,30 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil
 {
+    public class ProgramOptions
+    {
+        public ProgramOptions()
+        {
+            PublishCustomizationsVerb = new PublishCustomizationsOptions();
+            UpdateWebResourceVerb = new UpdateWebResourceOptions();
+        }
+
+        [VerbOption("PublishCustomizations", HelpText = "Update a WebResource.")]
+        public PublishCustomizationsOptions PublishCustomizationsVerb { get; set; }
+
+        [VerbOption("UpdateWebResource", HelpText = "Update a WebResource.")]
+        public UpdateWebResourceOptions UpdateWebResourceVerb { get; set; }
+
+        [ParserState]
+        public IParserState LastParserState { get; set; }
+
+        [HelpVerbOption]
+        public string GetUsage(string verb)
+        {
+            return HelpText.AutoBuild(this, verb);
+        }
+    }
+
     class Program
     {
         public Program()
@@ -24,6 +50,10 @@ namespace CrmUtil
             if (options is UpdateWebResourceOptions)
             {
                 return new UpdateWebResource((UpdateWebResourceOptions)options);
+            }
+            else if (options is PublishCustomizationsOptions) 
+            {
+                return new PublishCustomizations((PublishCustomizationsOptions)options);
             }
 
             return null;

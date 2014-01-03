@@ -56,6 +56,7 @@ namespace CrmUtil.Commands
         public CommandBase(CommonOptions options)
         {
             Options = options;
+            WarmupService();
         }
 
         protected CrmConnection GetCrmConnection()
@@ -92,32 +93,47 @@ namespace CrmUtil.Commands
                 }
             }
 
+            if (string.IsNullOrEmpty(domain))
+            {
+                domain = ConfigurationManager.AppSettings["domain"];
+            }
+
             var connstring = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;", 
                 host, username, password);
-            if (!string.IsNullOrEmpty(Options.Domain))
+            if (!string.IsNullOrEmpty(domain))
             {
                 connstring += string.Format(" Domain={0};", Options.Domain);
             }
 
-            return CrmConnection.Parse(connstring);
+            //Console.WriteLine(connstring);
+
+            var connection = CrmConnection.Parse(connstring);
+            connection.ProxyTypesEnabled = false;
+            return connection;
         }
 
         protected OrganizationService GetCrmService()
         {
-            var conn = GetCrmConnection();
-            return new OrganizationService(conn);
+            return new OrganizationService(Connection);
         }
 
         protected CrmOrganizationServiceContext GetCrmContext()
         {
-            var conn = GetCrmConnection();
-            return new CrmOrganizationServiceContext(conn);
+            return new CrmOrganizationServiceContext(Service);
         }
 
         protected void PublishAllCustomizations()
         {
             Console.Write("Publishing All Customizations... ");
             var request = new PublishAllXmlRequest();
+            Service.Execute(request);
+            Console.WriteLine("Done.");
+        }
+
+        protected void WarmupService()
+        {
+            Console.Write("Connecting to CRM ... ");
+            var request = new WhoAmIRequest();
             Service.Execute(request);
             Console.WriteLine("Done.");
         }

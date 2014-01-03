@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using CommandLine;
 using CommandLine.Text;
 using Microsoft.Xrm.Client;
@@ -14,14 +15,11 @@ namespace CrmUtil.Commands
 {
     public class UpdateWebResourceOptions : CommonOptions
     {
-        [Option('f', "filename", Required = false, HelpText = "Input file to be processed.")]
-        public string Filename { get; set; }
-
         [Option('d', "directory", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Directory { get; set; }
 
-        [OptionArray('p', "patterns", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg" }, HelpText = "Set of wildcard patterns.")]
-        public string[] Patterns { get; set; }
+        [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg" }, HelpText = "Set of wildcard patterns.")]
+        public string[] Filters { get; set; }
 
         [Option('m', "monitor", Required = false, HelpText = "Monitor a file or directory for changes.")]
         public bool Monitor { get; set; }
@@ -50,48 +48,44 @@ namespace CrmUtil.Commands
             var options = (UpdateWebResourceOptions)Options;
             if (options.Debug) System.Diagnostics.Debugger.Launch();
 
-            if (string.IsNullOrEmpty(options.Directory))
+            if (string.IsNullOrEmpty(options.Directory)) // || options.Directory == "."
             {
                 options.Directory = Environment.CurrentDirectory;
             }
+
+            var validFiles = FindFiles(options);
 
             if (options.Monitor)
             {
                 var watcher = new FileSystemWatcher();
                 watcher.IncludeSubdirectories = options.Recursive;
+                watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.CreationTime;
                 watcher.Path = options.Directory;
-                watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName;
                 watcher.EnableRaisingEvents = true;
 
                 var lastReadTime = DateTime.MinValue;
-                var validExtensions = new List<string>();
-                foreach (var pat in options.Patterns)
-                {
-                    if (pat.IndexOf(".") >= 0)
-                    {
-                        validExtensions.Add("." + pat.Split('.')[1].ToLower());
-                    }
-                }
-
                 Action<object, FileSystemEventArgs> updater = (source, e) =>
                 {
-                    var ext = Path.GetExtension(e.FullPath);
-                    if (!validExtensions.Contains(ext.ToLower()))
+                    var file = new FileInfo(e.FullPath);
+                    if (e.ChangeType == WatcherChangeTypes.Deleted) {
+                        return;
+                    }
+
+                    if (validFiles.FirstOrDefault(i => i.Name.ToLower() == file.Name.ToLower()) == null)
                     {
                         return;
                     }
 
-                    var lastWriteTime = File.GetLastWriteTime(e.FullPath);
-                    if ((lastWriteTime - lastReadTime).TotalSeconds > 1)
+                    if ((file.LastWriteTime - lastReadTime).TotalSeconds > 1)
                     {
+                        // Some editors need some time to save the file completely, wait 100 ms here
+                        System.Threading.Thread.Sleep(100);
                         Console.WriteLine(string.Format("{0} {1}", e.FullPath, e.ChangeType));
-                        //Console.WriteLine(string.Format("{0:s}  --  {1} {2}", lastWriteTime, e.FullPath, e.ChangeType));
+                        //Console.WriteLine(string.Format("{0:s}  --  {1} {2}", lastWriteTime, filepath, e.ChangeType));
                         //Console.WriteLine(string.Format("read: {0:s} -- write: {1:s}", lastReadTime, lastWriteTime));
-                        UpdateSingleResource(e.FullPath, options);
-
-                        if (!options.NoPublish) PublishAllCustomizations();
-
-                        lastReadTime = lastWriteTime;
+                        var result = UpdateSingleResource(file, options);
+                        if (result && !options.NoPublish) PublishAllCustomizations();
+                        lastReadTime = file.LastWriteTime;
                     }
                 };
 
@@ -106,79 +100,151 @@ namespace CrmUtil.Commands
             }
             else
             {
-                UpdateAllResources(options);                
+                UpdateResources(options);                
             }
         }
 
-        private void UpdateAllResources(UpdateWebResourceOptions options)
+        private void UpdateResources(UpdateWebResourceOptions options)
         {
-            List<string> files = new List<string>();
+            var files = FindFiles(options);
 
-            if (!string.IsNullOrEmpty(options.Filename))
-            {
-                files.Add(options.Filename);
-            }
-            else
-            {
-                FindFiles(options.Directory, files, options);
-            }
-
+            var result = false;
             foreach (var file in files)
             {
-                UpdateSingleResource(file, options);
+                result = UpdateSingleResource(file, options) || result;
             }
 
-            if (!options.NoPublish)
+            if (result && !options.NoPublish)
             {
                 PublishAllCustomizations();
             }
         }
 
-        private void FindFiles(string dir, List<string> files, UpdateWebResourceOptions options)
+        private List<FileInfo> FindFiles(UpdateWebResourceOptions options)
         {
-            foreach (var pat in options.Patterns)
+            var ret = new List<FileInfo>();
+
+            var validPatterns = new List<string>();
+            foreach (var pat in options.Filters)
             {
-                files.AddRange(Directory.GetFiles(dir, pat));
+                var p = "^" + pat.Replace("?", @"(\w?)").Replace("*", @"(\w*?)").Replace(".", @"\.") + "$";
+                //Console.WriteLine(p);
+                validPatterns.Add(p);
             }
-            
+
+            var soption = SearchOption.TopDirectoryOnly;
             if (options.Recursive)
             {
-                foreach (var idir in Directory.GetDirectories(dir))
+                soption = soption | SearchOption.AllDirectories;
+            }
+            
+            var files = Directory.GetFiles(options.Directory, "*.*", soption);
+            foreach (var file in files)
+            {
+                var f = new FileInfo(file);
+                foreach (var pat in validPatterns)
                 {
-                    FindFiles(idir, files, options);
+                    if (Regex.IsMatch(f.Name, pat, RegexOptions.IgnoreCase | RegexOptions.Singleline))
+                    {
+                        ret.Add(f);
+                        break;
+                    }
                 }
             }
+
+            //ret.ForEach(i => Console.WriteLine(i.FullName));
+            return ret;
         }
 
-        private void UpdateSingleResource(string filePath, UpdateWebResourceOptions options)
+        private bool UpdateSingleResource(FileInfo file, UpdateWebResourceOptions options)
         {
-            var name = Path.GetFileName(filePath);
-            var fileBytes = File.ReadAllBytes(filePath);
-            var resource = Context.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
-
-            var nresource = new Entity("webresource");
-            nresource.Attributes["name"] = name;
-            nresource.Attributes["description"] = name;
-            //resource.Attributes["logicalname"] = name;
-            nresource.Attributes["displayname"] = name;
-            nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
-            nresource.Attributes["webresourcetype"] = new OptionSetValue(3);
-
-            OrganizationRequest request;
-            if (resource != null)
+            var ret = true;
+            try
             {
-                nresource.Id = resource.Id;
-                request = new UpdateRequest() { Target = nresource };
+                var name = file.Name;
+                var fileBytes = File.ReadAllBytes(file.FullName);
+                var resource = Context.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
+
+                var nresource = new Entity("webresource");
+                nresource.Attributes["name"] = name;
+                nresource.Attributes["description"] = name;
+                //resource.Attributes["logicalname"] = name;
+                nresource.Attributes["displayname"] = name;
+                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
+                nresource.Attributes["webresourcetype"] = new OptionSetValue(GetWebResourceType(file));
+
+                OrganizationRequest request;
+                if (resource != null)
+                {
+                    nresource.Id = resource.Id;
+                    request = new UpdateRequest() { Target = nresource };
+                }
+                else
+                {
+                    request = new CreateRequest() { Target = nresource };
+                }
+
+                Console.Write("Updating {0} ({1}) ... ", name, file.FullName);
+                Service.Execute(request);
+                Console.WriteLine("Done.");
             }
-            else
+            catch (Exception ex)
             {
-                request = new CreateRequest() { Target = nresource };
+                Console.WriteLine(ex.ToString());
+                ret = false;
             }
 
-            Console.Write("Updating {0} ... ", filePath);
-            Service.Execute(request);
-            Console.WriteLine("Done.");
+            return ret;
+        }
+
+        private int GetWebResourceType(FileInfo file)
+        {
+            var ext = file.Extension.ToLower();
+
+            if (ext == ".html" || ext == ".htm")
+            {
+                return 1;
+            }
+            else if (ext == ".css")
+            {
+                return 2;
+            }
+            else if (ext == ".js")
+            {
+                return 3;
+            }
+            else if (ext == ".xml")
+            {
+                return 4;
+            }
+            else if (ext == ".png")
+            {
+                return 5;
+            }
+            else if (ext == ".jpg")
+            {
+                return 6;
+            }
+            else if (ext == ".gif")
+            {
+                return 7;
+            }
+            else if (ext == ".xap")
+            {
+                return 8;
+            }
+            else if (ext == ".xsl")
+            {
+                return 9;
+            }
+            else if (ext == ".ico")
+            {
+                return 10;
+            }
+
+            return 4;
         }
 
     }
+
 }
