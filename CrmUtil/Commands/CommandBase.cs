@@ -121,7 +121,7 @@ namespace CrmUtil.Commands
             Logger.Write(BaseName, "Publishing All Customizations... ");
             var request = new PublishAllXmlRequest();
             CrmService.Execute(request);
-            Console.WriteLine("Done.");
+            Logger.Write(BaseName, "Done.");
         }
 
         protected void WarmupService()

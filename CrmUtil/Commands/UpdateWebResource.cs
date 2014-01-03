@@ -213,21 +213,23 @@ namespace CrmUtil.Commands
                 nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
                 nresource.Attributes["webresourcetype"] = new OptionSetValue(type);
 
+
                 OrganizationRequest request;
                 if (resource != null)
                 {
+                    category = "({0:N0}) Update";
                     nresource.Id = resource.Id;
                     request = new UpdateRequest() { Target = nresource };
                 }
                 else
                 {
+                    category = "({0:N0}) Create";
                     request = new CreateRequest() { Target = nresource };
                 }
-
-                category = "Update";
-                if (index.HasValue)
+                
+                if (!string.IsNullOrEmpty(category) && index.HasValue)
                 {
-                    category = "Update({0:N0})".Compose(index);
+                    category = category.Compose(index);
                 }
                 Logger.Write(category, "{0} ... ".Compose(GetRelativePath(file, Options.Path)));
                 CrmService.Execute(request);

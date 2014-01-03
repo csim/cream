@@ -25,6 +25,5 @@ namespace CrmUtil.Commands
 
         [Option("nopublish", Required = false, DefaultValue = false, HelpText = "CRM Domain.")]
         public bool NoPublish { get; set; }
-
     }
 }
