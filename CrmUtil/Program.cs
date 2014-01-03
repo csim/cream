@@ -44,7 +44,7 @@ namespace CrmUtil
         {
         }
 
-        public CommandBase GetCommand(string verb, object options)
+        public ICommand GetCommand(string verb, object options)
         {
             if (options == null) return null;
             if (options is UpdateWebResourceOptions)
@@ -69,6 +69,8 @@ namespace CrmUtil
         {
             var options = new ProgramOptions();
 
+            Console.WriteLine(""); 
+            
             if (!CommandLine.Parser.Default.ParseArguments(args, options,
               (verb, subOptions) =>
               {
@@ -88,6 +90,7 @@ namespace CrmUtil
             {
                 Environment.Exit(CommandLine.Parser.DefaultExitCodeFail);
             }
+            Console.WriteLine("");
         }
     }
 }

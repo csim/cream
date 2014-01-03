@@ -22,7 +22,7 @@ namespace CrmUtil.Commands
         }
     }
 
-    class PublishCustomizations : CommandBase
+    class PublishCustomizations : CommandBase<PublishCustomizationsOptions>
     {
         public PublishCustomizations(PublishCustomizationsOptions options) : base(options)
         {

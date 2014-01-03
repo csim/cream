@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.Crm.Sdk.Messages;
@@ -9,13 +10,13 @@ using Microsoft.Xrm.Client.Services;
 
 namespace CrmUtil.Commands
 {
-    public abstract class CommandBase
+    public abstract class CommandBase<TOptions> : ICommand where TOptions : CommonOptions
     {
         private CrmConnection _connection;
         private OrganizationService _service;
         private CrmOrganizationServiceContext _context;
 
-        protected CommonOptions Options { get; private set; }
+        protected TOptions Options { get; private set; }
         
         protected CrmConnection Connection {
             get {
@@ -33,7 +34,7 @@ namespace CrmUtil.Commands
             {
                 if (_service == null)
                 {
-                    _service = GetCrmService();
+                    _service = new OrganizationService(Connection);
                 }
                 return _service;
             }
@@ -45,7 +46,7 @@ namespace CrmUtil.Commands
             {
                 if (_context == null)
                 {
-                    _context = GetCrmContext();
+                    _context = new CrmOrganizationServiceContext(Service);
                 }
                 return _context;
             }
@@ -53,10 +54,9 @@ namespace CrmUtil.Commands
 
         public abstract void Execute();
 
-        public CommandBase(CommonOptions options)
+        public CommandBase(TOptions options)
         {
             Options = options;
-            WarmupService();
         }
 
         protected CrmConnection GetCrmConnection()
@@ -112,16 +112,6 @@ namespace CrmUtil.Commands
             return connection;
         }
 
-        protected OrganizationService GetCrmService()
-        {
-            return new OrganizationService(Connection);
-        }
-
-        protected CrmOrganizationServiceContext GetCrmContext()
-        {
-            return new CrmOrganizationServiceContext(Service);
-        }
-
         protected void PublishAllCustomizations()
         {
             Console.Write("Publishing All Customizations... ");
@@ -138,5 +128,21 @@ namespace CrmUtil.Commands
             Console.WriteLine("Done.");
         }
 
+        protected string GetRelativePath(FileInfo file, string rootPath)
+        {
+            return GetRelativePath(file.FullName, rootPath);
+        }
+
+        protected string GetRelativePath(string filepath, string rootPath)
+        {
+            var pathUri = new Uri(filepath);
+            // Folders must end in a slash
+            if (!rootPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            {
+                rootPath += Path.DirectorySeparatorChar;
+            }
+            var folderUri = new Uri(rootPath);
+            return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
+        }
     }
 }
