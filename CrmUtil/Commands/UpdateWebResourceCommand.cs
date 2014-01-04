@@ -41,11 +41,11 @@ namespace CrmUtil.Commands
         }
     }
 
-    class UpdateWebResource : CrmCommandBase<UpdateWebResourceOptions>
+    class UpdateWebResourceCommand : CrmCommandBase<UpdateWebResourceOptions>
     {
         private List<FileInfo> _files;
 
-        public UpdateWebResource(IConfigurationProvider configurationProvider, Logger logProvider, UpdateWebResourceOptions options)
+        public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, Logger logProvider, UpdateWebResourceOptions options)
             : base(configurationProvider, logProvider, options)
         {
         }

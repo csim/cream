@@ -89,6 +89,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Externals\microsoft.xrm.sdk.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -107,9 +110,11 @@
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Commands\CrmCommandBase.cs" />
     <Compile Include="Commands\CommonOptions.cs" />
+    <Compile Include="Commands\DefaultCommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\PublishCustomizations.cs" />
-    <Compile Include="Commands\UpdateWebResource.cs" />
+    <Compile Include="Commands\ICommandFactory.cs" />
+    <Compile Include="Commands\PublishCustomizationsCommand.cs" />
+    <Compile Include="Commands\UpdateWebResourceCommand.cs" />
     <Compile Include="DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Interfaces.cs" />

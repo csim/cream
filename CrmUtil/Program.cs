@@ -67,15 +67,14 @@ namespace CrmUtil
 
         public ICommand GetCommand(string verb, object options)
         {
-
             if (options == null) return null;
             if (options is UpdateWebResourceOptions)
             {
-                return new UpdateWebResource(Configuration, Logger, (UpdateWebResourceOptions)options);
+                return new UpdateWebResourceCommand(Configuration, Logger, (UpdateWebResourceOptions)options);
             }
             else if (options is PublishCustomizationsOptions)
             {
-                return new PublishCustomizations(Configuration, Logger, (PublishCustomizationsOptions)options);
+                return new PublishCustomizationsCommand(Configuration, Logger, (PublishCustomizationsOptions)options);
             }
 
             return null;

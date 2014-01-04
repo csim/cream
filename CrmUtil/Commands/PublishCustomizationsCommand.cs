@@ -23,9 +23,9 @@ namespace CrmUtil.Commands
         }
     }
 
-    class PublishCustomizations : CrmCommandBase<PublishCustomizationsOptions>
+    class PublishCustomizationsCommand : CrmCommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizations(IConfigurationProvider configuration, Logger logger, PublishCustomizationsOptions options)
+        public PublishCustomizationsCommand(IConfigurationProvider configuration, Logger logger, PublishCustomizationsOptions options)
             : base(configuration, logger, options)
         {
         }
