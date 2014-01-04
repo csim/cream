@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CrmUtil.Configuration;
 using CrmUtil.Logging;
 using Ninject;
-using Ninject.Parameters;
 
 namespace CrmUtil.Commands
 {
@@ -14,7 +14,7 @@ namespace CrmUtil.Commands
         {
         }
 
-        public IKernel Kernel { get; set; }
+        protected IKernel Kernel { get; set; }
 
         public virtual void Setup()
         {
@@ -40,24 +40,14 @@ namespace CrmUtil.Commands
             Kernel.Bind<LoggerBase>()
                 .To<TLogger>()
                 .InSingletonScope();
+
         }
 
         public virtual LoggerBase GetLogger()
         {
             if (Kernel == null) { Setup(); }
+
             return Kernel.Get<LoggerBase>();
-        }
-
-        public ICommand GetCommand(object options)
-        {
-            if (options == null) return null;
-            if (Kernel == null) Setup();
-            if (!(options is CrmCommonOptions)) return null;
-
-            var targetType = ((CrmCommonOptions)options).GetCommandType();
-            var instance = Kernel.Get(targetType, new ConstructorArgument("options", options, false));
-            if (!(instance is ICommand)) return null;
-            return (ICommand)instance;
         }
 
         public TDependency GetDependency<TDependency>()

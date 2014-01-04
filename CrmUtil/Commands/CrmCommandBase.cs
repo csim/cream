@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using CrmUtil.Configuration;
 using CrmUtil.Logging;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Client;
@@ -12,7 +13,7 @@ using Microsoft.Xrm.Client.Services;
 
 namespace CrmUtil.Commands
 {
-    public abstract class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptions
+    public class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptions
     {
         private CrmConnection _crmConnection;
         private OrganizationService _crmService;
@@ -65,8 +66,10 @@ namespace CrmUtil.Commands
             }
         }
 
-        public abstract void Execute();
-         
+        public virtual void Execute()
+        {
+            if (Options.Debug) System.Diagnostics.Debugger.Launch();
+        }
 
         public CrmCommandBase(IConfigurationProvider configuration, LoggerBase logger, TOptions options)
         {

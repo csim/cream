@@ -65,7 +65,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest.no</ApplicationManifest>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -114,24 +114,22 @@
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\PublishCustomizationsCommand.cs" />
     <Compile Include="Commands\UpdateWebResourceCommand.cs" />
-    <Compile Include="DefaultConfigurationProvider.cs" />
+    <Compile Include="Configuration\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="generatedtypes.cs" />
-    <Compile Include="Interfaces.cs" />
+    <Compile Include="Configuration\IConfigurationProvider.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ConsoleLogWriter.cs" />
     <Compile Include="Logging\DefaultLogger.cs" />
     <Compile Include="Logging\FileLogWriter.cs" />
-    <Compile Include="Logging\ILoggerWriter.cs" />
-    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\ILogWriter.cs" />
+    <Compile Include="Logging\LoggerBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Properties\app.manifest.no" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\CrmUtil.pfx" />
-    <None Include="GenerateSerializer.cmd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +154,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Providers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
