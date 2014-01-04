@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class ConsoleLogger : Logger
+    public class ConsoleLogger : LoggerBase
     {
         public ConsoleLogger(IConfigurationProvider configuration) 
             : base(configuration)

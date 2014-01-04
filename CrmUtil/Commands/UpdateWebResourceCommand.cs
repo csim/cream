@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
 using CrmUtil.Logging;
@@ -14,13 +15,16 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil.Commands
 {
-    public class UpdateWebResourceOptions : CommonOptions
+    public class UpdateWebResourceOptions : CrmCommonOptions
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
 
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
         public string[] Filters { get; set; }
+
+        [Option("threads", Required = false, DefaultValue = 5, HelpText = "Number of threads to use when uploading web resources.")]
+        public int Threads { get; set; }
 
         [Option('w', "watch", Required = false, DefaultValue = false, HelpText = "Monitor directory for changes.")]
         public bool Watch { get; set; }
@@ -31,6 +35,9 @@ namespace CrmUtil.Commands
         [Option('r', "recursive", Required = false, HelpText = "Include files in sub directories.")]
         public bool Recursive { get; set; }
 
+        [Option("nopublish", Required = false, DefaultValue = false, HelpText = "Do not publish customizations.")]
+        public bool NoPublish { get; set; }
+
         [ParserState]
         public IParserState LastParserState { get; set; }
 
@@ -39,21 +46,24 @@ namespace CrmUtil.Commands
         {
             return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
         }
+
+        public override Type GetCommandType()
+        {
+            return typeof(UpdateWebResourceCommand);
+        }
     }
 
     class UpdateWebResourceCommand : CrmCommandBase<UpdateWebResourceOptions>
     {
         private List<FileInfo> _files;
 
-        public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, Logger logProvider, UpdateWebResourceOptions options)
-            : base(configurationProvider, logProvider, options)
+        public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateWebResourceOptions options)
+            : base(configurationProvider, logger, options)
         {
         }
 
         public override void Execute() //UpdateWebResourceOptions options
         {
-            base.Execute();
-
             if (string.IsNullOrEmpty(Options.Path) || Options.Path == ".")
             {
                 Options.Path = Environment.CurrentDirectory;
@@ -134,10 +144,18 @@ namespace CrmUtil.Commands
         {
             var result = false;
             var index = 1;
+            var threadList = new List<Tuple<FileInfo, int, bool>>();
+
             foreach (var file in _files)
             {
-                result = UpdateSingleResource(file, index++) || result;
+                threadList.Add(new Tuple<FileInfo, int, bool>(file, index++, false));
             }
+
+            var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = Options.Threads };
+
+            Parallel.ForEach(threadList, parallelOptions, (info) => {
+               result = UpdateSingleResource(info.Item1, info.Item2) || result;
+            });
 
             if (result && !Options.NoPublish)
             {
@@ -185,6 +203,8 @@ namespace CrmUtil.Commands
         {
             var ret = true;
             string category = null;
+            var log = new StringBuilder();
+
             try
             {
                 category = null;
@@ -197,7 +217,7 @@ namespace CrmUtil.Commands
                     }
                     else
                     {
-                        Logger.Write("Skip", "{0} :: Invalid extension".Compose(GetRelativePath(file, Options.Path)));
+                        Logger.Write(log, "Skip", "{0} :: Invalid extension".Compose(GetRelativePath(file, Options.Path)));
                         return false;
                     }                    
                 }
@@ -213,8 +233,7 @@ namespace CrmUtil.Commands
                 nresource.Attributes["displayname"] = name;
                 nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
                 nresource.Attributes["webresourcetype"] = new OptionSetValue(type);
-
-
+                
                 OrganizationRequest request;
                 if (resource != null)
                 {
@@ -232,15 +251,17 @@ namespace CrmUtil.Commands
                 {
                     category = category.Compose(index);
                 }
-                Logger.Write(category, "{0} ... ".Compose(GetRelativePath(file, Options.Path)));
+                Logger.Write(log, category, "{0} ... ".Compose(GetRelativePath(file, Options.Path)));
                 CrmService.Execute(request);
-                Logger.Write(category, "Done.");
+                Logger.Write(log, category, "Done.");
             }
             catch (Exception ex)
             {
-                Logger.Write(!string.IsNullOrEmpty(category) ? category : BaseName, ex);
+                Logger.Write(log, !string.IsNullOrEmpty(category) ? category : BaseName, ex);
                 ret = false;
             }
+
+            Logger.Write(log.ToString());
 
             return ret;
         }

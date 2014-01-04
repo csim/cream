@@ -12,7 +12,7 @@ using Microsoft.Xrm.Client.Services;
 
 namespace CrmUtil.Commands
 {
-    public class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CommonOptions
+    public abstract class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptions
     {
         private CrmConnection _crmConnection;
         private OrganizationService _crmService;
@@ -20,7 +20,7 @@ namespace CrmUtil.Commands
         private object _crmConnectionLock = new object();
 
         protected IConfigurationProvider Configuration { get; private set; }
-        protected Logger Logger { get; private set; }
+        protected LoggerBase Logger { get; private set; }
 
         protected TOptions Options { get; private set; }
 
@@ -65,12 +65,10 @@ namespace CrmUtil.Commands
             }
         }
 
-        public virtual void Execute()
-        {
-            if (Options.Debug) System.Diagnostics.Debugger.Launch();
-        }
+        public abstract void Execute();
+         
 
-        public CrmCommandBase(IConfigurationProvider configuration, Logger logger, TOptions options)
+        public CrmCommandBase(IConfigurationProvider configuration, LoggerBase logger, TOptions options)
         {
             Configuration = configuration;
             Logger = logger;

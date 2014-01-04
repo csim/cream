@@ -6,7 +6,7 @@ using CommandLine;
 
 namespace CrmUtil.Commands
 {
-    public abstract class CommonOptions
+    public abstract class CrmCommonOptions
     {
         [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
         public string ServerUrl { get; set; }
@@ -23,11 +23,10 @@ namespace CrmUtil.Commands
         [Option("domain", Required = false, HelpText = "CRM Domain.")]
         public string Domain { get; set; }
 
-        [Option("nopublish", Required = false, DefaultValue = false, HelpText = "Do not publish customizations.")]
-        public bool NoPublish { get; set; }
-
         [Option("debug", Required = false, HelpText = "Launch debugger.")]
         public bool Debug { get; set; }
+
+        public abstract Type GetCommandType();
 
     }
 }

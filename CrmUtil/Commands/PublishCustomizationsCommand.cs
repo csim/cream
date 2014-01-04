@@ -14,25 +14,29 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil.Commands
 {
-    public class PublishCustomizationsOptions : CommonOptions
+    public class PublishCustomizationsOptions : CrmCommonOptions
     {
         [HelpOption]
         public string GetUsage()
         {
             return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
         }
+
+        public override Type GetCommandType()
+        {
+            return typeof(PublishCustomizationsCommand);
+        }
     }
 
     class PublishCustomizationsCommand : CrmCommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizationsCommand(IConfigurationProvider configuration, Logger logger, PublishCustomizationsOptions options)
+        public PublishCustomizationsCommand(IConfigurationProvider configuration, LoggerBase logger, PublishCustomizationsOptions options)
             : base(configuration, logger, options)
         {
         }
 
         public override void Execute()
         {
-            base.Execute();
             PublishAllCustomizations();
         }
     }

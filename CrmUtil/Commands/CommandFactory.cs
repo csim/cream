@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using CrmUtil.Logging;
 using Ninject;
+using Ninject.Parameters;
 
 namespace CrmUtil.Commands
 {
-    public class DefaultCommandFactory : ICommandFactory, IDisposable
+    public class CommandFactory : IDisposable
     {
-        public DefaultCommandFactory()
+        public CommandFactory()
         {
         }
 
-        protected IKernel Kernel { get; set; }
+        public IKernel Kernel { get; set; }
 
         public virtual void Setup()
         {
@@ -28,7 +29,7 @@ namespace CrmUtil.Commands
                 TLogger
             >()
             where TConfiguration : IConfigurationProvider
-            where TLogger : Logger
+            where TLogger : LoggerBase
         {
             Kernel = new StandardKernel();
 
@@ -36,17 +37,27 @@ namespace CrmUtil.Commands
                 .To<TConfiguration>()
                 .InSingletonScope();
 
-            Kernel.Bind<Logger>()
+            Kernel.Bind<LoggerBase>()
                 .To<TLogger>()
                 .InSingletonScope();
-
         }
 
-        public virtual Logger GetLogger()
+        public virtual LoggerBase GetLogger()
         {
             if (Kernel == null) { Setup(); }
+            return Kernel.Get<LoggerBase>();
+        }
 
-            return Kernel.Get<Logger>();
+        public ICommand GetCommand(object options)
+        {
+            if (options == null) return null;
+            if (Kernel == null) Setup();
+            if (!(options is CrmCommonOptions)) return null;
+
+            var targetType = ((CrmCommonOptions)options).GetCommandType();
+            var instance = Kernel.Get(targetType, new ConstructorArgument("options", options, false));
+            if (!(instance is ICommand)) return null;
+            return (ICommand)instance;
         }
 
         public TDependency GetDependency<TDependency>()
@@ -58,8 +69,11 @@ namespace CrmUtil.Commands
 
         public void Dispose()
         {
-            Kernel.Dispose();
-            Kernel = null;
+            if (Kernel != null)
+            {
+                Kernel.Dispose();
+                Kernel = null;
+            }
         }
     }
 }

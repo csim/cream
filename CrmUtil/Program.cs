@@ -57,82 +57,72 @@ namespace CrmUtil
     public class Program
     {
         public IConfigurationProvider Configuration { get; private set; }
-        public Logger Logger { get; private set; }
+        public LoggerBase Logger { get; private set; }
+        public CommandFactory Factory { get; private set; }
 
-        public Program(IConfigurationProvider configurationProvider, Logger logger)
+        public string LogCategory { get; private set; }
+
+        public Program(IConfigurationProvider configurationProvider, LoggerBase logger, CommandFactory factory)
         {
-            Configuration = new DefaultConfigurationProvider();
-            Logger = new DefaultLogger(Configuration);
+            Configuration = configurationProvider;
+            Logger = logger;
+            Factory = factory;
         }
 
-        public ICommand GetCommand(string verb, object options)
-        {
-            if (options == null) return null;
-            if (options is UpdateWebResourceOptions)
-            {
-                return new UpdateWebResourceCommand(Configuration, Logger, (UpdateWebResourceOptions)options);
-            }
-            else if (options is PublishCustomizationsOptions)
-            {
-                return new PublishCustomizationsCommand(Configuration, Logger, (PublishCustomizationsOptions)options);
-            }
-
-            return null;
-        }
 
         static void Main(string[] args)
         {
-            var configurationProvider = new DefaultConfigurationProvider();
-            var logger = new DefaultLogger(configurationProvider);
-
-            var prog = new Program(configurationProvider, logger);
+            var factory = new CommandFactory();
+            var prog = new Program(factory.GetDependency<IConfigurationProvider>(), factory.GetDependency<LoggerBase>(), factory);
             prog.Execute(args);
         }
 
         private void Execute(string[] args)
         {
-            var logCategory = ApplicationInfo.Title;
+            if (args.Contains("--debug")) System.Diagnostics.Debugger.Launch();
+
+            LogCategory = ApplicationInfo.Title;
 
             Console.WriteLine("");
+            using (Logger)
+            {
+                try
+                {
+                    //var assembly = Assembly.GetExecutingAssembly();
+                    //var version = Assembly.GetExecutingAssembly().GetName().Version;
+                    //var varsionDate = new DateTime(2000, 01, 01).AddDays(version.Build).AddSeconds(version.Revision * 2);
+                    //Console.WriteLine(date.ToString("s"));
+                    var options = new ProgramOptions();
+                    CommandLine.Parser.Default.ParseArguments(args, options, ExecuteCommand);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Write(LogCategory, ex.Format());
+                }
+                Console.WriteLine("");
+            }
+        }
+
+        private void ExecuteCommand(string verb, object options)
+        {
             try
             {
-                //var assembly = Assembly.GetExecutingAssembly();
-                //var version = Assembly.GetExecutingAssembly().GetName().Version;
-                //var varsionDate = new DateTime(2000, 01, 01).AddDays(version.Build).AddSeconds(version.Revision * 2);
-                //Console.WriteLine(date.ToString("s"));
                 var startTime = DateTime.Now;
-                var options = new ProgramOptions();
-                using (Logger)
+                var command = Factory.GetCommand(options);
+                if (command != null)
                 {
-                    CommandLine.Parser.Default.ParseArguments(args, options,
-                      (verb, subOptions) =>
-                      {
-                          try
-                          {
-                              var command = GetCommand(verb, subOptions);
-                              if (command != null)
-                              {
-                                  Logger.Write(logCategory, "v{0}".Compose(ApplicationInfo.Version));
-                                  Logger.Write(logCategory, "{0}".Compose(ApplicationInfo.Copyright));
-                                  //Logger.Write("Start", "{0:s}".Compose(startTime));
-                                  command.Execute();
-                                  var duration = (DateTime.Now - startTime);
-                                  Logger.Write("Duration", "{0:00}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
-                              }
-                          }
-                          catch (Exception ex)
-                          {
-                              Logger.Write(logCategory, ex.Format());
-                          }
-                      });
+                    Logger.Write(LogCategory, "v{0}".Compose(ApplicationInfo.Version));
+                    Logger.Write(LogCategory, "{0}".Compose(ApplicationInfo.Copyright));
+                    //Logger.Write("Start", "{0:s}".Compose(startTime));
+                    command.Execute();
+                    var duration = (DateTime.Now - startTime);
+                    Logger.Write("Duration", "{0:00}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
                 }
-
             }
             catch (Exception ex)
             {
-                Logger.Write(logCategory, ex.Format());
+                Logger.Write(LogCategory, ex.Format());
             }
-            Console.WriteLine("");
         }
     }
 }

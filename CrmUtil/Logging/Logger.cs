@@ -25,9 +25,9 @@ namespace CrmUtil.Logging
     /// <summary>
     /// Logs information to the console and a text log file.
     /// </summary>
-    public abstract class Logger : IDisposable
+    public abstract class LoggerBase : IDisposable
     {
-        public Logger(IConfigurationProvider configuration)
+        public LoggerBase(IConfigurationProvider configuration)
         {
             Configuration = configuration;
             Writers = new List<ILogWriter>();

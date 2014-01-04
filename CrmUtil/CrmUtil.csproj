@@ -109,14 +109,14 @@
   <ItemGroup>
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Commands\CrmCommandBase.cs" />
-    <Compile Include="Commands\CommonOptions.cs" />
-    <Compile Include="Commands\DefaultCommandFactory.cs" />
+    <Compile Include="Commands\CrmCommonOptions.cs" />
+    <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\ICommandFactory.cs" />
     <Compile Include="Commands\PublishCustomizationsCommand.cs" />
     <Compile Include="Commands\UpdateWebResourceCommand.cs" />
     <Compile Include="DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="generatedtypes.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ConsoleLogWriter.cs" />
