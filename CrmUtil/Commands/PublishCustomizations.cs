@@ -23,7 +23,7 @@ namespace CrmUtil.Commands
         }
     }
 
-    class PublishCustomizations : CommandBase<PublishCustomizationsOptions>
+    class PublishCustomizations : CrmCommandBase<PublishCustomizationsOptions>
     {
         public PublishCustomizations(IConfigurationProvider configuration, Logger logger, PublishCustomizationsOptions options)
             : base(configuration, logger, options)
@@ -32,6 +32,7 @@ namespace CrmUtil.Commands
 
         public override void Execute()
         {
+            base.Execute();
             PublishAllCustomizations();
         }
     }

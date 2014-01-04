@@ -41,7 +41,7 @@ namespace CrmUtil.Commands
         }
     }
 
-    class UpdateWebResource : CommandBase<UpdateWebResourceOptions>
+    class UpdateWebResource : CrmCommandBase<UpdateWebResourceOptions>
     {
         private List<FileInfo> _files;
 
@@ -52,7 +52,7 @@ namespace CrmUtil.Commands
 
         public override void Execute() //UpdateWebResourceOptions options
         {
-            if (Options.Debug) System.Diagnostics.Debugger.Launch();
+            base.Execute();
 
             if (string.IsNullOrEmpty(Options.Path) || Options.Path == ".")
             {
@@ -63,7 +63,7 @@ namespace CrmUtil.Commands
                 Options.Path = new DirectoryInfo(Options.Path).FullName;
             }
 
-            Logger.Write("BasePath", Options.Path);
+            Logger.Write("Path", Options.Path);
 
             _files = FindFiles();
             if (_files == null || _files.Count == 0)
@@ -72,13 +72,13 @@ namespace CrmUtil.Commands
                 return;
             }
 
-            Logger.Write("TargetFile", "Count: {0:N0}".Compose(_files.Count));
+            Logger.Write("File", "Count: {0:N0}".Compose(_files.Count));
             foreach (var file in _files)
             {
-                Logger.Write("TargetFile", GetRelativePath(file, Options.Path));
+                Logger.Write("File", GetRelativePath(file, Options.Path));
             }
 
-            WarmupService();
+            WarmupCrmService();
 
             if (Options.Watch)
             {
@@ -98,12 +98,13 @@ namespace CrmUtil.Commands
 
                     if (_files.FirstOrDefault(i => i.Name.ToLower() == file.Name.ToLower()) == null)
                     {
+                        // File is not a target
                         return;
                     }
 
                     if ((file.LastWriteTime - lastReadTime).TotalSeconds > 1)
                     {
-                        // Some editors need some time to save the file completely, wait 100 ms here
+                        // Some editors need some time to save the file completely, wait 100 ms
                         System.Threading.Thread.Sleep(100);
                         Logger.Write(e.ChangeType.ToString(), GetRelativePath(file, Options.Path));
                         //Console.WriteLine(string.Format("{0:s}  --  {1} {2}", lastWriteTime, filepath, e.ChangeType));

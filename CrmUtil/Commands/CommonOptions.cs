@@ -8,8 +8,11 @@ namespace CrmUtil.Commands
 {
     public abstract class CommonOptions
     {
-        [Option("server", Required = false, HelpText = "CRM Host Server. https://contoso.api.crm.dynamics.com")]
+        [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
         public string ServerUrl { get; set; }
+
+        [Option('e', "environment", Required = false, HelpText = "Prefix used in app.config settings for each environment.")]
+        public string Environment { get; set; }
 
         [Option("username", Required = false, HelpText = "CRM Username.")]
         public string Username { get; set; }
@@ -20,10 +23,11 @@ namespace CrmUtil.Commands
         [Option("domain", Required = false, HelpText = "CRM Domain.")]
         public string Domain { get; set; }
 
+        [Option("nopublish", Required = false, DefaultValue = false, HelpText = "Do not publish customizations.")]
+        public bool NoPublish { get; set; }
+
         [Option("debug", Required = false, HelpText = "Launch debugger.")]
         public bool Debug { get; set; }
 
-        [Option("nopublish", Required = false, DefaultValue = false, HelpText = "CRM Domain.")]
-        public bool NoPublish { get; set; }
     }
 }

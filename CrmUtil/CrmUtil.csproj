@@ -104,7 +104,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="ApplicationInfo.cs" />
+    <Compile Include="Commands\CrmCommandBase.cs" />
     <Compile Include="Commands\CommonOptions.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\PublishCustomizations.cs" />
@@ -149,6 +150,9 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Providers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
