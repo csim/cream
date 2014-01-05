@@ -68,11 +68,12 @@ namespace CrmUtil.Commands.Crm
                 return;
             }
 
-            Logger.Write("Count", "{0:N0}".Compose(_files.Count));
             foreach (var file in _files)
             {
                 Logger.Write("File", GetRelativePath(file, Options.Path));
             }
+
+            Logger.Write("Count", "{0:N0}".Compose(_files.Count));
 
             WarmupCrmService();
 
@@ -88,7 +89,8 @@ namespace CrmUtil.Commands.Crm
                 Action<object, FileSystemEventArgs> updater = (source, e) =>
                 {
                     var file = new FileInfo(e.FullPath);
-                    if (e.ChangeType == WatcherChangeTypes.Deleted) {
+                    if (e.ChangeType == WatcherChangeTypes.Deleted || e.ChangeType == WatcherChangeTypes.Renamed)
+                    {
                         return;
                     }
 
@@ -98,6 +100,8 @@ namespace CrmUtil.Commands.Crm
                         return;
                     }
 
+                    // Some editors may trigger the event twice in quick succession
+                    // make sure that the last read time was more than 1 second ago
                     if ((file.LastWriteTime - lastReadTime).TotalSeconds > 1)
                     {
                         // Some editors need some time to save the file completely, wait 100 ms
@@ -117,7 +121,7 @@ namespace CrmUtil.Commands.Crm
                 watcher.Deleted += new FileSystemEventHandler(updater);
                 watcher.Renamed += new RenamedEventHandler(updater);
 
-                Logger.Write("Waiting for changes (q<enter> to quit) ...");
+                Logger.Write("Waiting", "(q<enter> to quit or CTRL-C)");
                 while (Console.Read() != 'q') ; 
             }
             else

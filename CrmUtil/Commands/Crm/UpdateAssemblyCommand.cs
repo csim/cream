@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -59,10 +60,10 @@ namespace CrmUtil.Commands.Crm
 
                 var relativeFilePath = GetRelativePath(file, Options.Path);
                 var name = Path.GetFileNameWithoutExtension(file.FullName);
-                var resource = CrmContext.CreateQuery("pluginassembly").FirstOrDefault(i => (string)i["name"] == name);
+                var existingResource = CrmContext.CreateQuery("pluginassembly").FirstOrDefault(i => (string)i["name"] == name);
 
-                var nresource = new Entity("pluginassembly");
-                nresource["name"] = name;
+                var newResource = new Entity("pluginassembly");
+                newResource["name"] = name;
 
                 var sourcetype = 0;
                 if (Options.Database)
@@ -75,21 +76,21 @@ namespace CrmUtil.Commands.Crm
                     sourcetype = 1;
                 }
 
-                nresource["sourcetype"] = new OptionSetValue(sourcetype);
+                newResource["sourcetype"] = new OptionSetValue(sourcetype);
 
                 if (Options.Sandbox)
                 {
-                    nresource["isolationmode"] = new OptionSetValue(2);
+                    newResource["isolationmode"] = new OptionSetValue(2);
                 }
                 else
                 {
-                    nresource["isolationmode"] = new OptionSetValue(1);
+                    newResource["isolationmode"] = new OptionSetValue(1);
                 }
 
                 OrganizationRequest request;
-                if (resource != null)
+                if (existingResource != null)
                 {
-                    if (!Options.Force && (DateTime)resource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && (DateTime)existingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
@@ -97,13 +98,13 @@ namespace CrmUtil.Commands.Crm
                     }
 
                     Logger.Write(log, category.Compose("Update"), relativeFilePath);
-                    nresource.Id = resource.Id;
-                    request = new UpdateRequest() { Target = nresource };
+                    newResource.Id = existingResource.Id;
+                    request = new UpdateRequest() { Target = newResource };
                 }
                 else
                 {
                     Logger.Write(log, category.Compose("Create"), relativeFilePath);
-                    request = new CreateRequest() { Target = nresource };
+                    request = new CreateRequest() { Target = newResource };
                 }
 
                 if (!string.IsNullOrEmpty(category) && index.HasValue)
@@ -112,9 +113,15 @@ namespace CrmUtil.Commands.Crm
                 }
 
                 var fileBytes = File.ReadAllBytes(file.FullName);
-                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
+                newResource.Attributes["content"] = Convert.ToBase64String(fileBytes);
 
-                CrmService.Execute(request);
+                var response = CrmService.Execute(request);
+                if (response is CreateResponse)
+                {
+                    newResource.Id = ((CreateResponse)response).id;
+                }
+
+                UpdateAssemblyTypes(newResource.Id, file, log);
             }
             catch (Exception ex)
             {
@@ -126,5 +133,48 @@ namespace CrmUtil.Commands.Crm
 
             return ret;
         }
+
+        public bool UpdateAssemblyTypes(Guid pluginId, FileInfo file, StringBuilder log)
+        {
+            var assembly = Assembly.LoadFile(file.FullName);
+            var types = assembly.GetTypes().Where(i => i.IsClass && typeof(IPlugin).IsAssignableFrom(i));
+
+            foreach (var type in types)
+            {
+                var name = type.FullName;
+                var lname = "Type: {0}".Compose(name);
+                var existingResource = CrmContext.CreateQuery("plugintype").FirstOrDefault(i => (string)i["typename"] == name);
+
+                var newResource = new Entity("plugintype");
+                newResource["typename"] = type.FullName;
+                newResource["friendlyname"] = type.FullName;
+                newResource["pluginassemblyid"] = new EntityReference("pluginassembly", pluginId);
+
+                OrganizationRequest request;
+                if (existingResource != null)
+                {
+                    if (!Options.Force && (DateTime)existingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    {
+                        Logger.Write(log, "Ignore", lname);
+                        Logger.Write(log.ToString());
+                        return false;
+                    }
+
+                    Logger.Write(log, "Update", lname);
+                    newResource.Id = existingResource.Id;
+                    request = new UpdateRequest() { Target = newResource };
+                }
+                else
+                {
+                    Logger.Write(log, "Create", lname);
+                    request = new CreateRequest() { Target = newResource };
+                }
+
+                CrmService.Execute(request);
+            }
+
+            return true;
+        }
+
     }
 }
