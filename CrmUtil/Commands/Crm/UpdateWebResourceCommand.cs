@@ -64,7 +64,7 @@ namespace CrmUtil.Commands.Crm
                 }
 
                 var name = file.Name;
-                var resource = CrmContext.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
+                var ExistingResource = GetRecord("webresource", i => (string)i["name"] == name);
 
                 var nresource = new Entity("webresource");
                 nresource["name"] = name;
@@ -74,9 +74,9 @@ namespace CrmUtil.Commands.Crm
                 nresource["webresourcetype"] = new OptionSetValue(type);
                 
                 OrganizationRequest request;
-                if (resource != null)
+                if (ExistingResource != null)
                 {
-                    if (!Options.Force && (DateTime)resource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && (DateTime)ExistingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
@@ -84,7 +84,7 @@ namespace CrmUtil.Commands.Crm
                     }
 
                     Logger.Write(log, category.Compose("Update"), relativeFilePath);
-                    nresource.Id = resource.Id;
+                    nresource.Id = ExistingResource.Id;
                     request = new UpdateRequest() { Target = nresource };
                 }
                 else

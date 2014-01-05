@@ -60,6 +60,7 @@ namespace CrmUtil
     public class Program
     {
         public IConfigurationProvider Configuration { get; private set; }
+
         public LoggerBase Logger { get; private set; }
 
         public CommandFactory Factory { get; private set; }
@@ -94,12 +95,7 @@ namespace CrmUtil
                 Console.WriteLine("");
                 try
                 {
-                    //var assembly = Assembly.GetExecutingAssembly();
-                    //var version = Assembly.GetExecutingAssembly().GetName().Version;
-                    //var varsionDate = new DateTime(2000, 01, 01).AddDays(version.Build).AddSeconds(version.Revision * 2);
-                    //Console.WriteLine(date.ToString("s"));
                     var options = new ProgramOptions();
-
                     var parser = new Parser((p) => {
                             p.MutuallyExclusive = true;
                             p.CaseSensitive = false;
@@ -131,7 +127,7 @@ namespace CrmUtil
                     //Logger.Write("Start", "{0:s}".Compose(startTime));
                     command.Execute();
                     var duration = (DateTime.Now - startTime);
-                    Logger.Write("Duration", "{0:00}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
+                    Logger.Write("Duration", "{0:0}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
                 }
             }
             catch (Exception ex)

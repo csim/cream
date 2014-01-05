@@ -10,6 +10,7 @@ using CrmUtil.Logging;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
+using Microsoft.Xrm.Sdk;
 
 namespace CrmUtil.Commands.Crm
 {
@@ -164,6 +165,16 @@ namespace CrmUtil.Commands.Crm
             }
             var folderUri = new Uri(rootPath);
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
+        }
+
+        protected Entity GetRecord(string entityName, Func<Entity, bool> where)
+        {
+            return CrmContext.CreateQuery(entityName).FirstOrDefault(where);
+        }
+
+        protected IEnumerable<Entity> GetRecordList(string entityName, Func<Entity, bool> where)
+        {
+            return CrmContext.CreateQuery(entityName).Where(where);
         }
 
         public void Dispose()

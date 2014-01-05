@@ -63,7 +63,7 @@ namespace CrmUtil.Commands.Crm
 
                 var relativeFilePath = GetRelativePath(file, Options.Path);
                 var name = Path.GetFileNameWithoutExtension(file.FullName);
-                var existingResource = CrmContext.CreateQuery("pluginassembly").FirstOrDefault(i => (string)i["name"] == name);
+                var existingResource = GetRecord("pluginassembly", i => (string)i["name"] == name);
 
                 var newResource = new Entity("pluginassembly");
                 newResource["name"] = name;
@@ -149,7 +149,7 @@ namespace CrmUtil.Commands.Crm
             {
                 var name = type.FullName;
                 var lname = "Type: {0}".Compose(name);
-                var existingResource = CrmContext.CreateQuery("plugintype").FirstOrDefault(i => (string)i["typename"] == name);
+                var existingResource = GetRecord("plugintype", i => (string)i["typename"] == name);
 
                 var newResource = new Entity("plugintype");
                 newResource["typename"] = type.FullName;
