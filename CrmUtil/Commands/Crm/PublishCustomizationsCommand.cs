@@ -13,16 +13,10 @@ using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 
-namespace CrmUtil.Commands
+namespace CrmUtil.Commands.Crm
 {
-    public class PublishCustomizationsOptions : CrmCommonOptions
+    public class PublishCustomizationsOptions : CrmCommonOptionBase
     {
-        [HelpOption]
-        public string GetUsage()
-        {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
-        }
-
         public override Type GetCommandType()
         {
             return typeof(PublishCustomizationsCommand);

@@ -11,9 +11,9 @@ using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 
-namespace CrmUtil.Commands
+namespace CrmUtil.Commands.Crm
 {
-    public class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptions
+    public class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptionBase
     {
         private CrmConnection _crmConnection;
         private OrganizationService _crmService;

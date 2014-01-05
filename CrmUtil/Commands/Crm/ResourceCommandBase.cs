@@ -14,15 +14,14 @@ using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 
-namespace CrmUtil.Commands
+namespace CrmUtil.Commands.Crm
 {
-    public class UpdateWebResourceOptions : CrmCommonOptions
+    public abstract class ResourceCommandBaseOptions : CrmCommonOptionBase
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
 
-        [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
-        public string[] Filters { get; set; }
+        public abstract string[] Filters { get; set; }
 
         [Option("threads", Required = false, DefaultValue = 5, HelpText = "Number of threads to use when uploading web resources.")]
         public int Threads { get; set; }
@@ -30,7 +29,7 @@ namespace CrmUtil.Commands
         [Option('w', "watch", Required = false, DefaultValue = false, HelpText = "Monitor directory for changes.")]
         public bool Watch { get; set; }
 
-        [Option("force", Required = false, DefaultValue = false, HelpText = "Update the resource even if the extension is not supported.")]
+        [Option("force", Required = false, DefaultValue = false, HelpText = "Update the resource even if the local file is older or the extension is not supported.")]
         public bool Force { get; set; }
 
         [Option('r', "recursive", Required = false, HelpText = "Include files in sub directories.")]
@@ -38,27 +37,13 @@ namespace CrmUtil.Commands
 
         [Option("nopublish", Required = false, DefaultValue = false, HelpText = "Do not publish customizations.")]
         public bool NoPublish { get; set; }
-
-        [ParserState]
-        public IParserState LastParserState { get; set; }
-
-        [HelpOption]
-        public string GetUsage()
-        {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
-        }
-
-        public override Type GetCommandType()
-        {
-            return typeof(UpdateWebResourceCommand);
-        }
     }
 
-    class UpdateWebResourceCommand : CrmCommandBase<UpdateWebResourceOptions>
+    public abstract class ResourceCommandBase : CrmCommandBase<ResourceCommandBaseOptions>
     {
         private List<FileInfo> _files;
 
-        public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateWebResourceOptions options)
+        public ResourceCommandBase(IConfigurationProvider configurationProvider, LoggerBase logger, ResourceCommandBaseOptions options)
             : base(configurationProvider, logger, options)
         {
         }
@@ -79,7 +64,7 @@ namespace CrmUtil.Commands
             _files = FindFiles();
             if (_files == null || _files.Count == 0)
             {
-                Logger.Write(BaseName, "No matching files, exiting.");
+                Logger.Write("Exit", "No matching files. ({0})".Compose(string.Join(" " , Options.Filters)));
                 return;
             }
 
@@ -120,7 +105,7 @@ namespace CrmUtil.Commands
                         Logger.Write(e.ChangeType.ToString(), GetRelativePath(file, Options.Path));
                         //Console.WriteLine(string.Format("{0:s}  --  {1} {2}", lastWriteTime, filepath, e.ChangeType));
                         //Console.WriteLine(string.Format("read: {0:s} -- write: {1:s}", lastReadTime, lastWriteTime));
-                        var result = UpdateSingleResource(file);
+                        var result = UpdateSingle(file);
                         if (result && !Options.NoPublish) PublishAllCustomizations();
                         lastReadTime = file.LastWriteTime;
                     }
@@ -155,7 +140,7 @@ namespace CrmUtil.Commands
             var parallelOptions = new ParallelOptions() { MaxDegreeOfParallelism = Options.Threads };
 
             Parallel.ForEach(threadList, parallelOptions, (info) => {
-               result = UpdateSingleResource(info.Item1, info.Item2) || result;
+               result = UpdateSingle(info.Item1, info.Item2) || result;
             });
 
             if (result && !Options.NoPublish)
@@ -200,120 +185,7 @@ namespace CrmUtil.Commands
             return ret;
         }
 
-        private bool UpdateSingleResource(FileInfo file, int? index = null)
-        {
-            var ret = true;
-            string category = null;
-            var log = new StringBuilder();
-
-            try
-            {
-                category = null;
-                var type = GetWebResourceType(file);
-                if (type == 0)
-                {
-                    if (Options.Force)
-                    {
-                        type = 4; // XML Data
-                    }
-                    else
-                    {
-                        Logger.Write(log, "Skip", "{0} :: Invalid extension".Compose(GetRelativePath(file, Options.Path)));
-                        return false;
-                    }                    
-                }
-
-                var name = file.Name;
-                var fileBytes = File.ReadAllBytes(file.FullName);
-                var resource = CrmContext.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
-
-                var nresource = new Entity("webresource");
-                nresource.Attributes["name"] = name;
-                nresource.Attributes["description"] = name;
-                //resource.Attributes["logicalname"] = name;
-                nresource.Attributes["displayname"] = name;
-                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
-                nresource.Attributes["webresourcetype"] = new OptionSetValue(type);
-                
-                OrganizationRequest request;
-                if (resource != null)
-                {
-                    category = "({0:N0}) Update";
-                    nresource.Id = resource.Id;
-                    request = new UpdateRequest() { Target = nresource };
-                }
-                else
-                {
-                    category = "({0:N0}) Create";
-                    request = new CreateRequest() { Target = nresource };
-                }
-                
-                if (!string.IsNullOrEmpty(category) && index.HasValue)
-                {
-                    category = category.Compose(index);
-                }
-                Logger.Write(log, category, "{0} ... ".Compose(GetRelativePath(file, Options.Path)));
-                CrmService.Execute(request);
-                Logger.Write(log, category, "Done.");
-            }
-            catch (Exception ex)
-            {
-                Logger.Write(log, !string.IsNullOrEmpty(category) ? category : BaseName, ex);
-                ret = false;
-            }
-
-            Logger.Write(log.ToString());
-
-            return ret;
-        }
-
-        private int GetWebResourceType(FileInfo file)
-        {
-            var ext = file.Extension.ToLower();
-
-            if (ext == ".html" || ext == ".htm")
-            {
-                return 1;
-            }
-            else if (ext == ".css")
-            {
-                return 2;
-            }
-            else if (ext == ".js")
-            {
-                return 3;
-            }
-            else if (ext == ".xml")
-            {
-                return 4;
-            }
-            else if (ext == ".png")
-            {
-                return 5;
-            }
-            else if (ext == ".jpg")
-            {
-                return 6;
-            }
-            else if (ext == ".gif")
-            {
-                return 7;
-            }
-            else if (ext == ".xap")
-            {
-                return 8;
-            }
-            else if (ext == ".xsl" || ext == ".xslt")
-            {
-                return 9;
-            }
-            else if (ext == ".ico")
-            {
-                return 10;
-            }
-
-            return 0;
-        }
+        protected abstract bool UpdateSingle(FileInfo file, int? index = null);
 
     }
 

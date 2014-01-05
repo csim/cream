@@ -5,6 +5,7 @@ using System.Text;
 using CrmUtil.Configuration;
 using CrmUtil.Logging;
 using Ninject;
+using Ninject.Parameters;
 
 namespace CrmUtil.Commands
 {
@@ -40,14 +41,14 @@ namespace CrmUtil.Commands
             Kernel.Bind<LoggerBase>()
                 .To<TLogger>()
                 .InSingletonScope();
-
         }
 
-        public virtual LoggerBase GetLogger()
+        public ICommand GetCommand(CommonOptionsBase options)
         {
             if (Kernel == null) { Setup(); }
 
-            return Kernel.Get<LoggerBase>();
+            var type = options.GetCommandType();
+            return (ICommand)Kernel.Get(type, new[] { new ConstructorArgument("options", options, false) });
         }
 
         public TDependency GetDependency<TDependency>()

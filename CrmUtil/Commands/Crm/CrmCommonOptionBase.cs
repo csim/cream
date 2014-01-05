@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using CommandLine;
 
-namespace CrmUtil.Commands
+namespace CrmUtil.Commands.Crm
 {
-    public abstract class CrmCommonOptions
+    public abstract class CrmCommonOptionBase : CommonOptionsBase
     {
         [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
         public string ServerUrl { get; set; }
@@ -22,11 +22,5 @@ namespace CrmUtil.Commands
 
         [Option("domain", Required = false, HelpText = "CRM Domain.")]
         public string Domain { get; set; }
-
-        [Option("debug", Required = false, HelpText = "Launch debugger.")]
-        public bool Debug { get; set; }
-
-        public abstract Type GetCommandType();
-
     }
 }

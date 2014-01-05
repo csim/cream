@@ -108,12 +108,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationInfo.cs" />
-    <Compile Include="Commands\CrmCommandBase.cs" />
-    <Compile Include="Commands\CrmCommonOptions.cs" />
+    <Compile Include="Commands\Crm\CrmCommandBase.cs" />
+    <Compile Include="Commands\CommonOptionsBase.cs" />
+    <Compile Include="Commands\Crm\CrmCommonOptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
+    <Compile Include="Commands\Crm\UpdateAssemblyCommand.cs" />
+    <Compile Include="Commands\Crm\ResourceCommandBase.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\PublishCustomizationsCommand.cs" />
-    <Compile Include="Commands\UpdateWebResourceCommand.cs" />
+    <Compile Include="Commands\Crm\PublishCustomizationsCommand.cs" />
+    <Compile Include="Commands\Crm\UpdateWebResourceCommand.cs" />
     <Compile Include="Configuration\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Configuration\IConfigurationProvider.cs" />
