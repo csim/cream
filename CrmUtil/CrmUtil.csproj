@@ -114,6 +114,7 @@
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\Crm\UpdateAssemblyCommand.cs" />
     <Compile Include="Commands\Crm\UpdateResourceCommandBase.cs" />
+    <Compile Include="Commands\Crm\UpdateStepCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\Crm\PublishCustomizationsCommand.cs" />
     <Compile Include="Commands\Crm\UpdateWebResourceCommand.cs" />

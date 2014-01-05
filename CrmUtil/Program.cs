@@ -36,6 +36,9 @@ namespace CrmUtil
         [VerbOption("UpdateAssembly", HelpText = "Update Plugin Assembly.")]
         public UpdateAssemblyOptions UpdateAssemblyVerb { get; set; }
 
+        [VerbOption("UpdateStep", HelpText = "Update Plugin Step.")]
+        public UpdateStepOptions UpdateStepVerb { get; set; }
+
         [HelpVerbOption]
         public string GetUsage(string verb)
         {
