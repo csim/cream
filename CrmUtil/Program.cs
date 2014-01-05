@@ -64,11 +64,14 @@ namespace CrmUtil
 
         public CommandFactory Factory { get; private set; }
 
+        public ApplicationInfo App { get; private set; }
+
         public Program(IConfigurationProvider configurationProvider, LoggerBase logger, CommandFactory factory)
         {
             Configuration = configurationProvider;
             Logger = logger;
             Factory = factory;
+            App = new ApplicationInfo();
         }
 
         static void Main(string[] args)
@@ -84,7 +87,7 @@ namespace CrmUtil
         private void Execute(string[] args)
         {
             if (args.Contains("--debug")) System.Diagnostics.Debugger.Launch();
-            var logCategory = ApplicationInfo.Title;
+            var logCategory = App.Title;
 
             using (Logger)
             {
@@ -116,15 +119,15 @@ namespace CrmUtil
         {
             if (options == null) return;
 
-            var logCategory = ApplicationInfo.Title;
+            var logCategory = App.Title;
             try
             {
                 var startTime = DateTime.Now;
                 var command = Factory.GetCommand((CommonOptionsBase)options);
                 if (command != null)
                 {
-                    Logger.Write(logCategory, "v{0}".Compose(ApplicationInfo.Version));
-                    Logger.Write(logCategory, "{0}".Compose(ApplicationInfo.Copyright));
+                    Logger.Write(logCategory, "v{0}".Compose(App.Version));
+                    Logger.Write(logCategory, "{0}".Compose(App.Copyright));
                     //Logger.Write("Start", "{0:s}".Compose(startTime));
                     command.Execute();
                     var duration = (DateTime.Now - startTime);

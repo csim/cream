@@ -16,7 +16,7 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil.Commands.Crm
 {
-    public class UpdateWebResourceOptions : ResourceCommandBaseOptions
+    public class UpdateWebResourceOptions : UpdateResourceCommandBaseOptions
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }

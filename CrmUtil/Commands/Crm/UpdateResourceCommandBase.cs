@@ -16,7 +16,7 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil.Commands.Crm
 {
-    public abstract class ResourceCommandBaseOptions : CrmCommonOptionBase
+    public abstract class UpdateResourceCommandBaseOptions : CrmCommonOptionBase
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
@@ -39,7 +39,7 @@ namespace CrmUtil.Commands.Crm
         public bool NoPublish { get; set; }
     }
 
-    public abstract class ResourceCommandBase<TOptions> : CrmCommandBase<TOptions> where TOptions : ResourceCommandBaseOptions
+    public abstract class ResourceCommandBase<TOptions> : CrmCommandBase<TOptions> where TOptions : UpdateResourceCommandBaseOptions
     {
         private List<FileInfo> _files;
 
@@ -89,11 +89,6 @@ namespace CrmUtil.Commands.Crm
                 Action<object, FileSystemEventArgs> updater = (source, e) =>
                 {
                     var file = new FileInfo(e.FullPath);
-                    if (e.ChangeType == WatcherChangeTypes.Deleted || e.ChangeType == WatcherChangeTypes.Renamed)
-                    {
-                        return;
-                    }
-
                     if (_files.FirstOrDefault(i => i.Name.ToLower() == file.Name.ToLower()) == null)
                     {
                         // File is not a target
@@ -117,9 +112,9 @@ namespace CrmUtil.Commands.Crm
 
                 // Add event handlers.
                 watcher.Changed += new FileSystemEventHandler(updater);
-                watcher.Created += new FileSystemEventHandler(updater);
-                watcher.Deleted += new FileSystemEventHandler(updater);
-                watcher.Renamed += new RenamedEventHandler(updater);
+                //watcher.Created += new FileSystemEventHandler(updater);
+                //watcher.Deleted += new FileSystemEventHandler(updater);
+                //watcher.Renamed += new RenamedEventHandler(updater);
 
                 Logger.Write("Waiting", "(q<enter> to quit or CTRL-C)");
                 while (Console.Read() != 'q') ; 

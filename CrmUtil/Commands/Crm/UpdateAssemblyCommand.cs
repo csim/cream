@@ -17,7 +17,7 @@ using Microsoft.Xrm.Sdk.Messages;
 
 namespace CrmUtil.Commands.Crm
 {
-    public class UpdateAssemblyOptions : ResourceCommandBaseOptions
+    public class UpdateAssemblyOptions : UpdateResourceCommandBaseOptions
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.dll" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
@@ -30,6 +30,9 @@ namespace CrmUtil.Commands.Crm
 
         [Option("sandbox", DefaultValue = false, HelpText = "Assembly is deployed in sandbox isolation mode.")]
         public bool Sandbox { get; set; }
+
+        [Option("notypes", DefaultValue = false, HelpText = "Do not create plugintype records.")]
+        public bool NoTypes { get; set; }
 
         public override Type GetCommandType()
         {
@@ -121,7 +124,10 @@ namespace CrmUtil.Commands.Crm
                     newResource.Id = ((CreateResponse)response).id;
                 }
 
-                UpdateAssemblyTypes(newResource.Id, file, log);
+                if (!Options.NoTypes)
+                {
+                    UpdateAssemblyTypes(newResource.Id, file, log);
+                }
             }
             catch (Exception ex)
             {

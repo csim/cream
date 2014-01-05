@@ -144,7 +144,7 @@ namespace CrmUtil.Commands.Crm
         protected void WarmupCrmService()
         {
             ProcessConnectionOptions();
-            Logger.Write(BaseName, "Connecting to CRM ({0})".Compose(Options.ServerUrl));
+            Logger.Write("Connect", Options.ServerUrl);
             var request = new WhoAmIRequest();
             CrmService.Execute(request);
         }
@@ -168,7 +168,9 @@ namespace CrmUtil.Commands.Crm
 
         public void Dispose()
         {
-            Logger.Dispose();
+            if (Logger != null) {
+                Logger.Dispose();
+            }
         }
     }
 }

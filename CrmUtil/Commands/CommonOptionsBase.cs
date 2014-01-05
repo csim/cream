@@ -9,13 +9,13 @@ namespace CrmUtil.Commands
 {
     public abstract class CommonOptionsBase
     {
-        [Option("debug", Required = false, HelpText = "Launch debugger.")]
+        [Option("debug", Required = false, HelpText = "Launch debugger on start.")]
         public bool Debug { get; set; }
 
         [HelpOption]
         public virtual string GetUsage()
         {
-            return HelpText.AutoBuild(this, (HelpText current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            return HelpText.AutoBuild(this, (current) => HelpText.DefaultParsingErrorsHandler(this, current));
         }
 
         [ParserState]

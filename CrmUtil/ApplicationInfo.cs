@@ -6,59 +6,45 @@ using System.Text;
 
 namespace CrmUtil
 {
-    static public class ApplicationInfo
+    public class ApplicationInfo
     {
-        public static Version Version { get { return Assembly.GetCallingAssembly().GetName().Version; } }
-
-        public static string Title
+        public ApplicationInfo()
         {
-            get
+            Version = Assembly.GetCallingAssembly().GetName().Version;
+
+            Title = "";
+            object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+            if (attributes.Length > 0)
             {
-                object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-                if (attributes.Length > 0)
-                {
-                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if (titleAttribute.Title.Length > 0) return titleAttribute.Title;
-                }
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+                var titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                if (titleAttribute.Title.Length > 0) Title = titleAttribute.Title;
+            } else {
+                Title = System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
             }
+
+            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+            ProductName = attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
+
+            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+            Description = attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
+
+            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+            Copyright = attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+
+            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+            CompanyName = attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
         }
 
-        public static string ProductName
-        {
-            get
-            {
-                object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-                return attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
-            }
-        }
+        public Version Version { get; private set; }
 
-        public static string Description
-        {
-            get
-            {
-                object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-                return attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
-            }
-        }
+        public string Title { get; private set; }
 
-        public static string Copyright
-        {
-            get
-            {
-                object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-                return attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
-            }
-        }
+        public string ProductName { get; private set; }
 
-        public static string CompanyName
-        {
-            get
-            {
-                object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-                return attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
-            }
-        }
+        public string Description { get; private set; }
 
+        public string Copyright { get; private set; }
+
+        public string CompanyName { get; private set; }
     }
 }
