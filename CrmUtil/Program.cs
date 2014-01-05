@@ -96,7 +96,13 @@ namespace CrmUtil
                     //var varsionDate = new DateTime(2000, 01, 01).AddDays(version.Build).AddSeconds(version.Revision * 2);
                     //Console.WriteLine(date.ToString("s"));
                     var options = new ProgramOptions();
-                    CommandLine.Parser.Default.ParseArguments(args, options, ExecuteCommand);
+
+                    var parser = new Parser((p) => {
+                            p.MutuallyExclusive = true;
+                            p.CaseSensitive = false;
+                            p.HelpWriter = Console.Error;
+                    });
+                    parser.ParseArguments(args, options, ExecuteCommand);
                 }
                 catch (Exception ex)
                 {

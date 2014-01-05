@@ -39,11 +39,11 @@ namespace CrmUtil.Commands.Crm
         public bool NoPublish { get; set; }
     }
 
-    public abstract class ResourceCommandBase : CrmCommandBase<ResourceCommandBaseOptions>
+    public abstract class ResourceCommandBase<TOptions> : CrmCommandBase<TOptions> where TOptions : ResourceCommandBaseOptions
     {
         private List<FileInfo> _files;
 
-        public ResourceCommandBase(IConfigurationProvider configurationProvider, LoggerBase logger, ResourceCommandBaseOptions options)
+        public ResourceCommandBase(IConfigurationProvider configurationProvider, LoggerBase logger, TOptions options)
             : base(configurationProvider, logger, options)
         {
         }
@@ -68,7 +68,7 @@ namespace CrmUtil.Commands.Crm
                 return;
             }
 
-            Logger.Write("File", "Count: {0:N0}".Compose(_files.Count));
+            Logger.Write("Count", "{0:N0}".Compose(_files.Count));
             foreach (var file in _files)
             {
                 Logger.Write("File", GetRelativePath(file, Options.Path));

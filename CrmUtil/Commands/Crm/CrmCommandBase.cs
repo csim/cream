@@ -89,7 +89,7 @@ namespace CrmUtil.Commands.Crm
 
             if (string.IsNullOrEmpty(Options.ServerUrl))
             {
-                Options.ServerUrl = Configuration.GetSetting<string>(smask.Compose("serverurl"), null);
+                Options.ServerUrl = Configuration.GetSetting<string>(smask.Compose("serverurl"));
                 if (string.IsNullOrEmpty(Options.ServerUrl))
                 {
                     throw new Exception("Unable to determine CRM server url.");
@@ -98,7 +98,7 @@ namespace CrmUtil.Commands.Crm
 
             if (string.IsNullOrEmpty(Options.Username))
             {
-                Options.Username = Configuration.GetSetting<string>(smask.Compose("username"), null);
+                Options.Username = Configuration.GetSetting<string>(smask.Compose("username"));
                 if (string.IsNullOrEmpty(Options.Username))
                 {
                     throw new Exception("Unable to determine CRM username.");
@@ -107,7 +107,7 @@ namespace CrmUtil.Commands.Crm
 
             if (string.IsNullOrEmpty(Options.Password))
             {
-                Options.Password = Configuration.GetSetting<string>(smask.Compose("password"), null);
+                Options.Password = Configuration.GetSetting<string>(smask.Compose("password"));
                 if (string.IsNullOrEmpty(Options.Password))
                 {
                     throw new Exception("Unable to determine CRM password.");
@@ -116,7 +116,7 @@ namespace CrmUtil.Commands.Crm
 
             if (string.IsNullOrEmpty(Options.Domain))
             {
-                Options.Domain = Configuration.GetSetting<string>(smask.Compose("domain"), null);
+                Options.Domain = Configuration.GetSetting<string>(smask.Compose("domain"));
             }
         }
 
@@ -144,10 +144,9 @@ namespace CrmUtil.Commands.Crm
         protected void WarmupCrmService()
         {
             ProcessConnectionOptions();
-            Logger.Write(BaseName, "Connecting to CRM ({0}) ... ".Compose(Options.ServerUrl));
+            Logger.Write(BaseName, "Connecting to CRM ({0})".Compose(Options.ServerUrl));
             var request = new WhoAmIRequest();
             CrmService.Execute(request);
-            Logger.Write(BaseName, "Done.");
         }
 
         protected string GetRelativePath(FileInfo file, string rootPath)

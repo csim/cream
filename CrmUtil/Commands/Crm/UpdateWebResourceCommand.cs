@@ -27,7 +27,7 @@ namespace CrmUtil.Commands.Crm
         }
     }
 
-    public class UpdateWebResourceCommand : ResourceCommandBase
+    public class UpdateWebResourceCommand : ResourceCommandBase<UpdateWebResourceOptions>
     {
         public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateWebResourceOptions options)
             : base(configurationProvider, logger, options)
@@ -48,7 +48,6 @@ namespace CrmUtil.Commands.Crm
                 category += " {0}";
 
                 var relativeFilePath = GetRelativePath(file, Options.Path);
-
                 var type = GetWebResourceType(file);
                 if (type == 0)
                 {
@@ -65,34 +64,32 @@ namespace CrmUtil.Commands.Crm
                 }
 
                 var name = file.Name;
-                var fileBytes = File.ReadAllBytes(file.FullName);
                 var resource = CrmContext.CreateQuery("webresource").FirstOrDefault(i => (string)i["name"] == name);
 
                 var nresource = new Entity("webresource");
-                nresource.Attributes["name"] = name;
-                nresource.Attributes["description"] = name;
+                nresource["name"] = name;
+                //nresource.Attributes["description"] = name;
                 //resource.Attributes["logicalname"] = name;
-                nresource.Attributes["displayname"] = name;
-                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
-                nresource.Attributes["webresourcetype"] = new OptionSetValue(type);
+                nresource["displayname"] = name;
+                nresource["webresourcetype"] = new OptionSetValue(type);
                 
                 OrganizationRequest request;
                 if (resource != null)
                 {
                     if (!Options.Force && (DateTime)resource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
                     {
-                        Logger.Write(log, category.Compose("Ignored"), relativeFilePath);
+                        Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
                         return false;
                     }
 
-                    Logger.Write(log, category.Compose("Updated"), relativeFilePath);
+                    Logger.Write(log, category.Compose("Update"), relativeFilePath);
                     nresource.Id = resource.Id;
                     request = new UpdateRequest() { Target = nresource };
                 }
                 else
                 {
-                    Logger.Write(log, category.Compose("Created"), relativeFilePath);
+                    Logger.Write(log, category.Compose("Create"), relativeFilePath);
                     request = new CreateRequest() { Target = nresource };
                 }
                 
@@ -100,6 +97,9 @@ namespace CrmUtil.Commands.Crm
                 {
                     category = category.Compose(index);
                 }
+
+                var fileBytes = File.ReadAllBytes(file.FullName);
+                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
 
                 CrmService.Execute(request);
             }
