@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
@@ -42,8 +42,8 @@ namespace CrmUtil.Commands.Crm
 
     public class UpdateAssemblyCommand : ResourceCommandBase<UpdateAssemblyOptions>
     {
-        public UpdateAssemblyCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateAssemblyOptions options)
-            : base(configurationProvider, logger, options)
+        public UpdateAssemblyCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateAssemblyOptions options)
+            : base(crmServiceProvider, logger, options)
         {
         }
 
@@ -63,7 +63,26 @@ namespace CrmUtil.Commands.Crm
 
                 var relativeFilePath = GetRelativePath(file, Options.Path);
                 var name = Path.GetFileNameWithoutExtension(file.FullName);
-                var existingResource = GetRecord("pluginassembly", i => (string)i["name"] == name);
+                //var existingResource = GetRecord("pluginassembly", i => (string)i["name"] == name, i => new { Name = i["name"] });
+
+                //var existingResource1 = CrmContext.CreateQuery("pluginassembly")
+                //                                .Select(i => new { 
+                //                                                    Id = i.Id, 
+                //                                                    Name = (string)i["name"], 
+                //                                                    ModifiedOn = (DateTime)i["modifiedon"] 
+                //                                })
+                //                                .FirstOrDefault(i => i.Name == name);
+
+                var existingResource = (from record in CrmContext.CreateQuery("pluginassembly")
+                                        where (string)record["name"] == name
+                                        select new
+                                        {
+                                            Id = record.Id,
+                                            Name = (string)record["name"],
+                                            ModifiedOn = (DateTime)record["modifiedon"]
+                                        }).FirstOrDefault();
+                              
+
 
                 var newResource = new Entity("pluginassembly");
                 newResource["name"] = name;
@@ -93,7 +112,7 @@ namespace CrmUtil.Commands.Crm
                 OrganizationRequest request;
                 if (existingResource != null)
                 {
-                    if (!Options.Force && (DateTime)existingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && (DateTime)existingResource.ModifiedOn >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
@@ -149,7 +168,15 @@ namespace CrmUtil.Commands.Crm
             {
                 var name = type.FullName;
                 var lname = "Type: {0}".Compose(name);
-                var existingResource = GetRecord("plugintype", i => (string)i["typename"] == name);
+
+                var existingResource = (from record in CrmContext.CreateQuery("plugintype")
+                                        where (string)record["typename"] == name
+                                        select new
+                                        {
+                                            Id = record.Id,
+                                            ModifiedOn = (DateTime)record["modifiedon"]
+                                        }).FirstOrDefault();
+                
 
                 var newResource = new Entity("plugintype");
                 newResource["typename"] = type.FullName;
@@ -159,7 +186,7 @@ namespace CrmUtil.Commands.Crm
                 OrganizationRequest request;
                 if (existingResource != null)
                 {
-                    if (!Options.Force && (DateTime)existingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && (DateTime)existingResource.ModifiedOn >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, "Ignore", lname);
                         Logger.Write(log.ToString());

@@ -1,4 +1,4 @@
-﻿namespace CrmUtil.Configuration
+﻿namespace CrmUtil.Providers
 {
     using System;
     using System.Collections.Generic;

@@ -21,7 +21,7 @@ namespace CrmUtil.Logging
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
-    using CrmUtil.Configuration;
+    using CrmUtil.Providers;
 
     /// <summary>
     /// Logs information to the console and a text log file.

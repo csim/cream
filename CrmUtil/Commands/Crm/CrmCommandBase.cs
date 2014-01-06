@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Microsoft.Crm.Sdk.Messages;
 using Microsoft.Xrm.Client;
@@ -14,44 +14,21 @@ using Microsoft.Xrm.Sdk;
 
 namespace CrmUtil.Commands.Crm
 {
-    public class CrmCommandBase<TOptions> : ICommand, IDisposable where TOptions : CrmCommonOptionBase
+    public class CrmCommandBase<TOptions> : ICrmCommand, IDisposable where TOptions : CrmCommonOptionBase
     {
-        private CrmConnection _crmConnection;
-        private OrganizationService _crmService;
-        private CrmOrganizationServiceContext _crmContext;
-        private object _crmConnectionLock = new object();
+        public ICrmServiceProvider CrmServiceProvider { get; set; }
 
-        protected IConfigurationProvider Configuration { get; private set; }
         protected LoggerBase Logger { get; private set; }
 
         protected TOptions Options { get; private set; }
 
         protected string BaseName { get; private set; }
 
-        protected CrmConnection CrmConnection
+        public OrganizationService CrmService
         {
             get
             {
-                lock (_crmConnectionLock)
-                {
-                    if (_crmConnection == null)
-                    {
-                        _crmConnection = GetCrmConnection();
-                    }
-                }
-                return _crmConnection;
-            }
-        }
-
-        protected OrganizationService CrmService
-        {
-            get
-            {
-                if (_crmService == null)
-                {
-                    _crmService = new OrganizationService(CrmConnection);
-                }
-                return _crmService;
+                return CrmServiceProvider.GetCrmService();
             }
         }
 
@@ -59,11 +36,7 @@ namespace CrmUtil.Commands.Crm
         {
             get
             {
-                if (_crmContext == null)
-                {
-                    _crmContext = new CrmOrganizationServiceContext(CrmService);
-                }
-                return _crmContext;
+                return CrmServiceProvider.GetCrmContext();
             }
         }
 
@@ -72,66 +45,12 @@ namespace CrmUtil.Commands.Crm
             if (Options.Debug) System.Diagnostics.Debugger.Launch();
         }
 
-        public CrmCommandBase(IConfigurationProvider configuration, LoggerBase logger, TOptions options)
+        public CrmCommandBase(ICrmServiceProvider crmServiceProvider, LoggerBase logger, TOptions options)
         {
-            Configuration = configuration;
+            CrmServiceProvider = crmServiceProvider;
             Logger = logger;
             Options = options;
             BaseName = Path.GetFileName(Process.GetCurrentProcess().MainModule.FileName.Replace(".exe", string.Empty));
-        }
-
-        protected void ProcessConnectionOptions()
-        {
-            var smask = "{0}";
-            if (!string.IsNullOrEmpty(Options.Environment))
-            {
-                smask = Options.Environment.ToLower() + ".{0}";
-            }
-
-            if (string.IsNullOrEmpty(Options.ServerUrl))
-            {
-                Options.ServerUrl = Configuration.GetSetting<string>(smask.Compose("serverurl"));
-                if (string.IsNullOrEmpty(Options.ServerUrl))
-                {
-                    throw new Exception("Unable to determine CRM server url.");
-                }
-            }
-
-            if (string.IsNullOrEmpty(Options.Username))
-            {
-                Options.Username = Configuration.GetSetting<string>(smask.Compose("username"));
-                if (string.IsNullOrEmpty(Options.Username))
-                {
-                    throw new Exception("Unable to determine CRM username.");
-                }
-            }
-
-            if (string.IsNullOrEmpty(Options.Password))
-            {
-                Options.Password = Configuration.GetSetting<string>(smask.Compose("password"));
-                if (string.IsNullOrEmpty(Options.Password))
-                {
-                    throw new Exception("Unable to determine CRM password.");
-                }
-            }
-
-            if (string.IsNullOrEmpty(Options.Domain))
-            {
-                Options.Domain = Configuration.GetSetting<string>(smask.Compose("domain"));
-            }
-        }
-
-        protected CrmConnection GetCrmConnection()
-        {
-            ProcessConnectionOptions();
-            var connstring = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr; ProxyTypesEnabled=false;",
-                Options.ServerUrl, Options.Username, Options.Password);
-            if (!string.IsNullOrEmpty(Options.Domain))
-            {
-                connstring += string.Format(" Domain={0};", Options.Domain);
-            }
-            var connection = CrmConnection.Parse(connstring);
-            return connection;
         }
 
         protected void PublishAllCustomizations()
@@ -144,7 +63,6 @@ namespace CrmUtil.Commands.Crm
 
         protected void WarmupCrmService()
         {
-            ProcessConnectionOptions();
             Logger.Write("Connect", Options.ServerUrl);
             var request = new WhoAmIRequest();
             CrmService.Execute(request);
@@ -165,16 +83,6 @@ namespace CrmUtil.Commands.Crm
             }
             var folderUri = new Uri(rootPath);
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
-        }
-
-        protected Entity GetRecord(string entityName, Func<Entity, bool> where)
-        {
-            return CrmContext.CreateQuery(entityName).FirstOrDefault(where);
-        }
-
-        protected IEnumerable<Entity> GetRecordList(string entityName, Func<Entity, bool> where)
-        {
-            return CrmContext.CreateQuery(entityName).Where(where);
         }
 
         public void Dispose()

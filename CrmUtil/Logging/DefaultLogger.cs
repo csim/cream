@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using CrmUtil.Configuration;
+    using CrmUtil.Providers;
 
     public class DefaultLogger : LoggerBase
     {

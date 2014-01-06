@@ -22,7 +22,7 @@ namespace CrmUtil.Logging
     using System.IO;
     using System.Linq;
     using System.Text;
-    using CrmUtil.Configuration;
+    using CrmUtil.Providers;
 
     public class FileLogWriter : ILogWriter, IDisposable
     {

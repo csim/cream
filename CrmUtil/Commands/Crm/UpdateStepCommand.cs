@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
@@ -21,14 +21,23 @@ namespace CrmUtil.Commands.Crm
         [Option('t', "type", Required = true, HelpText = "Fully qualified assembly class type name.")]
         public string Type { get; set; }
 
-        [Option("sync", DefaultValue = true, HelpText = "Synchronous plugin step.", MutuallyExclusiveSet = "Mode")]
+        [Option('m', "message", Required = true, HelpText = "SDK message associated with this plugin.")]
+        public string Message { get; set; }
+
+        [Option("sync", DefaultValue = true, HelpText = "Register synchronous plugin step.", MutuallyExclusiveSet = "Mode")]
         public bool Synchronous { get; set; }
 
-        [Option("async", DefaultValue = false, HelpText = "Asynchronous plugin step.", MutuallyExclusiveSet = "Mode")]
+        [Option("async", DefaultValue = false, HelpText = "Register asynchronous plugin step.", MutuallyExclusiveSet = "Mode")]
         public bool Asynchronous { get; set; }
 
-        [Option("stage", DefaultValue = PluginStage.Post, HelpText = "Plugin execution stage. [ Prevalidation, Pre, Post ]")]
-        public PluginStage Stage { get; set; }
+        [Option("prevalidation", DefaultValue = false, HelpText = "Register in pre-validation plugin stage.", MutuallyExclusiveSet = "Stage")]
+        public bool Prevalidation { get; set; }
+
+        [Option("pre", DefaultValue = false, HelpText = "Register in pre-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
+        public bool Pre { get; set; }
+
+        [Option("post", DefaultValue = true, HelpText = "Register in post-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
+        public bool Post { get; set; }
 
         public override Type GetCommandType()
         {
@@ -45,8 +54,8 @@ namespace CrmUtil.Commands.Crm
 
     public class UpdateStepCommand : CrmCommandBase<UpdateStepOptions>
     {
-        public UpdateStepCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateStepOptions options)
-            : base(configurationProvider, logger, options)
+        public UpdateStepCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateStepOptions options)
+            : base(crmServiceProvider, logger, options)
         {
         }
 

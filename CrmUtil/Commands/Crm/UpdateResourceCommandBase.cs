@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
@@ -43,8 +43,8 @@ namespace CrmUtil.Commands.Crm
     {
         private List<FileInfo> _files;
 
-        public ResourceCommandBase(IConfigurationProvider configurationProvider, LoggerBase logger, TOptions options)
-            : base(configurationProvider, logger, options)
+        public ResourceCommandBase(ICrmServiceProvider crmServiceProvider, LoggerBase logger, TOptions options)
+            : base(crmServiceProvider, logger, options)
         {
         }
 

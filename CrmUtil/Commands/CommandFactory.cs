@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Ninject;
 using Ninject.Parameters;
+using CrmUtil.Commands.Crm;
+using Microsoft.Xrm.Client;
+using Microsoft.Xrm.Client.Services;
+using System.Configuration;
 
 namespace CrmUtil.Commands
 {
@@ -17,22 +21,37 @@ namespace CrmUtil.Commands
 
         protected IKernel Kernel { get; set; }
 
-        public virtual void Setup()
+        public virtual void Bind()
         {
-            Setup<
-                DefaultConfigurationProvider,
-                DefaultLogger
+            Bind<
+                DefaultCrmServiceProvider,
+                DefaultLogger,
+                DefaultConfigurationProvider
             >();
         }
 
-        public virtual void Setup<
-                TConfiguration,
-                TLogger
+        public virtual void Bind<
+                TCrmServiceProvider,
+                TLogger,
+                TConfiguration
             >()
-            where TConfiguration : IConfigurationProvider
+            where TCrmServiceProvider : ICrmServiceProvider
             where TLogger : LoggerBase
+            where TConfiguration : IConfigurationProvider
         {
             Kernel = new StandardKernel();
+
+            Kernel.Bind<ICrmServiceProvider>()
+                .To<TCrmServiceProvider>()
+                .InThreadScope();
+
+            Kernel.Bind<OrganizationService>()
+                .To<OrganizationService>()
+                .InThreadScope();
+
+            Kernel.Bind<CrmOrganizationServiceContext>()
+                .To<CrmOrganizationServiceContext>()
+                .InThreadScope();
 
             Kernel.Bind<IConfigurationProvider>()
                 .To<TConfiguration>()
@@ -41,19 +60,28 @@ namespace CrmUtil.Commands
             Kernel.Bind<LoggerBase>()
                 .To<TLogger>()
                 .InSingletonScope();
+
         }
 
         public ICommand GetCommand(CommonOptionsBase options)
         {
-            if (Kernel == null) { Setup(); }
+            if (Kernel == null) { Bind(); }
 
             var type = options.GetCommandType();
-            return (ICommand)Kernel.Get(type, new[] { new ConstructorArgument("options", options, false) });
+            var ret = (ICommand)Kernel.Get(type, new ConstructorArgument("options", options, false));
+
+            if (ret is ICrmCommand && options is CrmCommonOptionBase)
+            {
+                ((ICrmCommand)ret).CrmServiceProvider.Initialize((CrmCommonOptionBase)options);
+            }
+
+            return ret;
         }
+
 
         public TDependency GetDependency<TDependency>()
         {
-            if (Kernel == null) { Setup(); }
+            if (Kernel == null) { Bind(); }
 
             return Kernel.Get<TDependency>();
         }

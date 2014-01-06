@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CommandLine;
 using CommandLine.Text;
-using CrmUtil.Configuration;
+using CrmUtil.Providers;
 using CrmUtil.Logging;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
@@ -29,8 +29,8 @@ namespace CrmUtil.Commands.Crm
 
     public class UpdateWebResourceCommand : ResourceCommandBase<UpdateWebResourceOptions>
     {
-        public UpdateWebResourceCommand(IConfigurationProvider configurationProvider, LoggerBase logger, UpdateWebResourceOptions options)
-            : base(configurationProvider, logger, options)
+        public UpdateWebResourceCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateWebResourceOptions options)
+            : base(crmServiceProvider, logger, options)
         {
         }
 
@@ -64,19 +64,24 @@ namespace CrmUtil.Commands.Crm
                 }
 
                 var name = file.Name;
-                var ExistingResource = GetRecord("webresource", i => (string)i["name"] == name);
+                var existingResource = (from record in CrmContext.CreateQuery("webresource")
+                                        where (string)record["name"] == name
+                                        select new
+                                        {
+                                            Id = record.Id,
+                                            ModifiedOn = (DateTime)record["modifiedon"]
+                                        }).FirstOrDefault();
 
                 var nresource = new Entity("webresource");
                 nresource["name"] = name;
                 //nresource.Attributes["description"] = name;
-                //resource.Attributes["logicalname"] = name;
                 nresource["displayname"] = name;
                 nresource["webresourcetype"] = new OptionSetValue(type);
                 
                 OrganizationRequest request;
-                if (ExistingResource != null)
+                if (existingResource != null)
                 {
-                    if (!Options.Force && (DateTime)ExistingResource["modifiedon"] >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && existingResource.ModifiedOn >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
@@ -84,7 +89,7 @@ namespace CrmUtil.Commands.Crm
                     }
 
                     Logger.Write(log, category.Compose("Update"), relativeFilePath);
-                    nresource.Id = ExistingResource.Id;
+                    nresource.Id = existingResource.Id;
                     request = new UpdateRequest() { Target = nresource };
                 }
                 else
