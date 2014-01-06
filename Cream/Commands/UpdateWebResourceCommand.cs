@@ -13,6 +13,7 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Cream.Sdk;
 
 namespace Cream.Commands
 {
@@ -72,11 +73,11 @@ namespace Cream.Commands
                                             ModifiedOn = (DateTime)record["modifiedon"]
                                         }).FirstOrDefault();
 
-                var nresource = new Entity("webresource");
-                nresource["name"] = name;
+                var nresource = new WebResource();
+                nresource.Name = name;
                 //nresource.Attributes["description"] = name;
-                nresource["displayname"] = name;
-                nresource["webresourcetype"] = new OptionSetValue(type);
+                nresource.DisplayName = name;
+                nresource.WebResourceType = new OptionSetValue(type);
                 
                 OrganizationRequest request;
                 if (eresource != null)
@@ -104,7 +105,7 @@ namespace Cream.Commands
                 }
 
                 var fileBytes = File.ReadAllBytes(file.FullName);
-                nresource.Attributes["content"] = Convert.ToBase64String(fileBytes);
+                nresource.Content = Convert.ToBase64String(fileBytes);
 
                 CrmService.Execute(request);
             }

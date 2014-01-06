@@ -97,7 +97,7 @@ namespace Cream.Providers
                 options.Domain = Configuration.GetSetting<string>(smask.Compose("domain"));
             }
 
-            _crmConnectionString = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr; ProxyTypesEnabled=false;",
+            _crmConnectionString = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;",
             options.ServerUrl, options.Username, options.Password);
             if (!string.IsNullOrEmpty(options.Domain))
             {

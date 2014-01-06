@@ -13,6 +13,7 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 
 namespace Cream.Commands
 {
@@ -42,7 +43,7 @@ namespace Cream.Commands
         [Option("post", DefaultValue = true, HelpText = "Register in post-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
         public bool Post { get; set; }
 
-        [Option("rank", DefaultValue = 1000, HelpText = "Rank order at which this step executes.")]
+        [Option("rank", DefaultValue = 1, HelpText = "Rank order at which this step executes.")]
         public int Rank { get; set; }
 
         public override Type GetCommandType()
@@ -98,7 +99,28 @@ namespace Cream.Commands
             if (Options.Pre) stage = 20;
             if (Options.Post) stage = 40;
 
+
+            // TODO: create and associate sdkmessagefilter
+            // TODO: Set eventhandler
+
+            var efilter = (from r in CrmContext.CreateQuery("sdkmessageprocessingstep")
+                         where
+                             ((EntityReference)r["plugintypeid"]).Id == type.Id
+                             && ((EntityReference)r["sdkmessageid"]).Id == sdkmessage.Id
+                         select new { Id = r.Id }
+                                    ).FirstOrDefault();
+
+            OrganizationRequest request;
+
+            //var nfilter = new Entity("sdkmessagefilter");
+            //nfilter["primaryobjecttypecode"] = GetObjectTypeCode(Options.Entity);
+            //nfilter["sdkmessageid"] = new EntityReference("sdkmessage", sdkmessage.Id);
+   
+            //request = new CreateRequest() { Target = nfilter };
+            //CrmService.Execute(request);
+
             var nstep = new Entity("sdkmessageprocessingstep");
+            nstep["name"] = "{0} {1} {2}".Compose(Options.Message, Options.Message, Options.Synchronous ? "Synchronous" : "Asynchronous");
             nstep["mode"] = new OptionSetValue(mode);
             nstep["stage"] = new OptionSetValue(stage);
             nstep["plugintypeid"] = new EntityReference("plugintype", type.Id);
@@ -112,7 +134,6 @@ namespace Cream.Commands
                                     select new { Id = r.Id }
                                     ).FirstOrDefault();
 
-            OrganizationRequest request;
             if (estep != null)
             {
                 Logger.Write("Update", type.Name);
@@ -126,6 +147,18 @@ namespace Cream.Commands
             }
 
             CrmService.Execute(request);
+
+        }
+
+        private int GetObjectTypeCode(string entitylogicalname)
+        {
+            var entity = new Entity(entitylogicalname);
+            var request = new RetrieveEntityRequest();
+            request.LogicalName = entity.LogicalName;
+            request.EntityFilters = EntityFilters.All;
+            var response = (RetrieveEntityResponse)CrmService.Execute(request);
+            var ent = (EntityMetadata)response.EntityMetadata;
+            return ent.ObjectTypeCode ?? 0;
 
         }
     }
