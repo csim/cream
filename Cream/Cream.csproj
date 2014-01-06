@@ -109,13 +109,13 @@
   <ItemGroup>
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\OptionsBase.cs" />
+    <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\UpdateAssemblyCommand.cs" />
     <Compile Include="Commands\UpdateResourceCommandBase.cs" />
     <Compile Include="Commands\UpdateStepCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\PublishCustomizationsCommand.cs" />
+    <Compile Include="Commands\PublishCustomizationCommand.cs" />
     <Compile Include="Commands\UpdateWebResourceCommand.cs" />
     <Compile Include="Providers\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />

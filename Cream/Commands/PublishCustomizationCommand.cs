@@ -19,13 +19,13 @@ namespace Cream.Commands
     {
         public override Type GetCommandType()
         {
-            return typeof(PublishCustomizationsCommand);
+            return typeof(PublishCustomizationCommand);
         }
     }
 
-    class PublishCustomizationsCommand : CommandBase<PublishCustomizationsOptions>
+    class PublishCustomizationCommand : CommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizationsCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, PublishCustomizationsOptions options)
+        public PublishCustomizationCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, PublishCustomizationsOptions options)
             : base(crmServiceProvider, logger, options)
         {
         }

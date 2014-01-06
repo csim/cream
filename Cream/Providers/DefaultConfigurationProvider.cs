@@ -36,7 +36,7 @@
         {
             foreach (var key in keys)
             {
-                var value = GetVirtualSetting(key);
+                var value = ConfigurationManager.AppSettings[key];
                 if (value != null)
                 {
                     if (defaultValue is bool)
@@ -62,7 +62,7 @@
         /// <returns>AppSetting value.</returns>
         public T GetSetting<T>(string key, T defaultValue = default(T))
         {
-            var value = GetVirtualSetting(key);
+            var value = ConfigurationManager.AppSettings[key];
             if (value != null)
             {
                 if (defaultValue is bool)
@@ -76,16 +76,6 @@
             }
 
             return defaultValue;
-        }
-
-        private string GetVirtualSetting(string key)
-        {
-            if (ConfigurationManager.AppSettings.AllKeys.Contains(key))
-            {
-                return ConfigurationManager.AppSettings[key];
-            }
-
-            return null;
         }
     }
 }
