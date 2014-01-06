@@ -64,7 +64,7 @@ namespace Cream.Commands
                 }
 
                 var name = file.Name;
-                var existingResource = (from record in CrmContext.CreateQuery("webresource")
+                var eresource = (from record in CrmContext.CreateQuery("webresource")
                                         where (string)record["name"] == name
                                         select new
                                         {
@@ -79,9 +79,9 @@ namespace Cream.Commands
                 nresource["webresourcetype"] = new OptionSetValue(type);
                 
                 OrganizationRequest request;
-                if (existingResource != null)
+                if (eresource != null)
                 {
-                    if (!Options.Force && existingResource.ModifiedOn >= file.LastWriteTime.ToUniversalTime())
+                    if (!Options.Force && eresource.ModifiedOn >= file.LastWriteTime.ToUniversalTime())
                     {
                         Logger.Write(log, category.Compose("Ignore"), relativeFilePath);
                         Logger.Write(log.ToString());
@@ -89,7 +89,7 @@ namespace Cream.Commands
                     }
 
                     Logger.Write(log, category.Compose("Update"), relativeFilePath);
-                    nresource.Id = existingResource.Id;
+                    nresource.Id = eresource.Id;
                     request = new UpdateRequest() { Target = nresource };
                 }
                 else
