@@ -13,10 +13,11 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Ninject;
 
 namespace Cream.Commands
 {
-    public abstract class UpdateResourceCommandBaseOptions : OptionBase
+    public abstract class RegisterResourceCommandBaseOptions : OptionBase
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
@@ -39,12 +40,12 @@ namespace Cream.Commands
         public bool NoPublish { get; set; }
     }
 
-    public abstract class ResourceCommandBase<TOptions> : CommandBase<TOptions> where TOptions : UpdateResourceCommandBaseOptions
+    public abstract class ResourceCommandBase<TOptions> : CommandBase<TOptions> where TOptions : RegisterResourceCommandBaseOptions
     {
         private List<FileInfo> _files;
 
-        public ResourceCommandBase(ICrmServiceProvider crmServiceProvider, LoggerBase logger, TOptions options)
-            : base(crmServiceProvider, logger, options)
+        public ResourceCommandBase(IKernel resolver, TOptions options)
+            : base(resolver, options)
         {
         }
 

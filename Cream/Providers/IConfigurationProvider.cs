@@ -13,6 +13,8 @@
         T GetSetting<T>(string keys, T defaultValue = default(T));
 
         T GetSetting<T>(string[] keys, T defaultValue = default(T));
+
+        string GetConnectionString(string name);
     }
 
 }

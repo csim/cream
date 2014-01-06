@@ -9,6 +9,7 @@ using Ninject.Parameters;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using System.Configuration;
+using Microsoft.Xrm.Sdk;
 
 namespace Cream.Commands
 {
@@ -23,33 +24,32 @@ namespace Cream.Commands
         public virtual void Bind()
         {
             Bind<
-                DefaultCrmServiceProvider,
+                DefaultConfigurationProvider,
                 DefaultLogger,
-                DefaultConfigurationProvider
+                OrganizationService,
+                CrmOrganizationServiceContext
             >();
         }
 
         public virtual void Bind<
-                TCrmServiceProvider,
+                TConfiguration,
                 TLogger,
-                TConfiguration
+                TOrganizationService,
+                TCrmOrganizationServiceContext
             >()
-            where TCrmServiceProvider : ICrmServiceProvider
             where TLogger : LoggerBase
             where TConfiguration : IConfigurationProvider
+            where TOrganizationService : IOrganizationService
+            where TCrmOrganizationServiceContext : CrmOrganizationServiceContext
         {
             Kernel = new StandardKernel();
 
-            Kernel.Bind<ICrmServiceProvider>()
-                .To<TCrmServiceProvider>()
-                .InThreadScope();
-
-            Kernel.Bind<OrganizationService>()
-                .To<OrganizationService>()
+            Kernel.Bind<IOrganizationService>()
+                .To<TOrganizationService>()
                 .InThreadScope();
 
             Kernel.Bind<CrmOrganizationServiceContext>()
-                .To<CrmOrganizationServiceContext>()
+                .To<TCrmOrganizationServiceContext>()
                 .InThreadScope();
 
             Kernel.Bind<IConfigurationProvider>()
@@ -67,11 +67,6 @@ namespace Cream.Commands
 
             var type = options.GetCommandType();
             var ret = (ICommand)Kernel.Get(type, new ConstructorArgument("options", options, false));
-
-            if (options is OptionBase)
-            {
-                ret.CrmServiceProvider.Initialize((OptionBase)options);
-            }
 
             return ret;
         }

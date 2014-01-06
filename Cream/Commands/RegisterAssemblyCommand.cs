@@ -14,10 +14,11 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Ninject;
 
 namespace Cream.Commands
 {
-    public class UpdateAssemblyOptions : UpdateResourceCommandBaseOptions
+    public class RegisterAssemblyOptions : RegisterResourceCommandBaseOptions
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.dll" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
@@ -36,14 +37,14 @@ namespace Cream.Commands
 
         public override Type GetCommandType()
         {
-            return typeof(UpdateAssemblyCommand);
+            return typeof(RegisterAssemblyCommand);
         }
     }
 
-    public class UpdateAssemblyCommand : ResourceCommandBase<UpdateAssemblyOptions>
+    public class RegisterAssemblyCommand : ResourceCommandBase<RegisterAssemblyOptions>
     {
-        public UpdateAssemblyCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateAssemblyOptions options)
-            : base(crmServiceProvider, logger, options)
+        public RegisterAssemblyCommand(IKernel resolver, RegisterAssemblyOptions options)
+            : base(resolver, options)
         {
         }
 
@@ -73,7 +74,7 @@ namespace Cream.Commands
                 //                                })
                 //                                .FirstOrDefault(i => i.Name == name);
 
-                var existingResource = (from record in CrmContext.CreateQuery("pluginassembly")
+                var existingResource = (from record in Context.CreateQuery("pluginassembly")
                                         where (string)record["name"] == name
                                         select new
                                         {
@@ -137,7 +138,7 @@ namespace Cream.Commands
                 var fileBytes = File.ReadAllBytes(file.FullName);
                 newResource.Attributes["content"] = Convert.ToBase64String(fileBytes);
 
-                var response = CrmService.Execute(request);
+                var response = Service.Execute(request);
                 if (response is CreateResponse)
                 {
                     newResource.Id = ((CreateResponse)response).id;
@@ -150,7 +151,7 @@ namespace Cream.Commands
             }
             catch (Exception ex)
             {
-                Logger.Write(log, BaseName, ex);
+                Logger.Write(log, App.Title, ex);
                 ret = false;
             }
 
@@ -169,7 +170,7 @@ namespace Cream.Commands
                 var name = type.FullName;
                 var lname = "Type: {0}".Compose(name);
 
-                var existingResource = (from record in CrmContext.CreateQuery("plugintype")
+                var existingResource = (from record in Context.CreateQuery("plugintype")
                                         where (string)record["typename"] == name
                                         select new
                                         {
@@ -203,7 +204,7 @@ namespace Cream.Commands
                     request = new CreateRequest() { Target = newResource };
                 }
 
-                CrmService.Execute(request);
+                Service.Execute(request);
             }
 
             return true;

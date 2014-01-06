@@ -12,6 +12,7 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Ninject;
 
 namespace Cream.Commands
 {
@@ -25,8 +26,8 @@ namespace Cream.Commands
 
     class PublishCustomizationCommand : CommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizationCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, PublishCustomizationsOptions options)
-            : base(crmServiceProvider, logger, options)
+        public PublishCustomizationCommand(IKernel resolver, PublishCustomizationsOptions options)
+            : base(resolver, options)
         {
         }
 

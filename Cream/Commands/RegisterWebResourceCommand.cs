@@ -14,24 +14,25 @@ using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Cream.Sdk;
+using Ninject;
 
 namespace Cream.Commands
 {
-    public class UpdateWebResourceOptions : UpdateResourceCommandBaseOptions
+    public class RegisterWebResourceOptions : RegisterResourceCommandBaseOptions
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
 
         public override Type GetCommandType()
         {
-            return typeof(UpdateWebResourceCommand);
+            return typeof(RegisterWebResourceCommand);
         }
     }
 
-    public class UpdateWebResourceCommand : ResourceCommandBase<UpdateWebResourceOptions>
+    public class RegisterWebResourceCommand : ResourceCommandBase<RegisterWebResourceOptions>
     {
-        public UpdateWebResourceCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateWebResourceOptions options)
-            : base(crmServiceProvider, logger, options)
+        public RegisterWebResourceCommand(IKernel resolver, RegisterWebResourceOptions options)
+            : base(resolver, options)
         {
         }
 
@@ -65,7 +66,7 @@ namespace Cream.Commands
                 }
 
                 var name = file.Name;
-                var eresource = (from record in CrmContext.CreateQuery("webresource")
+                var eresource = (from record in Context.CreateQuery("webresource")
                                         where (string)record["name"] == name
                                         select new
                                         {
@@ -107,11 +108,11 @@ namespace Cream.Commands
                 var fileBytes = File.ReadAllBytes(file.FullName);
                 nresource.Content = Convert.ToBase64String(fileBytes);
 
-                CrmService.Execute(request);
+                Service.Execute(request);
             }
             catch (Exception ex)
             {
-                Logger.Write(log, BaseName, ex);
+                Logger.Write(log, App.Title, ex);
                 ret = false;
             }
 

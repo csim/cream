@@ -89,6 +89,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Externals\microsoft.xrm.sdk.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
     </Reference>
@@ -111,16 +114,16 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
-    <Compile Include="Commands\UpdateAssemblyCommand.cs" />
-    <Compile Include="Commands\UpdateResourceCommandBase.cs" />
-    <Compile Include="Commands\UpdateStepCommand.cs" />
+    <Compile Include="Commands\RegisterAssemblyCommand.cs" />
+    <Compile Include="Commands\RegisterResourceCommandBase.cs" />
+    <Compile Include="Commands\RegisterStepCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\PublishCustomizationCommand.cs" />
-    <Compile Include="Commands\UpdateWebResourceCommand.cs" />
+    <Compile Include="Commands\RegisterWebResourceCommand.cs" />
+    <Compile Include="Providers\CreamConfiguration.cs" />
     <Compile Include="Sdk.cs" />
     <Compile Include="Providers\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Providers\DefaultCrmServiceProvider.cs" />
     <Compile Include="Providers\IConfigurationProvider.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ConsoleLogWriter.cs" />

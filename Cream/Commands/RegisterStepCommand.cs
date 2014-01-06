@@ -14,10 +14,11 @@ using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using Microsoft.Xrm.Sdk.Metadata;
+using Ninject;
 
 namespace Cream.Commands
 {
-    public class UpdateStepOptions : OptionBase
+    public class RegisterStepOptions : OptionBase
     {
         [Option('t', "type", Required = true, HelpText = "Fully qualified assembly class type name.")]
         public string Type { get; set; }
@@ -28,27 +29,21 @@ namespace Cream.Commands
         [Option('m', "message", Required = true, HelpText = "SDK message associated with this plugin.")]
         public string Message { get; set; }
 
-        [Option("sync", DefaultValue = true, HelpText = "Register synchronous plugin step.", MutuallyExclusiveSet = "Mode")]
-        public bool Synchronous { get; set; }
+        [Option("mode", DefaultValue = true, HelpText = "Plugin Mode. [ Synchronous, Asynchronous ]")]
+        public PluginMode Mode { get; set; }
 
-        [Option("async", DefaultValue = false, HelpText = "Register asynchronous plugin step.", MutuallyExclusiveSet = "Mode")]
+        [Option("async", DefaultValue = false, HelpText = "Register asynchronous plugin step.")]
         public bool Asynchronous { get; set; }
 
-        [Option("prevalidation", DefaultValue = false, HelpText = "Register in pre-validation plugin stage.", MutuallyExclusiveSet = "Stage")]
-        public bool Prevalidation { get; set; }
-
-        [Option("pre", DefaultValue = false, HelpText = "Register in pre-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
-        public bool Pre { get; set; }
-
-        [Option("post", DefaultValue = true, HelpText = "Register in post-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
-        public bool Post { get; set; }
+        [Option("stage", DefaultValue = PluginStage.Post, HelpText = "Plugin stage. [ Prevalidation, Pre, Post ]")]
+        public PluginStage Stage { get; set; }
 
         [Option("rank", DefaultValue = 1, HelpText = "Rank order at which this step executes.")]
         public int Rank { get; set; }
 
         public override Type GetCommandType()
         {
-            return typeof(UpdateStepCommand);
+            return typeof(RegisterStepCommand);
         }
     }
 
@@ -59,10 +54,16 @@ namespace Cream.Commands
         Post = 40
     }
 
-    public class UpdateStepCommand : CommandBase<UpdateStepOptions>
+    public enum PluginMode
     {
-        public UpdateStepCommand(ICrmServiceProvider crmServiceProvider, LoggerBase logger, UpdateStepOptions options)
-            : base(crmServiceProvider, logger, options)
+        Synchronous = 0,
+        Asynchronous = 1
+    }
+
+    public class RegisterStepCommand : CommandBase<RegisterStepOptions>
+    {
+        public RegisterStepCommand(IKernel resolver, RegisterStepOptions options)
+            : base(resolver, options)
         {
         }
 
@@ -70,9 +71,9 @@ namespace Cream.Commands
         {
             WarmupCrmService();
 
-            var type = (from r in CrmContext.CreateQuery("plugintype")
+            var type = (from r in Context.CreateQuery("plugintype")
                         where (string)r["typename"] == Options.Type
-                        select new { Id = r.Id, Name = (string)r["typename"] }
+                        select new { Id = r.Id, TypeName = (string)r["typename"] }
                         ).FirstOrDefault();
 
             if (type == null)
@@ -80,7 +81,7 @@ namespace Cream.Commands
                 throw new Exception("PluginType not found. ({0})".Compose(Options.Type));
             }
             
-            var sdkmessage = (from r in CrmContext.CreateQuery("sdkmessage")
+            var sdkmessage = (from r in Context.CreateQuery("sdkmessage")
                               where (string)r["name"] == Options.Message
                               select new { r.Id }
                               ).FirstOrDefault();
@@ -90,20 +91,10 @@ namespace Cream.Commands
                 throw new Exception("SDKMessage not found. ({0})".Compose(Options.Message));
             }
 
-            var mode = 0;
-            if (Options.Synchronous) mode = 0;
-            if (Options.Asynchronous) mode = 1;
-
-            var stage = 0;
-            if (Options.Prevalidation) stage = 10;
-            if (Options.Pre) stage = 20;
-            if (Options.Post) stage = 40;
-
-
             // TODO: create and associate sdkmessagefilter
             // TODO: Set eventhandler
 
-            var efilter = (from r in CrmContext.CreateQuery("sdkmessageprocessingstep")
+            var efilter = (from r in Context.CreateQuery("sdkmessageprocessingstep")
                          where
                              ((EntityReference)r["plugintypeid"]).Id == type.Id
                              && ((EntityReference)r["sdkmessageid"]).Id == sdkmessage.Id
@@ -120,14 +111,14 @@ namespace Cream.Commands
             //CrmService.Execute(request);
 
             var nstep = new Entity("sdkmessageprocessingstep");
-            nstep["name"] = "{0} {1} {2}".Compose(Options.Message, Options.Message, Options.Synchronous ? "Synchronous" : "Asynchronous");
-            nstep["mode"] = new OptionSetValue(mode);
-            nstep["stage"] = new OptionSetValue(stage);
+            nstep["name"] = "{0} {1} {2} {3}".Compose(type.TypeName, Options.Message, Options.Message, Options.Mode, Options.Stage);
+            nstep["mode"] = new OptionSetValue((int)Options.Mode);
+            nstep["stage"] = new OptionSetValue((int)Options.Stage);
             nstep["plugintypeid"] = new EntityReference("plugintype", type.Id);
             nstep["sdkmessageid"] = new EntityReference("sdkmessage", sdkmessage.Id);
             nstep["rank"] = Options.Rank;
 
-            var estep = (from r in CrmContext.CreateQuery("sdkmessageprocessingstep")
+            var estep = (from r in Context.CreateQuery("sdkmessageprocessingstep")
                                     where
                                         ((EntityReference)r["plugintypeid"]).Id == type.Id
                                         && ((EntityReference)r["sdkmessageid"]).Id == sdkmessage.Id
@@ -136,17 +127,17 @@ namespace Cream.Commands
 
             if (estep != null)
             {
-                Logger.Write("Update", type.Name);
+                Logger.Write("Update", type.TypeName);
                 nstep.Id = estep.Id;
                 request = new UpdateRequest() { Target = nstep };
             }
             else
             {
-                Logger.Write("Create", type.Name);
+                Logger.Write("Create", type.TypeName);
                 request = new CreateRequest() { Target = nstep };
             }
 
-            CrmService.Execute(request);
+            Service.Execute(request);
 
         }
 
@@ -156,7 +147,7 @@ namespace Cream.Commands
             var request = new RetrieveEntityRequest();
             request.LogicalName = entity.LogicalName;
             request.EntityFilters = EntityFilters.All;
-            var response = (RetrieveEntityResponse)CrmService.Execute(request);
+            var response = (RetrieveEntityResponse)Service.Execute(request);
             var ent = (EntityMetadata)response.EntityMetadata;
             return ent.ObjectTypeCode ?? 0;
 

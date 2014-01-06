@@ -11,7 +11,5 @@ namespace Cream.Providers
         CrmOrganizationServiceContext GetCrmContext();
 
         OrganizationService GetCrmService();
-
-        void Initialize(OptionBase options);
     }
 }

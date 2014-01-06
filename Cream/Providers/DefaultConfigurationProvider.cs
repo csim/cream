@@ -5,14 +5,36 @@
     using System.Configuration;
     using System.IO;
     using System.Linq;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Access values from the app.config file.
     /// </summary>
     public class DefaultConfigurationProvider : IConfigurationProvider
     {
+        public CreamConfiguration ConfigurationData { get; set; }
+
+        public FileInfo DiskFile { get; set; }
+
         public DefaultConfigurationProvider()
+            : this(@".\cream.config")
         {
+
+        }
+
+        public DefaultConfigurationProvider(string path)
+        {
+            DiskFile = new FileInfo(path);
+            if (DiskFile.Exists)
+            {
+                var txt = File.ReadAllText(DiskFile.FullName);
+                Console.WriteLine(txt);
+                ConfigurationData = JsonConvert.DeserializeObject<CreamConfiguration>(txt);
+            }
+            else
+            {
+                ConfigurationData = new CreamConfiguration();
+            }
         }
 
         /// <summary>
@@ -62,20 +84,39 @@
         /// <returns>AppSetting value.</returns>
         public T GetSetting<T>(string key, T defaultValue = default(T))
         {
-            var value = ConfigurationManager.AppSettings[key];
-            if (value != null)
+            if (ConfigurationData.AppSettings.ContainsKey(key))
             {
-                if (defaultValue is bool)
+                var value = ConfigurationData.AppSettings[key];
+                if (value != null)
                 {
-                    return (T)Convert.ChangeType(true, typeof(T));
-                }
-                else
-                {
-                    return (T)Convert.ChangeType(value, typeof(T));
+                    if (defaultValue is bool)
+                    {
+                        return (T)Convert.ChangeType(true, typeof(T));
+                    }
+                    else
+                    {
+                        return (T)Convert.ChangeType(value, typeof(T));
+                    }
                 }
             }
 
             return defaultValue;
+        }
+
+        public string GetConnectionString(string name)
+        {
+            if (ConfigurationData.Connections.ContainsKey(name))
+            {
+                return ConfigurationData.Connections[name];
+            }
+
+            return null;
+        }
+
+        public void Save()
+        {
+            var text = JsonConvert.SerializeObject(ConfigurationData);
+            File.WriteAllText(DiskFile.FullName, text);
         }
     }
 }

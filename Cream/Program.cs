@@ -22,21 +22,21 @@ namespace Cream
         public ProgramOptions()
         {
             PublishCustomizationsVerb = new PublishCustomizationsOptions();
-            UpdateWebResourceVerb = new UpdateWebResourceOptions();
-            UpdateAssemblyVerb = new UpdateAssemblyOptions();
+            RegisterWebResourceVerb = new RegisterWebResourceOptions();
+            RegisterAssemblyVerb = new RegisterAssemblyOptions();
         }
 
         [VerbOption("PublishCustomizations", HelpText = "Publish all CRM customizations.")]
         public PublishCustomizationsOptions PublishCustomizationsVerb { get; set; }
 
-        [VerbOption("UpdateWebResource", HelpText = "Add or Update WebResources.")]
-        public UpdateWebResourceOptions UpdateWebResourceVerb { get; set; }
+        [VerbOption("RegisterWebResource", HelpText = "Add or Update WebResources.")]
+        public RegisterWebResourceOptions RegisterWebResourceVerb { get; set; }
 
-        [VerbOption("UpdateAssembly", HelpText = "Add or Update Plugin Assemblies.")]
-        public UpdateAssemblyOptions UpdateAssemblyVerb { get; set; }
+        [VerbOption("RegisterAssembly", HelpText = "Add or Update Plugin Assemblies.")]
+        public RegisterAssemblyOptions RegisterAssemblyVerb { get; set; }
 
-        [VerbOption("UpdateStep", HelpText = "Add or Update Plugin Step.")]
-        public UpdateStepOptions UpdateStepVerb { get; set; }
+        [VerbOption("RegisterStep", HelpText = "Add or Update Plugin Step.")]
+        public RegisterStepOptions RegisterStepVerb { get; set; }
 
         [HelpVerbOption]
         public string GetUsage(string verb)
