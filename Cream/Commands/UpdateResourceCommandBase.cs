@@ -48,7 +48,7 @@ namespace Cream.Commands
         {
         }
 
-        public override void Execute() //UpdateWebResourceOptions options
+        public override void Execute()
         {
             if (string.IsNullOrEmpty(Options.Path) || Options.Path == ".")
             {

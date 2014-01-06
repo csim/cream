@@ -18,11 +18,11 @@ namespace Cream.Commands
 {
     public class UpdateStepOptions : OptionBase
     {
-        [Option('e', "entity", Required = true, HelpText = "Entity for which the step will be registered.")]
-        public string Entity { get; set; }
-
         [Option('t', "type", Required = true, HelpText = "Fully qualified assembly class type name.")]
         public string Type { get; set; }
+
+        [Option('e', "entity", Required = true, HelpText = "Entity for which the step will be registered.")]
+        public string Entity { get; set; }
 
         [Option('m', "message", Required = true, HelpText = "SDK message associated with this plugin.")]
         public string Message { get; set; }
@@ -41,6 +41,9 @@ namespace Cream.Commands
 
         [Option("post", DefaultValue = true, HelpText = "Register in post-operation plugin stage.", MutuallyExclusiveSet = "Stage")]
         public bool Post { get; set; }
+
+        [Option("rank", DefaultValue = 1000, HelpText = "Rank order at which this step executes.")]
+        public int Rank { get; set; }
 
         public override Type GetCommandType()
         {
@@ -64,6 +67,66 @@ namespace Cream.Commands
 
         public override void Execute()
         {
+            WarmupCrmService();
+
+            var type = (from r in CrmContext.CreateQuery("plugintype")
+                        where (string)r["typename"] == Options.Type
+                        select new { Id = r.Id, Name = (string)r["typename"] }
+                        ).FirstOrDefault();
+
+            if (type == null)
+            {
+                throw new Exception("PluginType not found. ({0})".Compose(Options.Type));
+            }
+            
+            var sdkmessage = (from r in CrmContext.CreateQuery("sdkmessage")
+                              where (string)r["name"] == Options.Message
+                              select new { r.Id }
+                              ).FirstOrDefault();
+
+            if (sdkmessage == null)
+            {
+                throw new Exception("SDKMessage not found. ({0})".Compose(Options.Message));
+            }
+
+            var mode = 0;
+            if (Options.Synchronous) mode = 0;
+            if (Options.Asynchronous) mode = 1;
+
+            var stage = 0;
+            if (Options.Prevalidation) stage = 10;
+            if (Options.Pre) stage = 20;
+            if (Options.Post) stage = 40;
+
+            var nstep = new Entity("sdkmessageprocessingstep");
+            nstep["mode"] = new OptionSetValue(mode);
+            nstep["stage"] = new OptionSetValue(stage);
+            nstep["plugintypeid"] = new EntityReference("plugintype", type.Id);
+            nstep["sdkmessageid"] = new EntityReference("sdkmessage", sdkmessage.Id);
+            nstep["rank"] = Options.Rank;
+
+            var estep = (from r in CrmContext.CreateQuery("sdkmessageprocessingstep")
+                                    where
+                                        ((EntityReference)r["plugintypeid"]).Id == type.Id
+                                        && ((EntityReference)r["sdkmessageid"]).Id == sdkmessage.Id
+                                    select new { Id = r.Id }
+                                    ).FirstOrDefault();
+
+            OrganizationRequest request;
+            if (estep != null)
+            {
+                Logger.Write("Update", type.Name);
+                nstep.Id = estep.Id;
+                request = new UpdateRequest() { Target = nstep };
+            }
+            else
+            {
+                Logger.Write("Create", type.Name);
+                request = new CreateRequest() { Target = nstep };
+            }
+
+            CrmService.Execute(request);
+
         }
     }
 }
