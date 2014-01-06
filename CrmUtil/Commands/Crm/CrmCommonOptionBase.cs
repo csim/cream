@@ -11,7 +11,7 @@ namespace CrmUtil.Commands.Crm
         [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
         public string ServerUrl { get; set; }
 
-        [Option('e', "environment", Required = false, HelpText = "Prefix used in app.config settings for each environment.")]
+        [Option("environment", Required = false, HelpText = "Prefix used in app.config settings for each environment.")]
         public string Environment { get; set; }
 
         [Option("username", Required = false, HelpText = "CRM Username.")]

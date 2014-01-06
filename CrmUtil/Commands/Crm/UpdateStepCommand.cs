@@ -18,6 +18,9 @@ namespace CrmUtil.Commands.Crm
 {
     public class UpdateStepOptions : CrmCommonOptionBase
     {
+        [Option('e', "entity", Required = true, HelpText = "Entity for which the step will be registered.")]
+        public string Entity { get; set; }
+
         [Option('t', "type", Required = true, HelpText = "Fully qualified assembly class type name.")]
         public string Type { get; set; }
 

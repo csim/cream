@@ -60,7 +60,6 @@ namespace CrmUtil.Commands
             Kernel.Bind<LoggerBase>()
                 .To<TLogger>()
                 .InSingletonScope();
-
         }
 
         public ICommand GetCommand(CommonOptionsBase options)
