@@ -32,6 +32,10 @@
                 Console.WriteLine(txt);
                 ConfigurationData = JsonConvert.DeserializeObject<CreamConfiguration>(txt);
             }
+            else
+            {
+                ConfigurationData = new CreamConfiguration();
+            }
         }
 
         public void Load() {

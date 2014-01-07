@@ -15,6 +15,8 @@ namespace Cream.Commands
 {
     public class CommandFactory : IDisposable
     {
+        private int _bindLevel = 0;
+
         public OptionBase Options { get; private set; }
 
         public CommandFactory(OptionBase options)
@@ -24,14 +26,14 @@ namespace Cream.Commands
 
         public IKernel Kernel { get; set; }
 
-        public virtual void Bind()
+        public virtual void Bind(int level = 3)
         {
             Bind<
                 DefaultConfigurationProvider,
                 DefaultLogger,
                 OrganizationService,
                 CrmOrganizationServiceContext
-            >();
+            >(level);
         }
 
         public virtual void Bind<
@@ -39,7 +41,7 @@ namespace Cream.Commands
                 TLogger,
                 TOrganizationService,
                 TCrmOrganizationServiceContext
-            >()
+            >(int level = 3)
             where TLogger : LoggerBase
             where TConfiguration : IConfigurationProvider
             where TOrganizationService : IOrganizationService
@@ -47,33 +49,49 @@ namespace Cream.Commands
         {
             Kernel = new StandardKernel();
 
-            Kernel.Bind<IConfigurationProvider>()
-                .To<TConfiguration>()
-                .InSingletonScope()
-                .WithConstructorArgument("path", Options.Config);
+            if (level >= 1)
+            {
+                Kernel.Bind<IConfigurationProvider>()
+                    .To<TConfiguration>()
+                    .InSingletonScope()
+                    .WithConstructorArgument("path", Options.Config);
 
-            Kernel.Bind<LoggerBase>()
-                .To<TLogger>()
-                .InSingletonScope();
+                Kernel.Bind<LoggerBase>()
+                    .To<TLogger>()
+                    .InSingletonScope();
 
-            var connection = GetCrmConnection(Kernel.Get<IConfigurationProvider>(), Options);
+                _bindLevel = 1;
+            }
 
-            Kernel.Bind<IOrganizationService>()
-                .ToConstructor(i => new OrganizationService(connection))
-                .InThreadScope();
+            if (level >= 2)
+            {
+                var connection = GetCrmConnection(Kernel.Get<IConfigurationProvider>(), Options);
 
-            Kernel.Bind<CrmOrganizationServiceContext>()
-                .ToConstructor(i => new CrmOrganizationServiceContext(connection))
-                .InThreadScope()
-                .WithConstructorArgument("connection", connection);
+                Kernel.Bind<IOrganizationService>()
+                    .ToConstructor(i => new OrganizationService(connection))
+                    .InThreadScope();
 
-            Kernel.Bind<CrmConnection>()
-                .ToMethod(i => connection);                
+                Kernel.Bind<CrmOrganizationServiceContext>()
+                    .ToConstructor(i => new CrmOrganizationServiceContext(connection))
+                    .InThreadScope()
+                    .WithConstructorArgument("connection", connection);
+
+                Kernel.Bind<CrmConnection>()
+                    .ToMethod(i => connection);
+
+                _bindLevel = 2;
+            }
+        }
+
+        public LoggerBase GetLogger()
+        {
+            if (_bindLevel < 1) { Bind(1); }
+            return Kernel.Get<LoggerBase>();
         }
 
         public ICommand GetCommand()
         {
-            if (Kernel == null) { Bind(); }
+            if (_bindLevel < 3) { Bind(2); }
 
             var type = Options.GetCommandType();
             var ret = (ICommand)Kernel.Get(type, new ConstructorArgument("options", Options, false));
@@ -84,7 +102,7 @@ namespace Cream.Commands
 
         public TDependency GetDependency<TDependency>()
         {
-            if (Kernel == null) { Bind(); }
+            if (_bindLevel < 3) { Bind(2); }
 
             return Kernel.Get<TDependency>();
         }

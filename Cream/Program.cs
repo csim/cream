@@ -108,7 +108,7 @@ namespace Cream
             if (options == null || !(options is OptionBase)) return;
             var opt = (OptionBase)options;
             var factory = new CommandFactory(opt);
-            var logger = factory.GetDependency<LoggerBase>();
+            var logger = factory.GetLogger();
 
             using (logger) {
                 try
