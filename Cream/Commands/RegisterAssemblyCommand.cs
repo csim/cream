@@ -43,8 +43,8 @@ namespace Cream.Commands
 
     public class RegisterAssemblyCommand : ResourceCommandBase<RegisterAssemblyOptions>
     {
-        public RegisterAssemblyCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, RegisterAssemblyOptions options)
-            : base(configuration, logger, resolver, options)
+        public RegisterAssemblyCommand(IKernel resolver, RegisterAssemblyOptions options)
+            : base(resolver, options)
         {
         }
 

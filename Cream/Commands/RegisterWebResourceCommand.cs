@@ -31,8 +31,8 @@ namespace Cream.Commands
 
     public class RegisterWebResourceCommand : ResourceCommandBase<RegisterWebResourceOptions>
     {
-        public RegisterWebResourceCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, RegisterWebResourceOptions options)
-            : base(configuration, logger, resolver, options)
+        public RegisterWebResourceCommand(IKernel resolver, RegisterWebResourceOptions options)
+            : base(resolver, options)
         {
         }
 

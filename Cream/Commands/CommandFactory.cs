@@ -18,8 +18,6 @@ namespace Cream.Commands
         private bool _boundLogger = false;
         private bool _boundAllExceptionLogger = false;
 
-        private int _bindLevel = 0;
-
         [Flags]
         public enum BindFlags
         {
@@ -30,18 +28,18 @@ namespace Cream.Commands
 
         public OptionBase Options { get; private set; }
 
+        public IKernel Kernel { get; set; }
+
         public CommandFactory(OptionBase options)
         {
             Options = options;
             Kernel = new StandardKernel();
         }
 
-        public IKernel Kernel { get; set; }
-
-        public virtual void Bind(BindFlags flags)
+        public virtual void Bind(BindFlags flags = BindFlags.All)
         {
             Bind<
-                DefaultConfigurationProvider,
+                DefaultConfiguration,
                 DefaultLogger,
                 OrganizationService,
                 CrmOrganizationServiceContext
@@ -53,50 +51,49 @@ namespace Cream.Commands
                 TLogger,
                 TOrganizationService,
                 TCrmOrganizationServiceContext
-            >(BindFlags flags)
-            where TLogger : LoggerBase
-            where TConfiguration : IConfigurationProvider
+            >(BindFlags flags = BindFlags.All)
+            where TLogger : ILogger
+            where TConfiguration : IConfiguration
             where TOrganizationService : IOrganizationService
             where TCrmOrganizationServiceContext : CrmOrganizationServiceContext
         {
-            if (!_boundLogger && ((flags & BindFlags.All) != 0 || (flags & BindFlags.Logger) != 0))
+            if (!_boundLogger && (flags.HasFlag(BindFlags.All) || flags.HasFlag(BindFlags.Logger)))
             {
-                Kernel.Bind<IConfigurationProvider>()
+                Kernel.Bind<IConfiguration>()
                     .To<TConfiguration>()
                     .InSingletonScope()
                     .WithConstructorArgument("path", Options.Config);
 
-                Kernel.Bind<LoggerBase>()
+                Kernel.Bind<ILogger>()
                     .To<TLogger>()
                     .InSingletonScope();
 
                 _boundLogger = true;
             }
-
-            if (!_boundAllExceptionLogger && ((flags & BindFlags.All) != 0 || (flags & BindFlags.AllExceptLogger) != 0))
+            
+            if (!_boundAllExceptionLogger && Options is CrmOptionBase && (flags.HasFlag(BindFlags.All) || flags.HasFlag(BindFlags.AllExceptLogger)))
             {
-                var connection = GetCrmConnection(Kernel.Get<IConfigurationProvider>(), Options);
-
-                Kernel.Bind<IOrganizationService>()
-                    .ToConstructor(i => new OrganizationService(connection))
-                    .InThreadScope();
-
-                Kernel.Bind<CrmOrganizationServiceContext>()
-                    .ToConstructor(i => new CrmOrganizationServiceContext(connection))
-                    .InThreadScope()
-                    .WithConstructorArgument("connection", connection);
+                var connection = GetCrmConnection(Kernel.Get<IConfiguration>(), (CrmOptionBase)Options);
 
                 Kernel.Bind<CrmConnection>()
                     .ToMethod(i => connection);
+
+                Kernel.Bind<IOrganizationService>()
+                    .ToConstructor(i => new OrganizationService(Kernel.Get<CrmConnection>()))
+                    .InThreadScope();
+
+                Kernel.Bind<CrmOrganizationServiceContext>()
+                    .ToConstructor(i => new CrmOrganizationServiceContext(Kernel.Get<CrmConnection>()))
+                    .InThreadScope();
 
                 _boundAllExceptionLogger = true;
             }
         }
 
-        public LoggerBase GetLogger()
+        public ILogger GetLogger()
         {
             if (!_boundLogger) { Bind(BindFlags.Logger); }
-            return Kernel.Get<LoggerBase>();
+            return Kernel.Get<ILogger>();
         }
 
         public ICommand GetCommand()
@@ -109,14 +106,6 @@ namespace Cream.Commands
             return ret;
         }
 
-
-        public TDependency GetDependency<TDependency>()
-        {
-            if (!_boundAllExceptionLogger) { Bind(BindFlags.All); }
-
-            return Kernel.Get<TDependency>();
-        }
-
         public void Dispose()
         {
             if (Kernel != null)
@@ -127,7 +116,7 @@ namespace Cream.Commands
         }
 
 
-        public CrmConnection GetCrmConnection(IConfigurationProvider configuration, OptionBase options)
+        public CrmConnection GetCrmConnection(IConfiguration configuration, CrmOptionBase options)
         {
             var connectionString = "";
 

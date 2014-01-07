@@ -8,11 +8,11 @@
 
     public class DefaultLogger : LoggerBase
     {
-        public DefaultLogger() 
+        public DefaultLogger(IConfiguration configuration) 
             : base()
         {
             Writers.Add(new ConsoleLogWriter());
-            Writers.Add(new FileLogWriter());
+            Writers.Add(new FileLogWriter(configuration));
         }
     }
 }

@@ -10,7 +10,7 @@
     /// <summary>
     /// Access values from the app.config file.
     /// </summary>
-    public class DefaultConfigurationProvider : IConfigurationProvider
+    public class DefaultConfiguration : IConfiguration
     {
         public CreamConfiguration ConfigurationData { get; set; }
 
@@ -22,7 +22,7 @@
         //    ConfigurationData = new CreamConfiguration();
         //}
 
-        public DefaultConfigurationProvider(string path)
+        public DefaultConfiguration(string path)
         {
             DiskFile = new FileInfo(path);
             if (DiskFile.Exists)

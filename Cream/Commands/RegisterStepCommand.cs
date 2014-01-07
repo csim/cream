@@ -18,7 +18,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class RegisterStepOptions : OptionBase
+    public class RegisterStepOptions : CrmOptionBase
     {
         [Option('t', "type", Required = true, HelpText = "Fully qualified assembly class type name.")]
         public string Type { get; set; }
@@ -62,8 +62,8 @@ namespace Cream.Commands
 
     public class RegisterStepCommand : CommandBase<RegisterStepOptions>
     {
-        public RegisterStepCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, RegisterStepOptions options)
-            : base(configuration, logger, resolver, options)
+        public RegisterStepCommand(IKernel resolver, RegisterStepOptions options)
+            : base(resolver, options)
         {
         }
 

@@ -8,8 +8,10 @@
     using Microsoft.Xrm.Sdk;
     using Microsoft.Xrm.Sdk.Client;
 
-    public interface IConfigurationProvider
+    public interface IConfiguration
     {
+        CreamConfiguration ConfigurationData { get; set; }
+
         T GetSetting<T>(string keys, T defaultValue = default(T));
 
         T GetSetting<T>(string[] keys, T defaultValue = default(T));

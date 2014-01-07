@@ -17,7 +17,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public abstract class RegisterResourceCommandBaseOptions : OptionBase
+    public abstract class RegisterResourceCommandBaseOptions : CrmOptionBase
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
@@ -44,8 +44,8 @@ namespace Cream.Commands
     {
         private List<FileInfo> _files;
 
-        public ResourceCommandBase(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, TOptions options)
-            : base(configuration, logger, resolver, options)
+        public ResourceCommandBase(IKernel resolver, TOptions options)
+            : base(resolver, options)
         {
         }
 
@@ -69,12 +69,11 @@ namespace Cream.Commands
                 return;
             }
 
+            var index = 1;
             foreach (var file in _files)
             {
-                Logger.Write("File", GetRelativePath(file, Options.Path));
+                Logger.Write("({0:N0}) File".Compose(index++), GetRelativePath(file, Options.Path));
             }
-
-            Logger.Write("Count", "{0:N0}".Compose(_files.Count));
 
             WarmupCrmService();
 

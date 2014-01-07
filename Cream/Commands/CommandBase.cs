@@ -18,9 +18,9 @@ namespace Cream.Commands
 {
     public class CommandBase<TOptions> : ICommand, IDisposable where TOptions : OptionBase
     {
-        public IConfigurationProvider Configuration { get; private set; }
+        public IConfiguration Configuration { get; private set; }
 
-        public LoggerBase Logger { get; set; }
+        public ILogger Logger { get; set; }
 
         public TOptions Options { get; set; }
 
@@ -52,12 +52,12 @@ namespace Cream.Commands
             }
         }
 
-        public CommandBase(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, TOptions options)
+        public CommandBase(IKernel resolver, TOptions options)
         {
             Options = options;
-            Logger = logger;
             Resolver = resolver;
-            Configuration = configuration;
+            Logger = Resolver.Get<ILogger>();
+            Configuration = Resolver.Get<IConfiguration>();
             App = new ApplicationInfo();
         }
 

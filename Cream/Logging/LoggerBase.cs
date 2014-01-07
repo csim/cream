@@ -26,7 +26,7 @@ namespace Cream.Logging
     /// <summary>
     /// Logs information to the console and a text log file.
     /// </summary>
-    public abstract class LoggerBase : IDisposable
+    public abstract class LoggerBase : ILogger, IDisposable
     {
         public LoggerBase()
         {
@@ -35,7 +35,7 @@ namespace Cream.Logging
 
         public List<ILogWriter> Writers { get; set; }
 
-        private IConfigurationProvider Configuration { get; set; }
+        private IConfiguration Configuration { get; set; }
 
         public void Write(string category, Exception ex)
         {

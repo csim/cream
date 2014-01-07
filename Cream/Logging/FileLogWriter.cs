@@ -26,38 +26,42 @@ namespace Cream.Logging
 
     public class FileLogWriter : ILogWriter, IDisposable
     {
-        /// <summary>
-        /// Fully composed log file path.
-        /// </summary>
-        public string LogFilePath { get; set; }
+        public IConfiguration Configuration { get; set; }
 
         private object WriteLock { get; set; }
+
+        public FileInfo LogFile { get; set; }
 
         /// <summary>
         /// Stream used to write the log file.
         /// </summary>
         private StreamWriter LogStream { get; set; }
 
-        public FileLogWriter()
+        public FileLogWriter(IConfiguration configuration)
         {
             WriteLock = new object();
+            Configuration = configuration;
         }
 
         private void InitLogStream() 
         {
-            LogFilePath = "{1}_{0:yyyy-MM-dd_HH}.log";
+            if (string.IsNullOrEmpty(Configuration.ConfigurationData.LogFilePath)) {
+                Configuration.ConfigurationData.LogFilePath = "{1}_{0:yyyy-MM-dd_HH}.log";
+            }
+
+            var lpath = Configuration.ConfigurationData.LogFilePath;
 
             var baseName = Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName.Replace(".exe", string.Empty));
-            LogFilePath = LogFilePath.Compose(DateTime.Now, baseName);
-            LogFilePath = Path.GetFullPath(LogFilePath);
+            LogFile = new FileInfo(lpath.Compose(DateTime.Now, baseName));
 
             EnsureLogDirectory();
-            LogStream = File.AppendText(LogFilePath);
+            LogStream = File.AppendText(LogFile.FullName);
+            LogStream.AutoFlush = true;
         }
 
         private void EnsureLogDirectory()
         {
-            var dir = Path.GetDirectoryName(LogFilePath);
+            var dir = LogFile.Directory.FullName;
             if (!Directory.Exists(dir)) 
             {
                 Directory.CreateDirectory(dir);

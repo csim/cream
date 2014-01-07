@@ -13,6 +13,8 @@ namespace Cream.Providers
             AppSettings = new Dictionary<string, string>();
         }
 
+        public string LogFilePath { get; set; }
+
         public Dictionary<string, string> Connections { get; set; }
 
         public Dictionary<string, string> AppSettings { get; set; }

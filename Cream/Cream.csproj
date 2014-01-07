@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="ApplicationInfo.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\CrmOptionBase.cs" />
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
@@ -133,10 +134,11 @@
     <Compile Include="Commands\RegisterWebResourceCommand.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Providers\CreamConfiguration.cs" />
-    <Compile Include="Providers\DefaultConfigurationProvider.cs" />
+    <Compile Include="Providers\DefaultConfiguration.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Providers\IConfigurationProvider.cs" />
+    <Compile Include="Providers\IConfiguration.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />
     <Compile Include="Logging\ConsoleLogWriter.cs" />
     <Compile Include="Logging\DefaultLogger.cs" />

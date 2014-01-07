@@ -16,7 +16,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class PublishCustomizationsOptions : OptionBase
+    public class PublishCustomizationsOptions : CrmOptionBase
     {
         public override Type GetCommandType()
         {
@@ -26,8 +26,8 @@ namespace Cream.Commands
 
     class PublishCustomizationCommand : CommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizationCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, PublishCustomizationsOptions options)
-            : base(configuration, logger, resolver, options)
+        public PublishCustomizationCommand(IKernel resolver, PublishCustomizationsOptions options)
+            : base(resolver, options)
         {
         }
 
