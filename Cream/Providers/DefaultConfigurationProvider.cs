@@ -34,6 +34,9 @@
             }
         }
 
+        public void Load() {
+        }
+
         /// <summary>
         /// Gets an AppSetting value from the app.config file.
         /// </summary>

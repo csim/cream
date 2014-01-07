@@ -44,8 +44,8 @@ namespace Cream.Commands
     {
         private List<FileInfo> _files;
 
-        public ResourceCommandBase(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, TOptions options)
-            : base(crmServiceProvider, configuration, logger, options)
+        public ResourceCommandBase(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, TOptions options)
+            : base(configuration, logger, resolver, options)
         {
         }
 

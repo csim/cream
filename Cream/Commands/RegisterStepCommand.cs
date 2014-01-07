@@ -62,8 +62,8 @@ namespace Cream.Commands
 
     public class RegisterStepCommand : CommandBase<RegisterStepOptions>
     {
-        public RegisterStepCommand(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, RegisterStepOptions options)
-            : base(crmServiceProvider, configuration, logger, options)
+        public RegisterStepCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, RegisterStepOptions options)
+            : base(configuration, logger, resolver, options)
         {
         }
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cream", "Cream\Cream.csproj", "{2CB65A73-5C49-4407-8F7A-31C2ED66802D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cream.CrmSdk", "Cream.CrmSdk\Cream.CrmSdk.csproj", "{9C5A55CA-7773-4F16-9D46-22501F40061F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2CB65A73-5C49-4407-8F7A-31C2ED66802D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CB65A73-5C49-4407-8F7A-31C2ED66802D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CB65A73-5C49-4407-8F7A-31C2ED66802D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

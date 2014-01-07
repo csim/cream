@@ -121,17 +121,20 @@
     <Compile Include="Commands\PublishCustomizationCommand.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterAssemblyCommand.cs" />
+    <Compile Include="Commands\RegisterAssemblyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\RegisterResourceCommandBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterStepCommand.cs" />
+    <Compile Include="Commands\RegisterStepCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\RegisterWebResourceCommand.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Providers\CreamConfiguration.cs" />
     <Compile Include="Providers\DefaultCrmServiceProvider.cs" />
-    <Compile Include="Sdk.cs" />
     <Compile Include="Providers\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Providers\IConfigurationProvider.cs" />
@@ -173,7 +176,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Cream.CrmSdk\Cream.CrmSdk.csproj">
+      <Project>{9c5a55ca-7773-4f16-9d46-22501f40061f}</Project>
+      <Name>Cream.CrmSdk</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

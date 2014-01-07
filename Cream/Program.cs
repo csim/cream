@@ -68,18 +68,8 @@ namespace Cream
     {
         public ApplicationInfo App { get; private set; }
 
-        public CommandFactory Factory { get; private set; }
-
-        public IKernel Resolver { get; private set; }
-
-
-        public LoggerBase Logger { get; private set; }
-
-        public Program(CommandFactory factory, IKernel resolver)
+        public Program()
         {
-            Logger = resolver.Get<LoggerBase>();
-            Factory = factory;
-            Resolver = resolver;
             App = new ApplicationInfo();
         }
 
@@ -87,9 +77,7 @@ namespace Cream
         {
             if (args.Contains("--debug")) System.Diagnostics.Debugger.Launch();
 
-            var factory = new CommandFactory();
-            factory.Bind();
-            var prog = new Program(factory, factory.Kernel);
+            var prog = new Program();
             prog.Execute(args);
         }
 
@@ -97,48 +85,50 @@ namespace Cream
         {
             var logCategory = App.Title;
 
-            using (Logger)
+            Console.WriteLine("");
+            try
             {
-                Console.WriteLine("");
-                try
-                {
-                    var options = new ProgramOptions();
-                    var parser = new Parser((p) => {
-                            p.MutuallyExclusive = true;
-                            p.CaseSensitive = false;
-                            p.HelpWriter = Console.Error;
-                    });
-                    parser.ParseArguments(args, options, ExecuteCommand);
-                }
-                catch (Exception ex)
-                {
-                    Logger.Write(logCategory, ex.Format());
-                    //Console.WriteLine(ex.Format());
-                }
-                Console.WriteLine("");
+                var options = new ProgramOptions();
+                var parser = new Parser((p) => {
+                        p.MutuallyExclusive = true;
+                        p.CaseSensitive = false;
+                        p.HelpWriter = Console.Error;
+                });
+                parser.ParseArguments(args, options, ExecuteCommand);
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Format());
+            }
+            Console.WriteLine("");
         }
 
         private void ExecuteCommand(string verb, object options)
         {
-            if (options == null) return;
-            try
-            {
-                var startTime = DateTime.Now;
-                var command = Factory.GetCommand((OptionBase)options);
-                if (command != null)
+            if (options == null || !(options is OptionBase)) return;
+            var opt = (OptionBase)options;
+            var factory = new CommandFactory(opt);
+            var logger = factory.GetDependency<LoggerBase>();
+
+            using (logger) {
+                try
                 {
-                    Logger.Write(App.Title, "v{0}".Compose(App.Version));
-                    Logger.Write(App.Title, "{0}".Compose(App.Copyright));
-                    //Logger.Write("Start", "{0:s}".Compose(startTime));
-                    command.Execute();
-                    var duration = (DateTime.Now - startTime);
-                    Logger.Write("Duration", "{0:0}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
+                    var startTime = DateTime.Now;
+                    var command = factory.GetCommand();
+                    if (command != null)
+                    {
+                        logger.Write(App.Title, "v{0}".Compose(App.Version));
+                        logger.Write(App.Title, "{0}".Compose(App.Copyright));
+                        //Logger.Write("Start", "{0:s}".Compose(startTime));
+                        command.Execute();
+                        var duration = (DateTime.Now - startTime);
+                        logger.Write("Duration", "{0:0}:{1:00}:{2:00}".Compose(duration.TotalHours, duration.Minutes, duration.Seconds));
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Logger.Write(App.Title, ex.Format());
+                catch (Exception ex)
+                {
+                    logger.Write(App.Title, ex.Format());
+                }
             }
         }
     }

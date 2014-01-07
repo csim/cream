@@ -26,8 +26,8 @@ namespace Cream.Commands
 
     class PublishCustomizationCommand : CommandBase<PublishCustomizationsOptions>
     {
-        public PublishCustomizationCommand(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, PublishCustomizationsOptions options)
-            : base(crmServiceProvider, configuration, logger, options)
+        public PublishCustomizationCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, PublishCustomizationsOptions options)
+            : base(configuration, logger, resolver, options)
         {
         }
 

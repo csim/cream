@@ -26,13 +26,13 @@ namespace Cream.Commands
 
         protected ApplicationInfo App { get; private set; }
 
-        public ICrmServiceProvider CrmServiceProvider { get; private set; }
+        public IKernel Resolver { get; set; }
 
         public CrmConnection Connection
         {
             get
             {
-                return CrmServiceProvider.Connection;
+                return Resolver.Get<CrmConnection>();
             }
         }
 
@@ -40,7 +40,7 @@ namespace Cream.Commands
         {
             get
             {
-                return CrmServiceProvider.Service;
+                return Resolver.Get<IOrganizationService>();
             }
         }
 
@@ -48,15 +48,15 @@ namespace Cream.Commands
         {
             get
             {
-                return CrmServiceProvider.Context;
+                return Resolver.Get<CrmOrganizationServiceContext>();
             }
         }
 
-        public CommandBase(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, TOptions options)
+        public CommandBase(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, TOptions options)
         {
             Options = options;
             Logger = logger;
-            CrmServiceProvider = crmServiceProvider;
+            Resolver = resolver;
             Configuration = configuration;
             App = new ApplicationInfo();
         }
@@ -97,36 +97,6 @@ namespace Cream.Commands
             var folderUri = new Uri(rootPath);
             return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
         }
-
-        public CrmConnection GetCrmConnection()
-        {
-            var connectionString = "";
-
-            if (!string.IsNullOrEmpty(Options.Connection))
-            {
-                connectionString = Configuration.GetConnectionString(Options.Connection);
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    throw new Exception("ConnectionString does not exist.");
-                }
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(Options.ServerUrl)) throw new Exception("Unable to determine CRM server url.");
-                if (string.IsNullOrEmpty(Options.Username)) throw new Exception("Unable to determine CRM username.");
-                if (string.IsNullOrEmpty(Options.Password)) throw new Exception("Unable to determine CRM password.");
-
-                connectionString = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;",
-                Options.ServerUrl, Options.Username, Options.Password);
-                if (!string.IsNullOrEmpty(Options.Domain))
-                {
-                    connectionString += string.Format(" Domain={0};", Options.Domain);
-                }
-            }
-
-            return CrmConnection.Parse(connectionString);
-        }
-
 
         public void Dispose()
         {

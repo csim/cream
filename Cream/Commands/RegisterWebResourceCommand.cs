@@ -13,7 +13,7 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
-using Cream.Sdk;
+using Cream.CrmSdk;
 using Ninject;
 
 namespace Cream.Commands
@@ -31,8 +31,8 @@ namespace Cream.Commands
 
     public class RegisterWebResourceCommand : ResourceCommandBase<RegisterWebResourceOptions>
     {
-        public RegisterWebResourceCommand(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, RegisterWebResourceOptions options)
-            : base(crmServiceProvider, configuration, logger, options)
+        public RegisterWebResourceCommand(IConfigurationProvider configuration, LoggerBase logger, IKernel resolver, RegisterWebResourceOptions options)
+            : base(configuration, logger, resolver, options)
         {
         }
 
