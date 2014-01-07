@@ -8,8 +8,8 @@
 
     public class ConsoleLogger : LoggerBase
     {
-        public ConsoleLogger(IConfigurationProvider configuration) 
-            : base(configuration)
+        public ConsoleLogger() 
+            : base()
         {
             Writers.Add(new ConsoleLogWriter());
         }

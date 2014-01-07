@@ -28,9 +28,8 @@ namespace Cream.Logging
     /// </summary>
     public abstract class LoggerBase : IDisposable
     {
-        public LoggerBase(IConfigurationProvider configuration)
+        public LoggerBase()
         {
-            Configuration = configuration;
             Writers = new List<ILogWriter>();
         }
 

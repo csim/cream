@@ -18,8 +18,6 @@ namespace Cream.Commands
 {
     public class CommandBase<TOptions> : ICommand, IDisposable where TOptions : OptionBase
     {
-        public IKernel Resolver { get; private set; }
-
         public IConfigurationProvider Configuration { get; private set; }
 
         public LoggerBase Logger { get; set; }
@@ -28,17 +26,13 @@ namespace Cream.Commands
 
         protected ApplicationInfo App { get; private set; }
 
-        private CrmConnection _crmConnection;
+        public ICrmServiceProvider CrmServiceProvider { get; private set; }
 
         public CrmConnection Connection
         {
             get
             {
-                if (_crmConnection == null)
-                {
-                    _crmConnection = GetCrmConnection();
-                }
-                return _crmConnection;
+                return CrmServiceProvider.Connection;
             }
         }
 
@@ -46,9 +40,7 @@ namespace Cream.Commands
         {
             get
             {
-                //return Resolver.Get<IOrganizationService>();
-                //return Resolver.Get<IOrganizationService>(new ConstructorArgument("connection", Connection, false));
-                return new OrganizationService(Connection);
+                return CrmServiceProvider.Service;
             }
         }
 
@@ -56,17 +48,17 @@ namespace Cream.Commands
         {
             get
             {
-                return Resolver.Get<CrmOrganizationServiceContext>();
+                return CrmServiceProvider.Context;
             }
         }
 
-        public CommandBase(IKernel resolver, TOptions options)
+        public CommandBase(ICrmServiceProvider crmServiceProvider, IConfigurationProvider configuration, LoggerBase logger, TOptions options)
         {
-            Resolver = resolver;
-            Logger = Resolver.Get<LoggerBase>();
-            App = new ApplicationInfo();
-            Configuration = resolver.Get<IConfigurationProvider>();
             Options = options;
+            Logger = logger;
+            CrmServiceProvider = crmServiceProvider;
+            Configuration = configuration;
+            App = new ApplicationInfo();
         }
 
         public virtual void Execute()

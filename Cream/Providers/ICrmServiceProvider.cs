@@ -2,14 +2,15 @@
 using Cream.Commands;
 using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
+using Microsoft.Xrm.Sdk;
 namespace Cream.Providers
 {
     public interface ICrmServiceProvider
     {
-        CrmConnection GetCrmConnection();
+        CrmConnection Connection { get; }
 
-        CrmOrganizationServiceContext GetCrmContext();
+        CrmOrganizationServiceContext Context { get; }
 
-        OrganizationService GetCrmService();
+        IOrganizationService Service { get; }
     }
 }

@@ -14,6 +14,7 @@ using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
+using Ninject;
 
 namespace Cream
 {
@@ -59,37 +60,41 @@ namespace Cream
         }
     }
 
-    public class Program
-    {
-        public IConfigurationProvider Configuration { get; private set; }
+    public interface IProgram {
+        void Execute(string[] args);
+    }
 
-        public LoggerBase Logger { get; private set; }
+    public class Program : IProgram
+    {
+        public ApplicationInfo App { get; private set; }
 
         public CommandFactory Factory { get; private set; }
 
-        public ApplicationInfo App { get; private set; }
+        public IKernel Resolver { get; private set; }
 
-        public Program(IConfigurationProvider configurationProvider, LoggerBase logger, CommandFactory factory)
+
+        public LoggerBase Logger { get; private set; }
+
+        public Program(CommandFactory factory, IKernel resolver)
         {
-            Configuration = configurationProvider;
-            Logger = logger;
+            Logger = resolver.Get<LoggerBase>();
             Factory = factory;
+            Resolver = resolver;
             App = new ApplicationInfo();
         }
 
         static void Main(string[] args)
         {
-            var factory = new CommandFactory();
-            var configurationProvider = factory.GetDependency<IConfigurationProvider>();
-            var logger = factory.GetDependency<LoggerBase>();
+            if (args.Contains("--debug")) System.Diagnostics.Debugger.Launch();
 
-            var prog = new Program(configurationProvider, logger, factory);
+            var factory = new CommandFactory();
+            factory.Bind();
+            var prog = new Program(factory, factory.Kernel);
             prog.Execute(args);
         }
 
-        private void Execute(string[] args)
+        public void Execute(string[] args)
         {
-            if (args.Contains("--debug")) System.Diagnostics.Debugger.Launch();
             var logCategory = App.Title;
 
             using (Logger)
@@ -108,6 +113,7 @@ namespace Cream
                 catch (Exception ex)
                 {
                     Logger.Write(logCategory, ex.Format());
+                    //Console.WriteLine(ex.Format());
                 }
                 Console.WriteLine("");
             }
@@ -116,16 +122,14 @@ namespace Cream
         private void ExecuteCommand(string verb, object options)
         {
             if (options == null) return;
-
-            var logCategory = App.Title;
             try
             {
                 var startTime = DateTime.Now;
                 var command = Factory.GetCommand((OptionBase)options);
                 if (command != null)
                 {
-                    Logger.Write(logCategory, "v{0}".Compose(App.Version));
-                    Logger.Write(logCategory, "{0}".Compose(App.Copyright));
+                    Logger.Write(App.Title, "v{0}".Compose(App.Version));
+                    Logger.Write(App.Title, "{0}".Compose(App.Copyright));
                     //Logger.Write("Start", "{0:s}".Compose(startTime));
                     command.Execute();
                     var duration = (DateTime.Now - startTime);
@@ -134,7 +138,7 @@ namespace Cream
             }
             catch (Exception ex)
             {
-                Logger.Write(logCategory, ex.Format());
+                Logger.Write(App.Title, ex.Format());
             }
         }
     }

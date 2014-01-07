@@ -73,6 +73,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Properties\Cream.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Cream.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine">
       <HintPath>..\packages\CommandLineParser.1.9.71\lib\net40\CommandLine.dll</HintPath>
@@ -114,13 +117,20 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
-    <Compile Include="Commands\RegisterAssemblyCommand.cs" />
-    <Compile Include="Commands\RegisterResourceCommandBase.cs" />
-    <Compile Include="Commands\RegisterStepCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\PublishCustomizationCommand.cs" />
-    <Compile Include="Commands\RegisterWebResourceCommand.cs" />
+    <Compile Include="Commands\PublishCustomizationCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\RegisterAssemblyCommand.cs" />
+    <Compile Include="Commands\RegisterResourceCommandBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\RegisterStepCommand.cs" />
+    <Compile Include="Commands\RegisterWebResourceCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Providers\CreamConfiguration.cs" />
+    <Compile Include="Providers\DefaultCrmServiceProvider.cs" />
     <Compile Include="Sdk.cs" />
     <Compile Include="Providers\DefaultConfigurationProvider.cs" />
     <Compile Include="Extensions.cs" />

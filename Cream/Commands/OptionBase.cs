@@ -9,11 +9,14 @@ namespace Cream.Commands
 {
     public abstract class OptionBase
     {
-        [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
-        public string ServerUrl { get; set; }
+        [Option("config", Required = false, DefaultValue = @".\cream.config", HelpText = "Path to the cream configuration file.")]
+        public string Config { get; set; }
 
         [Option("connection", Required = false, HelpText = "Connection name.")]
         public string Connection { get; set; }
+
+        [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
+        public string ServerUrl { get; set; }
 
         [Option("username", Required = false, HelpText = "CRM Username.")]
         public string Username { get; set; }

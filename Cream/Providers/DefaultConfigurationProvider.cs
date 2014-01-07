@@ -16,11 +16,11 @@
 
         public FileInfo DiskFile { get; set; }
 
-        public DefaultConfigurationProvider()
-            : this(@".\cream.config")
-        {
-
-        }
+        //public DefaultConfigurationProvider()
+        //{
+        //    Console.WriteLine("xxxxxxx");
+        //    ConfigurationData = new CreamConfiguration();
+        //}
 
         public DefaultConfigurationProvider(string path)
         {
@@ -28,12 +28,9 @@
             if (DiskFile.Exists)
             {
                 var txt = File.ReadAllText(DiskFile.FullName);
+                Console.WriteLine("-------------------");
                 Console.WriteLine(txt);
                 ConfigurationData = JsonConvert.DeserializeObject<CreamConfiguration>(txt);
-            }
-            else
-            {
-                ConfigurationData = new CreamConfiguration();
             }
         }
 

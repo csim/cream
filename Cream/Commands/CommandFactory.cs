@@ -19,38 +19,31 @@ namespace Cream.Commands
         {
         }
 
-        protected IKernel Kernel { get; set; }
+        public IKernel Kernel { get; set; }
 
         public virtual void Bind()
         {
             Bind<
                 DefaultConfigurationProvider,
                 DefaultLogger,
-                OrganizationService,
-                CrmOrganizationServiceContext
+                DefaultCrmServiceProvider<OrganizationService, CrmOrganizationServiceContext>
             >();
         }
 
         public virtual void Bind<
                 TConfiguration,
                 TLogger,
-                TOrganizationService,
-                TCrmOrganizationServiceContext
+                TCrmServiceProvider
             >()
             where TLogger : LoggerBase
             where TConfiguration : IConfigurationProvider
-            where TOrganizationService : IOrganizationService
-            where TCrmOrganizationServiceContext : CrmOrganizationServiceContext
+            where TCrmServiceProvider : ICrmServiceProvider
         {
             Kernel = new StandardKernel();
 
-            Kernel.Bind<IOrganizationService>()
-                .To<TOrganizationService>()
-                .InThreadScope();
-
-            Kernel.Bind<CrmOrganizationServiceContext>()
-                .To<TCrmOrganizationServiceContext>()
-                .InThreadScope();
+            Kernel.Bind<ICrmServiceProvider>()
+                .To<TCrmServiceProvider>()
+                .InSingletonScope();
 
             Kernel.Bind<IConfigurationProvider>()
                 .To<TConfiguration>()

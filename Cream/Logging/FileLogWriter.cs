@@ -26,8 +26,6 @@ namespace Cream.Logging
 
     public class FileLogWriter : ILogWriter, IDisposable
     {
-        public IConfigurationProvider Configuration { get; set; }
-
         /// <summary>
         /// Fully composed log file path.
         /// </summary>
@@ -40,19 +38,14 @@ namespace Cream.Logging
         /// </summary>
         private StreamWriter LogStream { get; set; }
 
-        public FileLogWriter(IConfigurationProvider configuration)
+        public FileLogWriter()
         {
-            Configuration = configuration;
             WriteLock = new object();
         }
 
         private void InitLogStream() 
         {
-            LogFilePath = Configuration.GetSetting("logfilepath", (string)null);
-            if (string.IsNullOrEmpty(LogFilePath))
-            {
-                LogFilePath = "{1}_{0:yyyy-MM-dd_HH}.log";
-            }
+            LogFilePath = "{1}_{0:yyyy-MM-dd_HH}.log";
 
             var baseName = Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName.Replace(".exe", string.Empty));
             LogFilePath = LogFilePath.Compose(DateTime.Now, baseName);
