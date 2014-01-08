@@ -14,22 +14,18 @@
     {
         public CreamConfiguration ConfigurationData { get; set; }
 
-        public FileInfo DiskFile { get; set; }
+        public FileInfo ConfigurationFile { get; set; }
 
-        //public DefaultConfigurationProvider()
-        //{
-        //    Console.WriteLine("xxxxxxx");
-        //    ConfigurationData = new CreamConfiguration();
-        //}
-
-        public DefaultConfiguration(string path)
+        public DefaultConfiguration()
         {
-            DiskFile = new FileInfo(path);
-            if (DiskFile.Exists)
+        }
+
+        public void Load(string path)
+        {
+            ConfigurationFile = new FileInfo(path);
+            if (ConfigurationFile.Exists)
             {
-                var txt = File.ReadAllText(DiskFile.FullName);
-                Console.WriteLine("-------------------");
-                Console.WriteLine(txt);
+                var txt = File.ReadAllText(ConfigurationFile.FullName);
                 ConfigurationData = JsonConvert.DeserializeObject<CreamConfiguration>(txt);
             }
             else
@@ -38,7 +34,9 @@
             }
         }
 
-        public void Load() {
+        public void Save() {
+            var content = JsonConvert.SerializeObject(ConfigurationData, Formatting.Indented);
+            File.WriteAllText(ConfigurationFile.FullName, content);
         }
 
         /// <summary>
@@ -115,12 +113,6 @@
             }
 
             return null;
-        }
-
-        public void Save()
-        {
-            var text = JsonConvert.SerializeObject(ConfigurationData);
-            File.WriteAllText(DiskFile.FullName, text);
         }
     }
 }

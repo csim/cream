@@ -17,6 +17,10 @@
         T GetSetting<T>(string[] keys, T defaultValue = default(T));
 
         string GetConnectionString(string name);
+
+        void Load(string path);
+        
+        void Save();
     }
 
 }

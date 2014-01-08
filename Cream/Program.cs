@@ -25,6 +25,7 @@ namespace Cream
             PublishCustomizationsVerb = new PublishCustomizationsOptions();
             RegisterWebResourceVerb = new RegisterWebResourceOptions();
             RegisterAssemblyVerb = new RegisterAssemblyOptions();
+            SaveConnection = new SaveConnectionOptions();
         }
 
         [VerbOption("PublishCustomizations", HelpText = "Publish all CRM customizations.")]
@@ -38,6 +39,9 @@ namespace Cream
 
         [VerbOption("RegisterStep", HelpText = "Add or Update Plugin Step.")]
         public RegisterStepOptions RegisterStepVerb { get; set; }
+
+        [VerbOption("SaveConnection", HelpText = "Add or Update Plugin Step.")]
+        public SaveConnectionOptions SaveConnection { get; set; }
 
         [HelpVerbOption]
         public string GetUsage(string verb)

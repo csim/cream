@@ -28,12 +28,12 @@ namespace Cream.Commands
 
         public OptionBase Options { get; private set; }
 
-        public IKernel Kernel { get; set; }
+        public IKernel Resolver { get; set; }
 
         public CommandFactory(OptionBase options)
         {
             Options = options;
-            Kernel = new StandardKernel();
+            Resolver = new StandardKernel();
         }
 
         public virtual void Bind(BindFlags flags = BindFlags.All)
@@ -59,12 +59,14 @@ namespace Cream.Commands
         {
             if (!_boundLogger && (flags.HasFlag(BindFlags.All) || flags.HasFlag(BindFlags.Logger)))
             {
-                Kernel.Bind<IConfiguration>()
+                Resolver.Bind<IConfiguration>()
                     .To<TConfiguration>()
-                    .InSingletonScope()
-                    .WithConstructorArgument("path", Options.Config);
+                    .InSingletonScope();
 
-                Kernel.Bind<ILogger>()
+                var config = Resolver.Get<IConfiguration>();
+                config.Load(Options.Config);
+
+                Resolver.Bind<ILogger>()
                     .To<TLogger>()
                     .InSingletonScope();
 
@@ -73,17 +75,17 @@ namespace Cream.Commands
             
             if (!_boundAllExceptionLogger && Options is CrmOptionBase && (flags.HasFlag(BindFlags.All) || flags.HasFlag(BindFlags.AllExceptLogger)))
             {
-                var connection = GetCrmConnection(Kernel.Get<IConfiguration>(), (CrmOptionBase)Options);
+                var connection = GetCrmConnection(Resolver.Get<IConfiguration>(), (CrmOptionBase)Options);
 
-                Kernel.Bind<CrmConnection>()
+                Resolver.Bind<CrmConnection>()
                     .ToMethod(i => connection);
 
-                Kernel.Bind<IOrganizationService>()
-                    .ToConstructor(i => new OrganizationService(Kernel.Get<CrmConnection>()))
+                Resolver.Bind<IOrganizationService>()
+                    .ToConstructor(i => new OrganizationService(Resolver.Get<CrmConnection>()))
                     .InThreadScope();
 
-                Kernel.Bind<CrmOrganizationServiceContext>()
-                    .ToConstructor(i => new CrmOrganizationServiceContext(Kernel.Get<CrmConnection>()))
+                Resolver.Bind<CrmOrganizationServiceContext>()
+                    .ToConstructor(i => new CrmOrganizationServiceContext(Resolver.Get<CrmConnection>()))
                     .InThreadScope();
 
                 _boundAllExceptionLogger = true;
@@ -93,7 +95,7 @@ namespace Cream.Commands
         public ILogger GetLogger()
         {
             if (!_boundLogger) { Bind(BindFlags.Logger); }
-            return Kernel.Get<ILogger>();
+            return Resolver.Get<ILogger>();
         }
 
         public ICommand GetCommand()
@@ -101,17 +103,17 @@ namespace Cream.Commands
             if (!_boundAllExceptionLogger) { Bind(BindFlags.All); }
 
             var type = Options.GetCommandType();
-            var ret = (ICommand)Kernel.Get(type, new ConstructorArgument("options", Options, false));
+            var ret = (ICommand)Resolver.Get(type, new ConstructorArgument("options", Options, false));
 
             return ret;
         }
 
         public void Dispose()
         {
-            if (Kernel != null)
+            if (Resolver != null)
             {
-                Kernel.Dispose();
-                Kernel = null;
+                Resolver.Dispose();
+                Resolver = null;
             }
         }
 

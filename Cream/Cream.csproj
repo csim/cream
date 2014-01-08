@@ -119,6 +119,7 @@
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\SaveConnectionCommand.cs" />
     <Compile Include="Commands\PublishCustomizationCommand.cs">
       <SubType>Code</SubType>
     </Compile>

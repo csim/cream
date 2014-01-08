@@ -54,18 +54,13 @@ namespace Cream.Logging
             var baseName = Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName.Replace(".exe", string.Empty));
             LogFile = new FileInfo(lpath.Compose(DateTime.Now, baseName));
 
-            EnsureLogDirectory();
+            if (!Directory.Exists(LogFile.Directory.FullName))
+            {
+                Directory.CreateDirectory(LogFile.Directory.FullName);
+            }
+
             LogStream = File.AppendText(LogFile.FullName);
             LogStream.AutoFlush = true;
-        }
-
-        private void EnsureLogDirectory()
-        {
-            var dir = LogFile.Directory.FullName;
-            if (!Directory.Exists(dir)) 
-            {
-                Directory.CreateDirectory(dir);
-            }
         }
 
         public void Write(string message)
