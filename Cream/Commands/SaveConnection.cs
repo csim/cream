@@ -16,7 +16,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class SaveConnectionOptions : OptionBase
+    public class SaveConnectionOption : OptionBase
     {
         [Option("name", DefaultValue = "", Required = true, HelpText = "Name of the connection.")]
         public string Name { get; set; }
@@ -26,13 +26,13 @@ namespace Cream.Commands
 
         public override Type GetCommandType()
         {
-            return typeof(SaveConnectionCommand);
+            return typeof(SaveConnection);
         }
     }
 
-    class SaveConnectionCommand : CommandBase<SaveConnectionOptions>
+    class SaveConnection : CommandBase<SaveConnectionOption>
     {
-        public SaveConnectionCommand(IKernel resolver, SaveConnectionOptions options)
+        public SaveConnection(IKernel resolver, SaveConnectionOption options)
             : base(resolver, options)
         {
         }

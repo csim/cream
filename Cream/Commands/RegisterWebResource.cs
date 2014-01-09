@@ -18,20 +18,20 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class RegisterWebResourceOptions : RegisterResourceCommandBaseOptions
+    public class RegisterWebResourceOption : RegisterResourceBaseOption
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
 
         public override Type GetCommandType()
         {
-            return typeof(RegisterWebResourceCommand);
+            return typeof(RegisterWebResource);
         }
     }
 
-    public class RegisterWebResourceCommand : ResourceCommandBase<RegisterWebResourceOptions>
+    public class RegisterWebResource : ResourceCommandBase<RegisterWebResourceOption>
     {
-        public RegisterWebResourceCommand(IKernel resolver, RegisterWebResourceOptions options)
+        public RegisterWebResource(IKernel resolver, RegisterWebResourceOption options)
             : base(resolver, options)
         {
         }

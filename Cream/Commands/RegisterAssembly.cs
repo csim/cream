@@ -18,7 +18,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class RegisterAssemblyOptions : RegisterResourceCommandBaseOptions
+    public class RegisterAssemblyOption : RegisterResourceBaseOption
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.dll" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
@@ -37,13 +37,13 @@ namespace Cream.Commands
 
         public override Type GetCommandType()
         {
-            return typeof(RegisterAssemblyCommand);
+            return typeof(RegisterAssembly);
         }
     }
 
-    public class RegisterAssemblyCommand : ResourceCommandBase<RegisterAssemblyOptions>
+    public class RegisterAssembly : ResourceCommandBase<RegisterAssemblyOption>
     {
-        public RegisterAssemblyCommand(IKernel resolver, RegisterAssemblyOptions options)
+        public RegisterAssembly(IKernel resolver, RegisterAssemblyOption options)
             : base(resolver, options)
         {
         }

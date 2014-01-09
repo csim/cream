@@ -119,20 +119,20 @@
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
-    <Compile Include="Commands\SaveConnectionCommand.cs" />
-    <Compile Include="Commands\PublishCustomizationCommand.cs">
+    <Compile Include="Commands\SaveConnection.cs" />
+    <Compile Include="Commands\PublishCustomization.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterAssemblyCommand.cs">
+    <Compile Include="Commands\RegisterAssembly.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterResourceCommandBase.cs">
+    <Compile Include="Commands\RegisterResourceBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterStepCommand.cs">
+    <Compile Include="Commands\RegisterStep.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RegisterWebResourceCommand.cs">
+    <Compile Include="Commands\RegisterWebResource.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Logging\ILogger.cs" />

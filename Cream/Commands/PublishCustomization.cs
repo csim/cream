@@ -16,17 +16,17 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public class PublishCustomizationsOptions : CrmOptionBase
+    public class PublishCustomizationOption : CrmOptionBase
     {
         public override Type GetCommandType()
         {
-            return typeof(PublishCustomizationCommand);
+            return typeof(PublishCustomization);
         }
     }
 
-    class PublishCustomizationCommand : CommandBase<PublishCustomizationsOptions>
+    class PublishCustomization : CommandBase<PublishCustomizationOption>
     {
-        public PublishCustomizationCommand(IKernel resolver, PublishCustomizationsOptions options)
+        public PublishCustomization(IKernel resolver, PublishCustomizationOption options)
             : base(resolver, options)
         {
         }

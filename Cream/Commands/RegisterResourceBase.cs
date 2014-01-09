@@ -17,7 +17,7 @@ using Ninject;
 
 namespace Cream.Commands
 {
-    public abstract class RegisterResourceCommandBaseOptions : CrmOptionBase
+    public abstract class RegisterResourceBaseOption : CrmOptionBase
     {
         [Option('p', "path", DefaultValue = ".", Required = false, HelpText = "Input directory to be processed.")]
         public string Path { get; set; }
@@ -40,7 +40,7 @@ namespace Cream.Commands
         public bool NoPublish { get; set; }
     }
 
-    public abstract class ResourceCommandBase<TOptions> : CommandBase<TOptions> where TOptions : RegisterResourceCommandBaseOptions
+    public abstract class ResourceCommandBase<TOptions> : CommandBase<TOptions> where TOptions : RegisterResourceBaseOption
     {
         private List<FileInfo> _files;
 
