@@ -21,6 +21,14 @@
         void Load(string path);
         
         void Save();
+
+        string GetConnectionstring(string name);
+
+        void AddConnectionstring(string name, string connectionString);
+
+        string Encrypt(string clearText);
+
+        string Decrypt(string cipherText);
     }
 
 }

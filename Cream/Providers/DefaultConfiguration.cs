@@ -5,6 +5,9 @@
     using System.Configuration;
     using System.IO;
     using System.Linq;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Text.RegularExpressions;
     using Newtonsoft.Json;
 
     /// <summary>
@@ -12,6 +15,8 @@
     /// </summary>
     public class DefaultConfiguration : IConfiguration
     {
+        private const string ENCRYPTION_KEY = "9jx2RBb3wOs5kPMHY5hPUzlbACPoefXq6QtysSeHeMYvZ1cYf7SXcqipdPKpYVTDLzKnoXz8s0waHZLN78nz";
+
         public CreamConfiguration ConfigurationData { get; set; }
 
         public FileInfo ConfigurationFile { get; set; }
@@ -114,5 +119,104 @@
 
             return null;
         }
+
+        public string GetConnectionstring(string name)
+        {
+            if (!ConfigurationData.Connections.ContainsKey(name))
+            {
+                throw new Exception("ConnectionString {0} not found.".Compose(name));
+            }
+
+            var connectionString = ConfigurationData.Connections[name];
+
+            var pattern = "(password)=#(.+?)#;";
+            var rflags = RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnoreCase;
+            var regex = new Regex(pattern, rflags);
+            var match = regex.Match(connectionString);
+            if (match.Success)
+            {
+                var cipherText = Decrypt(match.Groups[2].Value);
+                connectionString = Regex.Replace(connectionString, pattern, i => string.Format("{0}={1};", match.Groups[1].Value, cipherText), rflags);
+            }
+
+            //Console.WriteLine(connectionString);
+            return connectionString;
+        }
+
+        public void AddConnectionstring(string name, string connectionString)
+        {
+            if (ConfigurationData.Connections.ContainsKey(name))
+            {
+                throw new Exception("ConnectionString {0} already exists.".Compose(name));
+            }
+
+            var rflags = RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnoreCase;
+            var pattern = "(password)=(.+?);";
+            var regex = new Regex(pattern, rflags);
+            var match = regex.Match(connectionString);
+            if (match.Success)
+            {
+                var cipherText = Encrypt(match.Groups[2].Value);
+                connectionString = Regex.Replace(connectionString, pattern, i => string.Format("{0}=#{1}#;", match.Groups[1].Value, cipherText), rflags);
+            }
+            
+            //Console.WriteLine(connectionString);
+            ConfigurationData.Connections.Add(name, connectionString);
+        }
+
+
+        public string Encrypt(string clearText)
+        {
+            // Compute key 
+            SHA384Managed sha = new SHA384Managed();
+            byte[] b = sha.ComputeHash(new ASCIIEncoding().GetBytes(ENCRYPTION_KEY));
+            byte[] Key = new byte[32];
+            byte[] Vector = new byte[16];
+            Array.Copy(b, 0, Key, 0, 32);
+            Array.Copy(b, 32, Vector, 0, 16);
+
+            byte[] data = new ASCIIEncoding().GetBytes(clearText);
+
+            var crypto = new RijndaelManaged();
+            var encryptor = crypto.CreateEncryptor(Key, Vector);
+
+            var memoryStream = new MemoryStream();
+            var crptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
+
+            crptoStream.Write(data, 0, data.Length);
+            crptoStream.FlushFinalBlock();
+
+            crptoStream.Close();
+            memoryStream.Close();
+
+            return Convert.ToBase64String(memoryStream.ToArray());
+        }
+
+        public string Decrypt(string cipherString)
+        {
+            SHA384Managed sha = new SHA384Managed();
+            byte[] b = sha.ComputeHash(new ASCIIEncoding().GetBytes(ENCRYPTION_KEY));
+            byte[] Key = new byte[32];
+            byte[] Vector = new byte[16];
+            Array.Copy(b, 0, Key, 0, 32);
+            Array.Copy(b, 32, Vector, 0, 16);
+
+            byte[] cipher = Convert.FromBase64String(cipherString);
+
+            var crypto = new RijndaelManaged();
+            var encryptor = crypto.CreateDecryptor(Key, Vector);
+
+            var memoryStream = new MemoryStream(cipher);
+            var crptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Read);
+
+            var data = new byte[cipher.Length];
+            var dataLength = crptoStream.Read(data, 0, data.Length);
+
+            memoryStream.Close();
+            crptoStream.Close();
+
+            return (new ASCIIEncoding()).GetString(data, 0, dataLength);
+        }
+
     }
 }

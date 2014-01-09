@@ -39,8 +39,10 @@ namespace Cream.Commands
 
         public override void Execute()
         {
-            Configuration.ConfigurationData.Connections.Add(Options.Name, Options.Value);
+            Configuration.AddConnectionstring(Options.Name, Options.Value);
+            Logger.Write("Added", "Connection: {0}".Compose(Options.Name));
             Configuration.Save();
+            Configuration.GetConnectionstring(Options.Name);
             Logger.Write("Save", Options.Config);
         }
     }
