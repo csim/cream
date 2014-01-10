@@ -9,10 +9,10 @@ namespace Cream.Commands
 {
     public abstract class CrmOptionBase : OptionBase
     {
-        [Option("connection", Required = false, HelpText = "Connection name.")]
+        [Option('c', "connection", Required = false, HelpText = "Connection name or connection string.")]
         public string Connection { get; set; }
 
-        [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost/contoso or https://contoso.api.crm.dynamics.com")]
+        [Option("server", Required = false, HelpText = "CRM Server URL. http://localhost:5555/contoso or https://contoso.api.crm.dynamics.com")]
         public string ServerUrl { get; set; }
 
         [Option("username", Required = false, HelpText = "CRM Username.")]

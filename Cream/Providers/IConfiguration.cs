@@ -16,15 +16,13 @@
 
         T GetSetting<T>(string[] keys, T defaultValue = default(T));
 
+        void Load(string path);
+
+        void Save(string name);
+
         string GetConnectionString(string name);
 
-        void Load(string path);
-        
-        void Save();
-
-        string GetConnectionstring(string name);
-
-        void AddConnectionstring(string name, string connectionString);
+        void SetConnection(string name, string connectionString);
 
         string Encrypt(string clearText);
 

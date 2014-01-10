@@ -19,7 +19,6 @@
 
         public CreamConfiguration ConfigurationData { get; set; }
 
-        public FileInfo ConfigurationFile { get; set; }
 
         public DefaultConfiguration()
         {
@@ -27,10 +26,10 @@
 
         public void Load(string path)
         {
-            ConfigurationFile = new FileInfo(path);
-            if (ConfigurationFile.Exists)
+            var file = new FileInfo(path);
+            if (file.Exists)
             {
-                var txt = File.ReadAllText(ConfigurationFile.FullName);
+                var txt = File.ReadAllText(file.FullName);
                 ConfigurationData = JsonConvert.DeserializeObject<CreamConfiguration>(txt);
             }
             else
@@ -39,9 +38,11 @@
             }
         }
 
-        public void Save() {
+        public void Save(string path)
+        {
+            var file = new FileInfo(path);
             var content = JsonConvert.SerializeObject(ConfigurationData, Formatting.Indented);
-            File.WriteAllText(ConfigurationFile.FullName, content);
+            File.WriteAllText(file.FullName, content);
         }
 
         /// <summary>
@@ -110,17 +111,8 @@
             return defaultValue;
         }
 
+
         public string GetConnectionString(string name)
-        {
-            if (ConfigurationData.Connections.ContainsKey(name))
-            {
-                return ConfigurationData.Connections[name];
-            }
-
-            return null;
-        }
-
-        public string GetConnectionstring(string name)
         {
             if (!ConfigurationData.Connections.ContainsKey(name))
             {
@@ -143,12 +135,8 @@
             return connectionString;
         }
 
-        public void AddConnectionstring(string name, string connectionString)
+        public void SetConnection(string name, string connectionString)
         {
-            if (ConfigurationData.Connections.ContainsKey(name))
-            {
-                throw new Exception("ConnectionString {0} already exists.".Compose(name));
-            }
 
             var rflags = RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.IgnoreCase;
             var pattern = "(password)=(.+?);";
@@ -159,11 +147,9 @@
                 var cipherText = Encrypt(match.Groups[2].Value);
                 connectionString = Regex.Replace(connectionString, pattern, i => string.Format("{0}=#{1}#;", match.Groups[1].Value, cipherText), rflags);
             }
-            
-            //Console.WriteLine(connectionString);
-            ConfigurationData.Connections.Add(name, connectionString);
-        }
 
+            ConfigurationData.Connections[name] = connectionString;
+        }
 
         public string Encrypt(string clearText)
         {

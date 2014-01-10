@@ -66,7 +66,7 @@ namespace Cream.Commands
                 }
 
                 var name = file.Name;
-                var eresource = (from record in Context.CreateQuery("webresource")
+                var eresource = (from record in Context.CreateQuery<WebResource>()
                                         where (string)record["name"] == name
                                         select new
                                         {

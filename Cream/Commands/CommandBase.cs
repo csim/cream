@@ -16,7 +16,7 @@ using Ninject.Parameters;
 
 namespace Cream.Commands
 {
-    public class CommandBase<TOptions> : ICommand, IDisposable where TOptions : OptionBase
+    public abstract class CommandBase<TOptions> : ICommand, IDisposable where TOptions : OptionBase
     {
         public IConfiguration Configuration { get; private set; }
 
@@ -61,10 +61,7 @@ namespace Cream.Commands
             App = new ApplicationInfo();
         }
 
-        public virtual void Execute()
-        {
-            if (Options.Debug) System.Diagnostics.Debugger.Launch();
-        }
+        public abstract void Execute();
 
         protected void PublishAllCustomizations()
         {

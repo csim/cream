@@ -124,10 +124,17 @@ namespace Cream.Commands
 
             if (!string.IsNullOrEmpty(options.Connection))
             {
-                connectionString = configuration.GetConnectionString(options.Connection);
-                if (string.IsNullOrEmpty(connectionString))
+                if (options.Connection.Contains(";"))
                 {
-                    throw new Exception("ConnectionString does not exist.");
+                    connectionString = options.Connection;
+                }
+                else
+                {
+                    connectionString = configuration.GetConnectionString(options.Connection);
+                    if (string.IsNullOrEmpty(connectionString))
+                    {
+                        throw new Exception("ConnectionString does not exist.");
+                    }
                 }
             }
             else
@@ -136,7 +143,7 @@ namespace Cream.Commands
                 if (string.IsNullOrEmpty(options.Username)) throw new Exception("Unable to determine CRM username.");
                 if (string.IsNullOrEmpty(options.Password)) throw new Exception("Unable to determine CRM password.");
 
-                connectionString = string.Format("Url={0}; Username={1}; Password={2}; DeviceID=yusamjdmckaj; DevicePassword=alkjdsfaldsjfewrqr;",
+                connectionString = string.Format("Url={0}; Username={1}; Password={2};",
                 options.ServerUrl, options.Username, options.Password);
                 if (!string.IsNullOrEmpty(options.Domain))
                 {
