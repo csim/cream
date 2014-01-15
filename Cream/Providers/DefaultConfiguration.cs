@@ -151,6 +151,13 @@
             ConfigurationData.Connections[name] = connectionString;
         }
 
+        public void RemoveConnection(string name)
+        {
+            if (ConfigurationData.Connections.ContainsKey(name)) {
+                ConfigurationData.Connections.Remove(name);
+            }
+        }
+
         public string Encrypt(string clearText)
         {
             // Compute key 

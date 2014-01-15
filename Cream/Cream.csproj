@@ -119,6 +119,7 @@
     <Compile Include="Commands\OptionBase.cs" />
     <Compile Include="Commands\CommandFactory.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\RemoveConnection.cs" />
     <Compile Include="Commands\SetConnection.cs" />
     <Compile Include="Commands\PublishCustomization.cs">
       <SubType>Code</SubType>

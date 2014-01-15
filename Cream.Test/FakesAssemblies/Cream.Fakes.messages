@@ -1,3 +1,4 @@
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.RemoveConnection: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.SetConnection: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.PublishCustomization: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.PluginStage: type is a value type.
@@ -23,6 +24,7 @@ C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim fo
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+<>c__DisplayClass5: type is not supported because of internal limitations.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+<>c__DisplayClass8`4: type is not supported because of internal limitations.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+BindFlags: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RemoveConnection: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.SetConnection: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.PublishCustomization: type is not visible to exported or assembly(Cream.Fakes).
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.ResourceCommandBase`1+<>c__DisplayClass2: type is not supported because of internal limitations.

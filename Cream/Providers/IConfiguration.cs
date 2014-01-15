@@ -24,6 +24,8 @@
 
         void SetConnection(string name, string connectionString);
 
+        void RemoveConnection(string name);
+
         string Encrypt(string clearText);
 
         string Decrypt(string cipherText);

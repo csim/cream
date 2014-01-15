@@ -868,6 +868,48 @@
         <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.AllInstances.GetCommandType">
             <summary>Sets the shim of RegisterWebResourceOption.GetCommandType()</summary>
         </member>
+        <member name="T:Cream.Commands.Fakes.ShimRemoveConnectionOption">
+            <summary>Shim type of Cream.Commands.RemoveConnectionOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRemoveConnectionOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRemoveConnectionOption.#ctor(Cream.Commands.RemoveConnectionOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRemoveConnectionOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRemoveConnectionOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.Constructor">
+            <summary>Sets the shim of RemoveConnectionOption.RemoveConnectionOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.GetCommandType">
+            <summary>Sets the shim of RemoveConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.NameGet">
+            <summary>Sets the shim of RemoveConnectionOption.get_Name()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.NameSetString">
+            <summary>Sets the shim of RemoveConnectionOption.set_Name(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRemoveConnectionOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of RemoveConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.AllInstances.NameGet">
+            <summary>Sets the shim of RemoveConnectionOption.get_Name()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRemoveConnectionOption.AllInstances.NameSetString">
+            <summary>Sets the shim of RemoveConnectionOption.set_Name(String value)</summary>
+        </member>
         <member name="T:Cream.Commands.Fakes.ShimResourceCommandBase`1">
             <summary>Shim type of Cream.Commands.ResourceCommandBase`1</summary>
         </member>
@@ -1417,6 +1459,36 @@
         <member name="P:Cream.Commands.Fakes.StubRegisterWebResourceOption.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:Cream.Commands.Fakes.StubRemoveConnectionOption">
+            <summary>Stub type of Cream.Commands.RemoveConnectionOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRemoveConnectionOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRemoveConnectionOption.GetCommandType">
+            <summary>Sets the stub of RemoveConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRemoveConnectionOption.GetCommandType01">
+            <summary>Sets the stub of RemoveConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRemoveConnectionOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRemoveConnectionOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRemoveConnectionOption.InitializeStub">
+            <summary>Initializes a new instance of type StubRemoveConnectionOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRemoveConnectionOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRemoveConnectionOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRemoveConnectionOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
         <member name="T:Cream.Commands.Fakes.StubResourceCommandBase`1">
             <summary>Stub type of Cream.Commands.ResourceCommandBase`1</summary>
         </member>
@@ -1930,6 +2002,12 @@
         <member name="P:Cream.Fakes.ShimProgramOptions.RegisterWebResourceVerbSetRegisterWebResourceOption">
             <summary>Sets the shim of ProgramOptions.set_RegisterWebResourceVerb(RegisterWebResourceOption value)</summary>
         </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RemoveConnectionGet">
+            <summary>Sets the shim of ProgramOptions.get_RemoveConnection()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RemoveConnectionSetRemoveConnectionOption">
+            <summary>Sets the shim of ProgramOptions.set_RemoveConnection(RemoveConnectionOption value)</summary>
+        </member>
         <member name="P:Cream.Fakes.ShimProgramOptions.SetConnectionGet">
             <summary>Sets the shim of ProgramOptions.get_SetConnection()</summary>
         </member>
@@ -1965,6 +2043,12 @@
         </member>
         <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterWebResourceVerbSetRegisterWebResourceOption">
             <summary>Sets the shim of ProgramOptions.set_RegisterWebResourceVerb(RegisterWebResourceOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RemoveConnectionGet">
+            <summary>Sets the shim of ProgramOptions.get_RemoveConnection()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RemoveConnectionSetRemoveConnectionOption">
+            <summary>Sets the shim of ProgramOptions.set_RemoveConnection(RemoveConnectionOption value)</summary>
         </member>
         <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.SetConnectionGet">
             <summary>Sets the shim of ProgramOptions.get_SetConnection()</summary>
@@ -2803,6 +2887,9 @@
         <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.LoadString">
             <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
         </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.RemoveConnectionString">
+            <summary>Sets the shim of DefaultConfiguration.RemoveConnection(String name)</summary>
+        </member>
         <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.SaveString">
             <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
         </member>
@@ -2838,6 +2925,9 @@
         </member>
         <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.LoadString">
             <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.RemoveConnectionString">
+            <summary>Sets the shim of DefaultConfiguration.RemoveConnection(String name)</summary>
         </member>
         <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.SaveString">
             <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
@@ -2914,6 +3004,9 @@
         <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Load(System.String)">
             <summary>Sets the stub of IConfiguration.Load(String path)</summary>
         </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#RemoveConnection(System.String)">
+            <summary>Sets the stub of IConfiguration.RemoveConnection(String name)</summary>
+        </member>
         <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Save(System.String)">
             <summary>Sets the stub of IConfiguration.Save(String name)</summary>
         </member>
@@ -2937,6 +3030,9 @@
         </member>
         <member name="F:Cream.Providers.Fakes.StubIConfiguration.LoadString">
             <summary>Sets the stub of IConfiguration.Load(String path)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.RemoveConnectionString">
+            <summary>Sets the stub of IConfiguration.RemoveConnection(String name)</summary>
         </member>
         <member name="F:Cream.Providers.Fakes.StubIConfiguration.SaveString">
             <summary>Sets the stub of IConfiguration.Save(String name)</summary>

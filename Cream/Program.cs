@@ -26,6 +26,7 @@ namespace Cream
             RegisterWebResourceVerb = new RegisterWebResourceOption();
             RegisterAssemblyVerb = new RegisterAssemblyOption();
             SetConnection = new SetConnectionOption();
+            RemoveConnection = new RemoveConnectionOption();
         }
 
         [VerbOption("PublishCustomizations", HelpText = "Publish all CRM customizations.")]
@@ -40,8 +41,11 @@ namespace Cream
         [VerbOption("RegisterStep", HelpText = "Add or Update Plugin Step.")]
         public RegisterStepOption RegisterStepVerb { get; set; }
 
-        [VerbOption("SetConnection", HelpText = "Add or Update Plugin Step.")]
+        [VerbOption("SetConnection", HelpText = "Add or Update a connection in the configuration file.")]
         public SetConnectionOption SetConnection { get; set; }
+
+        [VerbOption("RemoveConnection", HelpText = "Remove a connection by name in the configuration file.")]
+        public RemoveConnectionOption RemoveConnection { get; set; }
 
         [HelpVerbOption]
         public string GetUsage(string verb)

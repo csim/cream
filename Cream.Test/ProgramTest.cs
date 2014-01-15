@@ -27,9 +27,9 @@ namespace Cream.Test
 
             using (ShimsContext.Create())
             {
-                ShimDirectoryInfo.ConstructorString = (@this, path) =>
+                ShimDirectoryInfo.ConstructorString = (t, path) =>
                 {
-                    var info = new ShimDirectoryInfo(@this)
+                    var info = new ShimDirectoryInfo(t)
                     {
                         NameGet = () => path
                     };
