@@ -40,11 +40,6 @@ namespace Cream.Test
 
             }
 
-            //test change
-
-
-            // blah master
-
             Assert.IsTrue(output.ContainsKey("deathstar"));
         }
     }
