@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cream", "Cream\Cream.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cream.CrmSdk", "Cream.CrmSdk\Cream.CrmSdk.csproj", "{9C5A55CA-7773-4F16-9D46-22501F40061F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cream.Test", "Cream.Test\Cream.Test.csproj", "{6BAC0997-041B-452C-8F82-E47C69692DB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C5A55CA-7773-4F16-9D46-22501F40061F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BAC0997-041B-452C-8F82-E47C69692DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BAC0997-041B-452C-8F82-E47C69692DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BAC0997-041B-452C-8F82-E47C69692DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BAC0997-041B-452C-8F82-E47C69692DB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

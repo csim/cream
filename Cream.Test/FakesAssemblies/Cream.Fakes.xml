@@ -1,0 +1,2951 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cream.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:Cream.Commands.Fakes.ShimCommandBase`1">
+            <summary>Shim type of Cream.Commands.CommandBase`1</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandBase`1.#ctor(Cream.Commands.CommandBase{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandBase`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandBase`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandBase`1.Bind(Cream.Commands.ICommand)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandBase`1.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AppGet">
+            <summary>Sets the shim of CommandBase`1.get_App()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AppSetApplicationInfo">
+            <summary>Sets the shim of CommandBase`1.set_App(ApplicationInfo value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ConfigurationGet">
+            <summary>Sets the shim of CommandBase`1.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of CommandBase`1.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ConnectionGet">
+            <summary>Sets the shim of CommandBase`1.get_Connection()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ConstructorIKernelT0">
+            <summary>Sets the shim of CommandBase`1.CommandBase`1(IKernel resolver, !0 options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ContextGet">
+            <summary>Sets the shim of CommandBase`1.get_Context()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.Dispose">
+            <summary>Sets the shim of CommandBase`1.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.GetRelativePathFileInfoString">
+            <summary>Sets the shim of CommandBase`1.GetRelativePath(FileInfo file, String rootPath)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.GetRelativePathStringString">
+            <summary>Sets the shim of CommandBase`1.GetRelativePath(String filepath, String rootPath)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.LoggerGet">
+            <summary>Sets the shim of CommandBase`1.get_Logger()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.LoggerSetILogger">
+            <summary>Sets the shim of CommandBase`1.set_Logger(ILogger value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.OptionsGet">
+            <summary>Sets the shim of CommandBase`1.get_Options()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.OptionsSetT0">
+            <summary>Sets the shim of CommandBase`1.set_Options(!0 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.PublishAllCustomizations">
+            <summary>Sets the shim of CommandBase`1.PublishAllCustomizations()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ResolverGet">
+            <summary>Sets the shim of CommandBase`1.get_Resolver()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ResolverSetIKernel">
+            <summary>Sets the shim of CommandBase`1.set_Resolver(IKernel value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.ServiceGet">
+            <summary>Sets the shim of CommandBase`1.get_Service()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.WarmupCrmService">
+            <summary>Sets the shim of CommandBase`1.WarmupCrmService()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.AppGet">
+            <summary>Sets the shim of CommandBase`1.get_App()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.AppSetApplicationInfo">
+            <summary>Sets the shim of CommandBase`1.set_App(ApplicationInfo value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ConfigurationGet">
+            <summary>Sets the shim of CommandBase`1.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of CommandBase`1.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ConnectionGet">
+            <summary>Sets the shim of CommandBase`1.get_Connection()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ContextGet">
+            <summary>Sets the shim of CommandBase`1.get_Context()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.Dispose">
+            <summary>Sets the shim of CommandBase`1.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.GetRelativePathFileInfoString">
+            <summary>Sets the shim of CommandBase`1.GetRelativePath(FileInfo file, String rootPath)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.GetRelativePathStringString">
+            <summary>Sets the shim of CommandBase`1.GetRelativePath(String filepath, String rootPath)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.LoggerGet">
+            <summary>Sets the shim of CommandBase`1.get_Logger()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.LoggerSetILogger">
+            <summary>Sets the shim of CommandBase`1.set_Logger(ILogger value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.OptionsGet">
+            <summary>Sets the shim of CommandBase`1.get_Options()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.OptionsSetT0">
+            <summary>Sets the shim of CommandBase`1.set_Options(!0 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.PublishAllCustomizations">
+            <summary>Sets the shim of CommandBase`1.PublishAllCustomizations()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ResolverGet">
+            <summary>Sets the shim of CommandBase`1.get_Resolver()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ResolverSetIKernel">
+            <summary>Sets the shim of CommandBase`1.set_Resolver(IKernel value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.ServiceGet">
+            <summary>Sets the shim of CommandBase`1.get_Service()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandBase`1.AllInstances.WarmupCrmService">
+            <summary>Sets the shim of CommandBase`1.WarmupCrmService()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimCommandFactory">
+            <summary>Shim type of Cream.Commands.CommandFactory</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.#ctor(Cream.Commands.CommandFactory)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.BindOf4CommandFactoryBindFlags``4(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{Cream.Commands.CommandFactory.BindFlags})">
+            <summary>Sets the shim of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.BindCommandFactoryBindFlags">
+            <summary>Sets the shim of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.BindIConfigurationILoggerIOrganizationServiceCrmOrganizationServiceContextCrmConnection">
+            <summary>Sets the shim of CommandFactory.Bind(IConfiguration configuration, ILogger logger, IOrganizationService service, CrmOrganizationServiceContext context, CrmConnection connection)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.ConstructorOptionBase">
+            <summary>Sets the shim of CommandFactory.CommandFactory(OptionBase options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.Dispose">
+            <summary>Sets the shim of CommandFactory.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.GetCommand">
+            <summary>Sets the shim of CommandFactory.GetCommand()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.GetCrmConnectionIConfigurationCrmOptionBase">
+            <summary>Sets the shim of CommandFactory.GetCrmConnection(IConfiguration configuration, CrmOptionBase options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.GetLogger">
+            <summary>Sets the shim of CommandFactory.GetLogger()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.OptionsGet">
+            <summary>Sets the shim of CommandFactory.get_Options()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.OptionsSetOptionBase">
+            <summary>Sets the shim of CommandFactory.set_Options(OptionBase value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.ResolverGet">
+            <summary>Sets the shim of CommandFactory.get_Resolver()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.ResolverSetIKernel">
+            <summary>Sets the shim of CommandFactory.set_Resolver(IKernel value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimCommandFactory.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.BindOf4CommandFactoryBindFlags``4(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{Cream.Commands.CommandFactory,Cream.Commands.CommandFactory.BindFlags})">
+            <summary>Sets the shim of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.BindCommandFactoryBindFlags">
+            <summary>Sets the shim of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.BindIConfigurationILoggerIOrganizationServiceCrmOrganizationServiceContextCrmConnection">
+            <summary>Sets the shim of CommandFactory.Bind(IConfiguration configuration, ILogger logger, IOrganizationService service, CrmOrganizationServiceContext context, CrmConnection connection)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.Dispose">
+            <summary>Sets the shim of CommandFactory.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.GetCommand">
+            <summary>Sets the shim of CommandFactory.GetCommand()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.GetCrmConnectionIConfigurationCrmOptionBase">
+            <summary>Sets the shim of CommandFactory.GetCrmConnection(IConfiguration configuration, CrmOptionBase options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.GetLogger">
+            <summary>Sets the shim of CommandFactory.GetLogger()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.OptionsGet">
+            <summary>Sets the shim of CommandFactory.get_Options()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.OptionsSetOptionBase">
+            <summary>Sets the shim of CommandFactory.set_Options(OptionBase value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.ResolverGet">
+            <summary>Sets the shim of CommandFactory.get_Resolver()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCommandFactory.AllInstances.ResolverSetIKernel">
+            <summary>Sets the shim of CommandFactory.set_Resolver(IKernel value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimCrmOptionBase">
+            <summary>Shim type of Cream.Commands.CrmOptionBase</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCrmOptionBase.#ctor(Cream.Commands.CrmOptionBase)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCrmOptionBase.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimCrmOptionBase.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.ConnectionGet">
+            <summary>Sets the shim of CrmOptionBase.get_Connection()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.ConnectionSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Connection(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.Constructor">
+            <summary>Sets the shim of CrmOptionBase.CrmOptionBase()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.DomainGet">
+            <summary>Sets the shim of CrmOptionBase.get_Domain()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.DomainSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Domain(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.PasswordGet">
+            <summary>Sets the shim of CrmOptionBase.get_Password()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.PasswordSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Password(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.ServerUrlGet">
+            <summary>Sets the shim of CrmOptionBase.get_ServerUrl()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.ServerUrlSetString">
+            <summary>Sets the shim of CrmOptionBase.set_ServerUrl(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.UsernameGet">
+            <summary>Sets the shim of CrmOptionBase.get_Username()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.UsernameSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Username(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.ConnectionGet">
+            <summary>Sets the shim of CrmOptionBase.get_Connection()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.ConnectionSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Connection(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.DomainGet">
+            <summary>Sets the shim of CrmOptionBase.get_Domain()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.DomainSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Domain(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.PasswordGet">
+            <summary>Sets the shim of CrmOptionBase.get_Password()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.PasswordSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Password(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.ServerUrlGet">
+            <summary>Sets the shim of CrmOptionBase.get_ServerUrl()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.ServerUrlSetString">
+            <summary>Sets the shim of CrmOptionBase.set_ServerUrl(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.UsernameGet">
+            <summary>Sets the shim of CrmOptionBase.get_Username()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimCrmOptionBase.AllInstances.UsernameSetString">
+            <summary>Sets the shim of CrmOptionBase.set_Username(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimOptionBase">
+            <summary>Shim type of Cream.Commands.OptionBase</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimOptionBase.#ctor(Cream.Commands.OptionBase)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimOptionBase.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimOptionBase.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.ConfigGet">
+            <summary>Sets the shim of OptionBase.get_Config()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.ConfigSetString">
+            <summary>Sets the shim of OptionBase.set_Config(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.Constructor">
+            <summary>Sets the shim of OptionBase.OptionBase()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.GetUsage">
+            <summary>Sets the shim of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.LastParserStateGet">
+            <summary>Sets the shim of OptionBase.get_LastParserState()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.LastParserStateSetIParserState">
+            <summary>Sets the shim of OptionBase.set_LastParserState(IParserState value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase._GetUsageb__0HelpText">
+            <summary>Sets the shim of OptionBase.&lt;GetUsage&gt;b__0(HelpText current)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimOptionBase.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances.ConfigGet">
+            <summary>Sets the shim of OptionBase.get_Config()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances.ConfigSetString">
+            <summary>Sets the shim of OptionBase.set_Config(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances.GetUsage">
+            <summary>Sets the shim of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances.LastParserStateGet">
+            <summary>Sets the shim of OptionBase.get_LastParserState()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances.LastParserStateSetIParserState">
+            <summary>Sets the shim of OptionBase.set_LastParserState(IParserState value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimOptionBase.AllInstances._GetUsageb__0HelpText">
+            <summary>Sets the shim of OptionBase.&lt;GetUsage&gt;b__0(HelpText current)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimPublishCustomizationOption">
+            <summary>Shim type of Cream.Commands.PublishCustomizationOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimPublishCustomizationOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimPublishCustomizationOption.#ctor(Cream.Commands.PublishCustomizationOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimPublishCustomizationOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimPublishCustomizationOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimPublishCustomizationOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimPublishCustomizationOption.Constructor">
+            <summary>Sets the shim of PublishCustomizationOption.PublishCustomizationOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimPublishCustomizationOption.GetCommandType">
+            <summary>Sets the shim of PublishCustomizationOption.GetCommandType()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimPublishCustomizationOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimPublishCustomizationOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of PublishCustomizationOption.GetCommandType()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterAssembly">
+            <summary>Shim type of Cream.Commands.RegisterAssembly</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.#ctor(Cream.Commands.RegisterAssembly)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.Bind(Cream.Commands.ICommand)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssembly.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.ConstructorIKernelRegisterAssemblyOption">
+            <summary>Sets the shim of RegisterAssembly.RegisterAssembly(IKernel resolver, RegisterAssemblyOption options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.UpdateAssemblyTypesGuidFileInfoStringBuilder">
+            <summary>Sets the shim of RegisterAssembly.UpdateAssemblyTypes(Guid pluginId, FileInfo file, StringBuilder log)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the shim of RegisterAssembly.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly._UpdateAssemblyTypesb__10Type">
+            <summary>Sets the shim of RegisterAssembly.&lt;UpdateAssemblyTypes&gt;b__10(Type i)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterAssembly.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.AllInstances.UpdateAssemblyTypesGuidFileInfoStringBuilder">
+            <summary>Sets the shim of RegisterAssembly.UpdateAssemblyTypes(Guid pluginId, FileInfo file, StringBuilder log)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssembly.AllInstances.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the shim of RegisterAssembly.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterAssemblyOption">
+            <summary>Shim type of Cream.Commands.RegisterAssemblyOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssemblyOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssemblyOption.#ctor(Cream.Commands.RegisterAssemblyOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssemblyOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterAssemblyOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.Constructor">
+            <summary>Sets the shim of RegisterAssemblyOption.RegisterAssemblyOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.DatabaseGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Database()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.DatabaseSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Database(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.DiskGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Disk()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.DiskSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Disk(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.FiltersGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.FiltersSetStringArray">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.GetCommandType">
+            <summary>Sets the shim of RegisterAssemblyOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.NoTypesGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_NoTypes()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.NoTypesSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_NoTypes(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.SandboxGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Sandbox()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.SandboxSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Sandbox(Boolean value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.DatabaseGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Database()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.DatabaseSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Database(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.DiskGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Disk()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.DiskSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Disk(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.FiltersGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.FiltersSetStringArray">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of RegisterAssemblyOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.NoTypesGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_NoTypes()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.NoTypesSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_NoTypes(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.SandboxGet">
+            <summary>Sets the shim of RegisterAssemblyOption.get_Sandbox()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterAssemblyOption.AllInstances.SandboxSetBoolean">
+            <summary>Sets the shim of RegisterAssemblyOption.set_Sandbox(Boolean value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterResourceBaseOption">
+            <summary>Shim type of Cream.Commands.RegisterResourceBaseOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.#ctor(Cream.Commands.RegisterResourceBaseOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.Constructor">
+            <summary>Sets the shim of RegisterResourceBaseOption.RegisterResourceBaseOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.ForceGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Force()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.ForceSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Force(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.NoPublishGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_NoPublish()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.NoPublishSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_NoPublish(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.PathGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Path()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.PathSetString">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Path(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.RecursiveGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Recursive()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.RecursiveSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Recursive(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.ThreadsGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Threads()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.ThreadsSetInt32">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Threads(Int32 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.WatchGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Watch()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.WatchSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Watch(Boolean value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.ForceGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Force()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.ForceSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Force(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.NoPublishGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_NoPublish()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.NoPublishSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_NoPublish(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.PathGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Path()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.PathSetString">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Path(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.RecursiveGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Recursive()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.RecursiveSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Recursive(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.ThreadsGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Threads()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.ThreadsSetInt32">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Threads(Int32 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.WatchGet">
+            <summary>Sets the shim of RegisterResourceBaseOption.get_Watch()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterResourceBaseOption.AllInstances.WatchSetBoolean">
+            <summary>Sets the shim of RegisterResourceBaseOption.set_Watch(Boolean value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterStep">
+            <summary>Shim type of Cream.Commands.RegisterStep</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.#ctor(Cream.Commands.RegisterStep)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.Bind(Cream.Commands.ICommand)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStep.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.ConstructorIKernelRegisterStepOption">
+            <summary>Sets the shim of RegisterStep.RegisterStep(IKernel resolver, RegisterStepOption options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.Execute">
+            <summary>Sets the shim of RegisterStep.Execute()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.GetObjectTypeCodeString">
+            <summary>Sets the shim of RegisterStep.GetObjectTypeCode(String entitylogicalname)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterStep.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.AllInstances.Execute">
+            <summary>Sets the shim of RegisterStep.Execute()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStep.AllInstances.GetObjectTypeCodeString">
+            <summary>Sets the shim of RegisterStep.GetObjectTypeCode(String entitylogicalname)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterStepOption">
+            <summary>Shim type of Cream.Commands.RegisterStepOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStepOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStepOption.#ctor(Cream.Commands.RegisterStepOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStepOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterStepOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AsynchronousGet">
+            <summary>Sets the shim of RegisterStepOption.get_Asynchronous()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AsynchronousSetBoolean">
+            <summary>Sets the shim of RegisterStepOption.set_Asynchronous(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.Constructor">
+            <summary>Sets the shim of RegisterStepOption.RegisterStepOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.EntityGet">
+            <summary>Sets the shim of RegisterStepOption.get_Entity()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.EntitySetString">
+            <summary>Sets the shim of RegisterStepOption.set_Entity(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.GetCommandType">
+            <summary>Sets the shim of RegisterStepOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.MessageGet">
+            <summary>Sets the shim of RegisterStepOption.get_Message()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.MessageSetString">
+            <summary>Sets the shim of RegisterStepOption.set_Message(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.ModeGet">
+            <summary>Sets the shim of RegisterStepOption.get_Mode()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.ModeSetPluginMode">
+            <summary>Sets the shim of RegisterStepOption.set_Mode(PluginMode value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.RankGet">
+            <summary>Sets the shim of RegisterStepOption.get_Rank()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.RankSetInt32">
+            <summary>Sets the shim of RegisterStepOption.set_Rank(Int32 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.StageGet">
+            <summary>Sets the shim of RegisterStepOption.get_Stage()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.StageSetPluginStage">
+            <summary>Sets the shim of RegisterStepOption.set_Stage(PluginStage value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.TypeGet">
+            <summary>Sets the shim of RegisterStepOption.get_Type()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.TypeSetString">
+            <summary>Sets the shim of RegisterStepOption.set_Type(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.AsynchronousGet">
+            <summary>Sets the shim of RegisterStepOption.get_Asynchronous()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.AsynchronousSetBoolean">
+            <summary>Sets the shim of RegisterStepOption.set_Asynchronous(Boolean value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.EntityGet">
+            <summary>Sets the shim of RegisterStepOption.get_Entity()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.EntitySetString">
+            <summary>Sets the shim of RegisterStepOption.set_Entity(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of RegisterStepOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.MessageGet">
+            <summary>Sets the shim of RegisterStepOption.get_Message()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.MessageSetString">
+            <summary>Sets the shim of RegisterStepOption.set_Message(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.ModeGet">
+            <summary>Sets the shim of RegisterStepOption.get_Mode()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.ModeSetPluginMode">
+            <summary>Sets the shim of RegisterStepOption.set_Mode(PluginMode value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.RankGet">
+            <summary>Sets the shim of RegisterStepOption.get_Rank()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.RankSetInt32">
+            <summary>Sets the shim of RegisterStepOption.set_Rank(Int32 value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.StageGet">
+            <summary>Sets the shim of RegisterStepOption.get_Stage()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.StageSetPluginStage">
+            <summary>Sets the shim of RegisterStepOption.set_Stage(PluginStage value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.TypeGet">
+            <summary>Sets the shim of RegisterStepOption.get_Type()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterStepOption.AllInstances.TypeSetString">
+            <summary>Sets the shim of RegisterStepOption.set_Type(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterWebResource">
+            <summary>Shim type of Cream.Commands.RegisterWebResource</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.#ctor(Cream.Commands.RegisterWebResource)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.Bind(Cream.Commands.ICommand)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResource.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.ConstructorIKernelRegisterWebResourceOption">
+            <summary>Sets the shim of RegisterWebResource.RegisterWebResource(IKernel resolver, RegisterWebResourceOption options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.GetWebResourceTypeFileInfo">
+            <summary>Sets the shim of RegisterWebResource.GetWebResourceType(FileInfo file)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the shim of RegisterWebResource.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterWebResource.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.AllInstances.GetWebResourceTypeFileInfo">
+            <summary>Sets the shim of RegisterWebResource.GetWebResourceType(FileInfo file)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResource.AllInstances.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the shim of RegisterWebResource.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterWebResourceOption">
+            <summary>Shim type of Cream.Commands.RegisterWebResourceOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResourceOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResourceOption.#ctor(Cream.Commands.RegisterWebResourceOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResourceOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimRegisterWebResourceOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.Constructor">
+            <summary>Sets the shim of RegisterWebResourceOption.RegisterWebResourceOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.FiltersGet">
+            <summary>Sets the shim of RegisterWebResourceOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.FiltersSetStringArray">
+            <summary>Sets the shim of RegisterWebResourceOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.GetCommandType">
+            <summary>Sets the shim of RegisterWebResourceOption.GetCommandType()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimRegisterWebResourceOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.AllInstances.FiltersGet">
+            <summary>Sets the shim of RegisterWebResourceOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.AllInstances.FiltersSetStringArray">
+            <summary>Sets the shim of RegisterWebResourceOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimRegisterWebResourceOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of RegisterWebResourceOption.GetCommandType()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimResourceCommandBase`1">
+            <summary>Shim type of Cream.Commands.ResourceCommandBase`1</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimResourceCommandBase`1.#ctor(Cream.Commands.ResourceCommandBase{`0})">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimResourceCommandBase`1.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimResourceCommandBase`1.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimResourceCommandBase`1.Bind(Cream.Commands.ICommand)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimResourceCommandBase`1.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.ConstructorIKernelT0">
+            <summary>Sets the shim of ResourceCommandBase`1.ResourceCommandBase`1(IKernel resolver, !0 options)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.Execute">
+            <summary>Sets the shim of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.FindFiles">
+            <summary>Sets the shim of ResourceCommandBase`1.FindFiles()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.UpdateResources">
+            <summary>Sets the shim of ResourceCommandBase`1.UpdateResources()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimResourceCommandBase`1.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.AllInstances.Execute">
+            <summary>Sets the shim of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.AllInstances.FindFiles">
+            <summary>Sets the shim of ResourceCommandBase`1.FindFiles()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimResourceCommandBase`1.AllInstances.UpdateResources">
+            <summary>Sets the shim of ResourceCommandBase`1.UpdateResources()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimSetConnectionOption">
+            <summary>Shim type of Cream.Commands.SetConnectionOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimSetConnectionOption.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimSetConnectionOption.#ctor(Cream.Commands.SetConnectionOption)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimSetConnectionOption.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.ShimSetConnectionOption.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.Constructor">
+            <summary>Sets the shim of SetConnectionOption.SetConnectionOption()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.DomainGet">
+            <summary>Sets the shim of SetConnectionOption.get_Domain()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.DomainSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Domain(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.GetCommandType">
+            <summary>Sets the shim of SetConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.NameGet">
+            <summary>Sets the shim of SetConnectionOption.get_Name()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.NameSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Name(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.PasswordGet">
+            <summary>Sets the shim of SetConnectionOption.get_Password()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.PasswordSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Password(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.ServerUrlGet">
+            <summary>Sets the shim of SetConnectionOption.get_ServerUrl()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.ServerUrlSetString">
+            <summary>Sets the shim of SetConnectionOption.set_ServerUrl(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.UsernameGet">
+            <summary>Sets the shim of SetConnectionOption.get_Username()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.UsernameSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Username(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.ValueGet">
+            <summary>Sets the shim of SetConnectionOption.get_Value()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.ValueSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Value(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.DomainGet">
+            <summary>Sets the shim of SetConnectionOption.get_Domain()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.DomainSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Domain(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.GetCommandType">
+            <summary>Sets the shim of SetConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.NameGet">
+            <summary>Sets the shim of SetConnectionOption.get_Name()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.NameSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Name(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.PasswordGet">
+            <summary>Sets the shim of SetConnectionOption.get_Password()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.PasswordSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Password(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.ServerUrlGet">
+            <summary>Sets the shim of SetConnectionOption.get_ServerUrl()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.ServerUrlSetString">
+            <summary>Sets the shim of SetConnectionOption.set_ServerUrl(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.UsernameGet">
+            <summary>Sets the shim of SetConnectionOption.get_Username()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.UsernameSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Username(String value)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.ValueGet">
+            <summary>Sets the shim of SetConnectionOption.get_Value()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.ShimSetConnectionOption.AllInstances.ValueSetString">
+            <summary>Sets the shim of SetConnectionOption.set_Value(String value)</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubCommandBase`1">
+            <summary>Stub type of Cream.Commands.CommandBase`1</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandBase`1.#ctor(Ninject.IKernel,`0)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandBase`1.Execute">
+            <summary>Sets the stub of CommandBase`1.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubCommandBase`1.Execute01">
+            <summary>Sets the stub of CommandBase`1.Execute()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandBase`1.InitializeStub">
+            <summary>Initializes a new instance of type StubCommandBase</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandBase`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandBase`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandBase`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubCommandFactory">
+            <summary>Stub type of Cream.Commands.CommandFactory</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.#ctor(Cream.Commands.OptionBase)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.Bind(Cream.Commands.CommandFactory.BindFlags)">
+            <summary>Sets the stub of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.Bind``4(Cream.Commands.CommandFactory.BindFlags)">
+            <summary>Sets the stub of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.Bind(Cream.Providers.IConfiguration,Cream.Logging.ILogger,Microsoft.Xrm.Sdk.IOrganizationService,Microsoft.Xrm.Client.CrmOrganizationServiceContext,Microsoft.Xrm.Client.CrmConnection)">
+            <summary>Sets the stub of CommandFactory.Bind(IConfiguration configuration, ILogger logger, IOrganizationService service, CrmOrganizationServiceContext context, CrmConnection connection)</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubCommandFactory.BindCommandFactoryBindFlags">
+            <summary>Sets the stub of CommandFactory.Bind(BindFlags flags)</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubCommandFactory.BindIConfigurationILoggerIOrganizationServiceCrmOrganizationServiceContextCrmConnection">
+            <summary>Sets the stub of CommandFactory.Bind(IConfiguration configuration, ILogger logger, IOrganizationService service, CrmOrganizationServiceContext context, CrmConnection connection)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.BindOf4CommandFactoryBindFlags``4(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Action{Cream.Commands.CommandFactory.BindFlags})">
+            <summary>Sets stubs of Bind(BindFlags flags)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCommandFactory.InitializeStub">
+            <summary>Initializes a new instance of type StubCommandFactory</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandFactory.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandFactory.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCommandFactory.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubCrmOptionBase">
+            <summary>Stub type of Cream.Commands.CrmOptionBase</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCrmOptionBase.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCrmOptionBase.GetCommandType">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubCrmOptionBase.GetCommandType01">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCrmOptionBase.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubCrmOptionBase.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubCrmOptionBase.InitializeStub">
+            <summary>Initializes a new instance of type StubCrmOptionBase</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCrmOptionBase.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCrmOptionBase.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubCrmOptionBase.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubICommand">
+            <summary>Stub type of Cream.Commands.ICommand</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubICommand.#ctor">
+            <summary>Initializes a new instance of type StubICommand</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubICommand.c::Cream#Commands#ICommand#Execute">
+            <summary>Sets the stub of ICommand.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubICommand.Execute">
+            <summary>Sets the stub of ICommand.Execute()</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubOptionBase">
+            <summary>Stub type of Cream.Commands.OptionBase</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubOptionBase.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubOptionBase.GetCommandType">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubOptionBase.GetCommandType01">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubOptionBase.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubOptionBase.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubOptionBase.InitializeStub">
+            <summary>Initializes a new instance of type StubOptionBase</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubOptionBase.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubOptionBase.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubOptionBase.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubPublishCustomizationOption">
+            <summary>Stub type of Cream.Commands.PublishCustomizationOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubPublishCustomizationOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubPublishCustomizationOption.GetCommandType">
+            <summary>Sets the stub of PublishCustomizationOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubPublishCustomizationOption.GetCommandType01">
+            <summary>Sets the stub of PublishCustomizationOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubPublishCustomizationOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubPublishCustomizationOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubPublishCustomizationOption.InitializeStub">
+            <summary>Initializes a new instance of type StubPublishCustomizationOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubPublishCustomizationOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubPublishCustomizationOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubPublishCustomizationOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterAssembly">
+            <summary>Stub type of Cream.Commands.RegisterAssembly</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssembly.#ctor(Ninject.IKernel,Cream.Commands.RegisterAssemblyOption)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssembly.Execute">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssembly.Execute01">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssembly.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterAssembly</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssembly.UpdateSingle(System.IO.FileInfo,System.Nullable{System.Int32})">
+            <summary>Sets the stub of RegisterAssembly.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssembly.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the stub of RegisterAssembly.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssembly.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssembly.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssembly.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterAssemblyOption">
+            <summary>Stub type of Cream.Commands.RegisterAssemblyOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssemblyOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssemblyOption.AttachBackingFieldToFilters">
+            <summary>Attaches delegates to emulate StubRegisterAssemblyOption.Filters as a property with a backing field.</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssemblyOption.FiltersGet">
+            <summary>Sets the stub of RegisterAssemblyOption.get_Filters()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssemblyOption.FiltersSetStringArray">
+            <summary>Sets the stub of RegisterAssemblyOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssemblyOption.GetCommandType">
+            <summary>Sets the stub of RegisterAssemblyOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssemblyOption.GetCommandType01">
+            <summary>Sets the stub of RegisterAssemblyOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssemblyOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterAssemblyOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterAssemblyOption.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterAssemblyOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssemblyOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssemblyOption.Filters">
+            <summary>Sets the stub of RegisterAssemblyOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssemblyOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterAssemblyOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterResourceBaseOption">
+            <summary>Stub type of Cream.Commands.RegisterResourceBaseOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterResourceBaseOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterResourceBaseOption.AttachBackingFieldToFilters">
+            <summary>Attaches delegates to emulate StubRegisterResourceBaseOption.Filters as a property with a backing field.</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterResourceBaseOption.FiltersGet">
+            <summary>Sets the stub of RegisterResourceBaseOption.get_Filters()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterResourceBaseOption.FiltersSetStringArray">
+            <summary>Sets the stub of RegisterResourceBaseOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterResourceBaseOption.GetCommandType">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterResourceBaseOption.GetCommandType01">
+            <summary>Sets the stub of OptionBase.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterResourceBaseOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterResourceBaseOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterResourceBaseOption.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterResourceBaseOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterResourceBaseOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterResourceBaseOption.Filters">
+            <summary>Sets the stub of RegisterResourceBaseOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterResourceBaseOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterResourceBaseOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterStep">
+            <summary>Stub type of Cream.Commands.RegisterStep</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStep.#ctor(Ninject.IKernel,Cream.Commands.RegisterStepOption)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStep.Execute">
+            <summary>Sets the stub of RegisterStep.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterStep.Execute01">
+            <summary>Sets the stub of RegisterStep.Execute()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStep.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterStep</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStep.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStep.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStep.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterStepOption">
+            <summary>Stub type of Cream.Commands.RegisterStepOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStepOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStepOption.GetCommandType">
+            <summary>Sets the stub of RegisterStepOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterStepOption.GetCommandType01">
+            <summary>Sets the stub of RegisterStepOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStepOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterStepOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterStepOption.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterStepOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStepOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStepOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterStepOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterWebResource">
+            <summary>Stub type of Cream.Commands.RegisterWebResource</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResource.#ctor(Ninject.IKernel,Cream.Commands.RegisterWebResourceOption)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResource.Execute">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResource.Execute01">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResource.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterWebResource</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResource.UpdateSingle(System.IO.FileInfo,System.Nullable{System.Int32})">
+            <summary>Sets the stub of RegisterWebResource.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResource.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the stub of RegisterWebResource.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResource.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResource.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResource.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubRegisterWebResourceOption">
+            <summary>Stub type of Cream.Commands.RegisterWebResourceOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResourceOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResourceOption.AttachBackingFieldToFilters">
+            <summary>Attaches delegates to emulate StubRegisterWebResourceOption.Filters as a property with a backing field.</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResourceOption.FiltersGet">
+            <summary>Sets the stub of RegisterWebResourceOption.get_Filters()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResourceOption.FiltersSetStringArray">
+            <summary>Sets the stub of RegisterWebResourceOption.set_Filters(String[] value)</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResourceOption.GetCommandType">
+            <summary>Sets the stub of RegisterWebResourceOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResourceOption.GetCommandType01">
+            <summary>Sets the stub of RegisterWebResourceOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResourceOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubRegisterWebResourceOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubRegisterWebResourceOption.InitializeStub">
+            <summary>Initializes a new instance of type StubRegisterWebResourceOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResourceOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResourceOption.Filters">
+            <summary>Sets the stub of RegisterWebResourceOption.get_Filters()</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResourceOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubRegisterWebResourceOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubResourceCommandBase`1">
+            <summary>Stub type of Cream.Commands.ResourceCommandBase`1</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubResourceCommandBase`1.#ctor(Ninject.IKernel,`0)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubResourceCommandBase`1.Execute">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubResourceCommandBase`1.Execute01">
+            <summary>Sets the stub of ResourceCommandBase`1.Execute()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubResourceCommandBase`1.InitializeStub">
+            <summary>Initializes a new instance of type StubResourceCommandBase</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubResourceCommandBase`1.UpdateSingle(System.IO.FileInfo,System.Nullable{System.Int32})">
+            <summary>Sets the stub of ResourceCommandBase`1.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubResourceCommandBase`1.UpdateSingleFileInfoNullableOfInt32">
+            <summary>Sets the stub of ResourceCommandBase`1.UpdateSingle(FileInfo file, Nullable`1&lt;Int32&gt; index)</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubResourceCommandBase`1.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubResourceCommandBase`1.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubResourceCommandBase`1.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Commands.Fakes.StubSetConnectionOption">
+            <summary>Stub type of Cream.Commands.SetConnectionOption</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubSetConnectionOption.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubSetConnectionOption.GetCommandType">
+            <summary>Sets the stub of SetConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubSetConnectionOption.GetCommandType01">
+            <summary>Sets the stub of SetConnectionOption.GetCommandType()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubSetConnectionOption.GetUsage">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="F:Cream.Commands.Fakes.StubSetConnectionOption.GetUsage01">
+            <summary>Sets the stub of OptionBase.GetUsage()</summary>
+        </member>
+        <member name="M:Cream.Commands.Fakes.StubSetConnectionOption.InitializeStub">
+            <summary>Initializes a new instance of type StubSetConnectionOption</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubSetConnectionOption.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubSetConnectionOption.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Commands.Fakes.StubSetConnectionOption.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimApplicationInfo">
+            <summary>Shim type of Cream.ApplicationInfo</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimApplicationInfo.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimApplicationInfo.#ctor(Cream.ApplicationInfo)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimApplicationInfo.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimApplicationInfo.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.CompanyNameGet">
+            <summary>Sets the shim of ApplicationInfo.get_CompanyName()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.CompanyNameSetString">
+            <summary>Sets the shim of ApplicationInfo.set_CompanyName(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.Constructor">
+            <summary>Sets the shim of ApplicationInfo.ApplicationInfo()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.CopyrightGet">
+            <summary>Sets the shim of ApplicationInfo.get_Copyright()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.CopyrightSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Copyright(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.DescriptionGet">
+            <summary>Sets the shim of ApplicationInfo.get_Description()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.DescriptionSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Description(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.ProductNameGet">
+            <summary>Sets the shim of ApplicationInfo.get_ProductName()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.ProductNameSetString">
+            <summary>Sets the shim of ApplicationInfo.set_ProductName(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.TitleGet">
+            <summary>Sets the shim of ApplicationInfo.get_Title()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.TitleSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Title(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.VersionGet">
+            <summary>Sets the shim of ApplicationInfo.get_Version()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.VersionSetVersion">
+            <summary>Sets the shim of ApplicationInfo.set_Version(Version value)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimApplicationInfo.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.CompanyNameGet">
+            <summary>Sets the shim of ApplicationInfo.get_CompanyName()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.CompanyNameSetString">
+            <summary>Sets the shim of ApplicationInfo.set_CompanyName(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.CopyrightGet">
+            <summary>Sets the shim of ApplicationInfo.get_Copyright()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.CopyrightSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Copyright(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.DescriptionGet">
+            <summary>Sets the shim of ApplicationInfo.get_Description()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.DescriptionSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Description(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.ProductNameGet">
+            <summary>Sets the shim of ApplicationInfo.get_ProductName()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.ProductNameSetString">
+            <summary>Sets the shim of ApplicationInfo.set_ProductName(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.TitleGet">
+            <summary>Sets the shim of ApplicationInfo.get_Title()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.TitleSetString">
+            <summary>Sets the shim of ApplicationInfo.set_Title(String value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.VersionGet">
+            <summary>Sets the shim of ApplicationInfo.get_Version()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimApplicationInfo.AllInstances.VersionSetVersion">
+            <summary>Sets the shim of ApplicationInfo.set_Version(Version value)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimByteExtensions">
+            <summary>Shim type of Cream.ByteExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimByteExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimByteExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimByteExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimByteExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimByteExtensions.MD5ByteArray">
+            <summary>Sets the shim of ByteExtensions.MD5(Byte[] b)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimDataRowExtensions">
+            <summary>Shim type of Cream.DataRowExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataRowExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataRowExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataRowExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.BooleanDataRowString">
+            <summary>Sets the shim of DataRowExtensions.Boolean(DataRow row, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.DateDataRowString">
+            <summary>Sets the shim of DataRowExtensions.Date(DataRow row, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.GuidDataRowString">
+            <summary>Sets the shim of DataRowExtensions.Guid(DataRow row, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.IntDataRowString">
+            <summary>Sets the shim of DataRowExtensions.Int(DataRow row, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.StringDataRowString">
+            <summary>Sets the shim of DataRowExtensions.String(DataRow row, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.TryBooleanDataRowStringBooleanOut">
+            <summary>Sets the shim of DataRowExtensions.TryBoolean(DataRow row, String fieldName, Boolean&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.TryDateDataRowStringDateTimeOut">
+            <summary>Sets the shim of DataRowExtensions.TryDate(DataRow row, String fieldName, DateTime&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.TryGuidDataRowStringGuidOut">
+            <summary>Sets the shim of DataRowExtensions.TryGuid(DataRow row, String fieldName, Guid&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.TryIntDataRowStringInt32Out">
+            <summary>Sets the shim of DataRowExtensions.TryInt(DataRow row, String fieldName, Int32&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataRowExtensions.TryStringDataRowStringStringOut">
+            <summary>Sets the shim of DataRowExtensions.TryString(DataRow row, String fieldName, String&amp; output)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimDataTableExtensions">
+            <summary>Shim type of Cream.DataTableExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataTableExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataTableExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDataTableExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataTableExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDataTableExtensions.ToCSVDataTable">
+            <summary>Sets the shim of DataTableExtensions.ToCSV(DataTable table)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimDateTimeExtensions">
+            <summary>Shim type of Cream.DateTimeExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDateTimeExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDateTimeExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimDateTimeExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDateTimeExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDateTimeExtensions.ToUIStringDateTime">
+            <summary>Sets the shim of DateTimeExtensions.ToUIString(DateTime dt)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDateTimeExtensions.ToUIStringDateTimeBoolean">
+            <summary>Sets the shim of DateTimeExtensions.ToUIString(DateTime dt, Boolean includeTime)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimDateTimeExtensions.ToUIStringDateTimeStringStringStringStringString">
+            <summary>Sets the shim of DateTimeExtensions.ToUIString(DateTime dt, String todayMask, String yesterdayMask, String thisWeekMask, String nextWeekMask, String defaultMask)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimEntityExtensions">
+            <summary>Shim type of Cream.EntityExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimEntityExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimEntityExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimEntityExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.BooleanEntityString">
+            <summary>Sets the shim of EntityExtensions.Boolean(Entity record, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.DateEntityString">
+            <summary>Sets the shim of EntityExtensions.Date(Entity record, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.GuidEntityString">
+            <summary>Sets the shim of EntityExtensions.Guid(Entity record, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.IntEntityString">
+            <summary>Sets the shim of EntityExtensions.Int(Entity record, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.StringEntityString">
+            <summary>Sets the shim of EntityExtensions.String(Entity record, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.TryBooleanEntityStringBooleanOut">
+            <summary>Sets the shim of EntityExtensions.TryBoolean(Entity record, String fieldName, Boolean&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.TryDateEntityStringDateTimeOut">
+            <summary>Sets the shim of EntityExtensions.TryDate(Entity record, String fieldName, DateTime&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.TryGuidEntityStringGuidOut">
+            <summary>Sets the shim of EntityExtensions.TryGuid(Entity record, String fieldName, Guid&amp; output)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimEntityExtensions.TryIntEntityStringInt32Out">
+            <summary>Sets the shim of EntityExtensions.TryInt(Entity record, String fieldName, Int32&amp; output)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimExceptionExtensions">
+            <summary>Shim type of Cream.ExceptionExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimExceptionExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimExceptionExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimExceptionExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.FormatException">
+            <summary>Sets the shim of ExceptionExtensions.Format(Exception ex)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.FormatExceptionBoolean">
+            <summary>Sets the shim of ExceptionExtensions.Format(Exception ex, Boolean html)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.FormatExceptionNameValueCollection">
+            <summary>Sets the shim of ExceptionExtensions.Format(Exception ex, NameValueCollection additionalInfo)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.FormatStackTrace">
+            <summary>Sets the shim of ExceptionExtensions.Format(StackTrace trace)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.GetAdditionalInfoExceptionNameValueCollection">
+            <summary>Sets the shim of ExceptionExtensions.GetAdditionalInfo(Exception ex, NameValueCollection additionalInfo)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimExceptionExtensions.PrintException">
+            <summary>Sets the shim of ExceptionExtensions.Print(Exception ex)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimIntExtensions">
+            <summary>Shim type of Cream.IntExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimIntExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimIntExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimIntExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimIntExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimIntExtensions.ToUIFormatInt32Boolean">
+            <summary>Sets the shim of IntExtensions.ToUIFormat(Int32 input, Boolean base2)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimListExtensions">
+            <summary>Shim type of Cream.ListExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimListExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimListExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimListExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimListExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimListExtensions.JoinListOfStringString">
+            <summary>Sets the shim of ListExtensions.Join(List`1&lt;String&gt; input, String delimiter)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimObjectExtensions">
+            <summary>Shim type of Cream.ObjectExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimObjectExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimObjectExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimObjectExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimObjectExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimObjectExtensions.DumpObject">
+            <summary>Sets the shim of ObjectExtensions.Dump(Object o)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimObjectExtensions.ToJSONObject">
+            <summary>Sets the shim of ObjectExtensions.ToJSON(Object o)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimObjectExtensions.ToJSONObjectIEnumerableOfJavaScriptConverter">
+            <summary>Sets the shim of ObjectExtensions.ToJSON(Object o, IEnumerable`1&lt;JavaScriptConverter&gt; converters)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimObjectExtensions.ToJSONObjectIEnumerableOfJavaScriptConverterInt32">
+            <summary>Sets the shim of ObjectExtensions.ToJSON(Object o, IEnumerable`1&lt;JavaScriptConverter&gt; converters, Int32 recursionLimit)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimProgram">
+            <summary>Shim type of Cream.Program</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgram.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgram.#ctor(Cream.Program)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgram.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgram.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AppGet">
+            <summary>Sets the shim of Program.get_App()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AppSetApplicationInfo">
+            <summary>Sets the shim of Program.set_App(ApplicationInfo value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.Constructor">
+            <summary>Sets the shim of Program.Program()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.ExecuteCommandStringObject">
+            <summary>Sets the shim of Program.ExecuteCommand(String verb, Object options)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.ExecuteStringArrayCommandFactory">
+            <summary>Sets the shim of Program.Execute(String[] args, CommandFactory factory)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.FactoryGet">
+            <summary>Sets the shim of Program.get_Factory()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.FactorySetCommandFactory">
+            <summary>Sets the shim of Program.set_Factory(CommandFactory value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.MainStringArray">
+            <summary>Sets the shim of Program.Main(String[] args)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram._Executeb__0ParserSettings">
+            <summary>Sets the shim of Program.&lt;Execute&gt;b__0(ParserSettings p)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimProgram.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.AppGet">
+            <summary>Sets the shim of Program.get_App()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.AppSetApplicationInfo">
+            <summary>Sets the shim of Program.set_App(ApplicationInfo value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.ExecuteCommandStringObject">
+            <summary>Sets the shim of Program.ExecuteCommand(String verb, Object options)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.ExecuteStringArrayCommandFactory">
+            <summary>Sets the shim of Program.Execute(String[] args, CommandFactory factory)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.FactoryGet">
+            <summary>Sets the shim of Program.get_Factory()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgram.AllInstances.FactorySetCommandFactory">
+            <summary>Sets the shim of Program.set_Factory(CommandFactory value)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimProgramOptions">
+            <summary>Shim type of Cream.ProgramOptions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgramOptions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgramOptions.#ctor(Cream.ProgramOptions)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgramOptions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimProgramOptions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.Constructor">
+            <summary>Sets the shim of ProgramOptions.ProgramOptions()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.GetUsageString">
+            <summary>Sets the shim of ProgramOptions.GetUsage(String verb)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.PublishCustomizationsVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_PublishCustomizationsVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.PublishCustomizationsVerbSetPublishCustomizationOption">
+            <summary>Sets the shim of ProgramOptions.set_PublishCustomizationsVerb(PublishCustomizationOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterAssemblyVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterAssemblyVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterAssemblyVerbSetRegisterAssemblyOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterAssemblyVerb(RegisterAssemblyOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterStepVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterStepVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterStepVerbSetRegisterStepOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterStepVerb(RegisterStepOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterWebResourceVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterWebResourceVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.RegisterWebResourceVerbSetRegisterWebResourceOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterWebResourceVerb(RegisterWebResourceOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.SetConnectionGet">
+            <summary>Sets the shim of ProgramOptions.get_SetConnection()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.SetConnectionSetSetConnectionOption">
+            <summary>Sets the shim of ProgramOptions.set_SetConnection(SetConnectionOption value)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimProgramOptions.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.GetUsageString">
+            <summary>Sets the shim of ProgramOptions.GetUsage(String verb)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.PublishCustomizationsVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_PublishCustomizationsVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.PublishCustomizationsVerbSetPublishCustomizationOption">
+            <summary>Sets the shim of ProgramOptions.set_PublishCustomizationsVerb(PublishCustomizationOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterAssemblyVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterAssemblyVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterAssemblyVerbSetRegisterAssemblyOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterAssemblyVerb(RegisterAssemblyOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterStepVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterStepVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterStepVerbSetRegisterStepOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterStepVerb(RegisterStepOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterWebResourceVerbGet">
+            <summary>Sets the shim of ProgramOptions.get_RegisterWebResourceVerb()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.RegisterWebResourceVerbSetRegisterWebResourceOption">
+            <summary>Sets the shim of ProgramOptions.set_RegisterWebResourceVerb(RegisterWebResourceOption value)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.SetConnectionGet">
+            <summary>Sets the shim of ProgramOptions.get_SetConnection()</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimProgramOptions.AllInstances.SetConnectionSetSetConnectionOption">
+            <summary>Sets the shim of ProgramOptions.set_SetConnection(SetConnectionOption value)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimSqlDataReaderExtensions">
+            <summary>Shim type of Cream.SqlDataReaderExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimSqlDataReaderExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimSqlDataReaderExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimSqlDataReaderExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.BooleanSqlDataReaderString">
+            <summary>Sets the shim of SqlDataReaderExtensions.Boolean(SqlDataReader reader, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.DateSqlDataReaderString">
+            <summary>Sets the shim of SqlDataReaderExtensions.Date(SqlDataReader reader, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.GuidSqlDataReaderString">
+            <summary>Sets the shim of SqlDataReaderExtensions.Guid(SqlDataReader reader, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.IntSqlDataReaderString">
+            <summary>Sets the shim of SqlDataReaderExtensions.Int(SqlDataReader reader, String fieldName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimSqlDataReaderExtensions.StringSqlDataReaderString">
+            <summary>Sets the shim of SqlDataReaderExtensions.String(SqlDataReader reader, String fieldName)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimStringArrayExtensions">
+            <summary>Shim type of Cream.StringArrayExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringArrayExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringArrayExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringArrayExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringArrayExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringArrayExtensions.JoinStringArrayString">
+            <summary>Sets the shim of StringArrayExtensions.Join(String[] s, String separator)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimStringExtensions">
+            <summary>Shim type of Cream.StringExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimStringExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.AfterStringString">
+            <summary>Sets the shim of StringExtensions.After(String input, String delimiter)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.BeforeStringString">
+            <summary>Sets the shim of StringExtensions.Before(String input, String delimiter)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.ComposeStringObjectArray">
+            <summary>Sets the shim of StringExtensions.Compose(String s, Object[] args)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.HtmlDecodeString">
+            <summary>Sets the shim of StringExtensions.HtmlDecode(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.HtmlEncodeString">
+            <summary>Sets the shim of StringExtensions.HtmlEncode(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.HtmlFormatString">
+            <summary>Sets the shim of StringExtensions.HtmlFormat(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.MD5String">
+            <summary>Sets the shim of StringExtensions.MD5(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.RepeatStringInt32">
+            <summary>Sets the shim of StringExtensions.Repeat(String instr, Int32 n)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.ReplaceStringStringStringStringComparison">
+            <summary>Sets the shim of StringExtensions.Replace(String s, String pattern, String replacement, StringComparison comparisonType)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.SplitStringString">
+            <summary>Sets the shim of StringExtensions.Split(String input, String delimiter)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.ToArrayStringString">
+            <summary>Sets the shim of StringExtensions.ToArray(String input, String delimiter)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.ToListStringString">
+            <summary>Sets the shim of StringExtensions.ToList(String input, String delimiter)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.ToTitleCaseString">
+            <summary>Sets the shim of StringExtensions.ToTitleCase(String input)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.TruncateStringInt32">
+            <summary>Sets the shim of StringExtensions.Truncate(String value, Int32 maxLength)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.UrlDecodeString">
+            <summary>Sets the shim of StringExtensions.UrlDecode(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.UrlEncodeString">
+            <summary>Sets the shim of StringExtensions.UrlEncode(String s)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimStringExtensions.UrlPathEncodeString">
+            <summary>Sets the shim of StringExtensions.UrlPathEncode(String s)</summary>
+        </member>
+        <member name="T:Cream.Fakes.ShimXmlExtensions">
+            <summary>Shim type of Cream.XmlExtensions</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimXmlExtensions.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimXmlExtensions.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Fakes.ShimXmlExtensions.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeBooleanXPathNavigatorString">
+            <summary>Sets the shim of XmlExtensions.AttributeBoolean(XPathNavigator nav, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeBooleanXPathNavigatorStringBoolean">
+            <summary>Sets the shim of XmlExtensions.AttributeBoolean(XPathNavigator nav, String attributeName, Boolean defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeBooleanXmlNodeString">
+            <summary>Sets the shim of XmlExtensions.AttributeBoolean(XmlNode node, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeBooleanXmlNodeStringBoolean">
+            <summary>Sets the shim of XmlExtensions.AttributeBoolean(XmlNode node, String attributeName, Boolean defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeDateTimeXPathNavigatorString">
+            <summary>Sets the shim of XmlExtensions.AttributeDateTime(XPathNavigator nav, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeDateTimeXPathNavigatorStringDateTime">
+            <summary>Sets the shim of XmlExtensions.AttributeDateTime(XPathNavigator nav, String attributeName, DateTime defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeDateTimeXmlNodeString">
+            <summary>Sets the shim of XmlExtensions.AttributeDateTime(XmlNode node, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeDateTimeXmlNodeStringDateTime">
+            <summary>Sets the shim of XmlExtensions.AttributeDateTime(XmlNode node, String attributeName, DateTime defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeXPathNavigatorString">
+            <summary>Sets the shim of XmlExtensions.Attribute(XPathNavigator nav, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeXPathNavigatorStringString">
+            <summary>Sets the shim of XmlExtensions.Attribute(XPathNavigator nav, String attributeName, String defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeXmlNodeString">
+            <summary>Sets the shim of XmlExtensions.Attribute(XmlNode node, String attributeName)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.AttributeXmlNodeStringString">
+            <summary>Sets the shim of XmlExtensions.Attribute(XmlNode node, String attributeName, String defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.IDXPathNavigator">
+            <summary>Sets the shim of XmlExtensions.ID(XPathNavigator nav)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.IDXmlNode">
+            <summary>Sets the shim of XmlExtensions.ID(XmlNode node)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.NameXPathNavigator">
+            <summary>Sets the shim of XmlExtensions.Name(XPathNavigator nav)</summary>
+        </member>
+        <member name="P:Cream.Fakes.ShimXmlExtensions.NameXmlNode">
+            <summary>Sets the shim of XmlExtensions.Name(XmlNode node)</summary>
+        </member>
+        <member name="T:Cream.Fakes.StubApplicationInfo">
+            <summary>Stub type of Cream.ApplicationInfo</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubApplicationInfo.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubApplicationInfo.InitializeStub">
+            <summary>Initializes a new instance of type StubApplicationInfo</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubApplicationInfo.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubApplicationInfo.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubApplicationInfo.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Fakes.StubProgram">
+            <summary>Stub type of Cream.Program</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubProgram.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubProgram.InitializeStub">
+            <summary>Initializes a new instance of type StubProgram</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgram.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgram.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgram.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Fakes.StubProgramOptions">
+            <summary>Stub type of Cream.ProgramOptions</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubProgramOptions.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Fakes.StubProgramOptions.InitializeStub">
+            <summary>Initializes a new instance of type StubProgramOptions</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgramOptions.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgramOptions.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Fakes.StubProgramOptions.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimConsoleLogWriter">
+            <summary>Shim type of Cream.Logging.ConsoleLogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.#ctor(Cream.Logging.ConsoleLogWriter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.Bind(Cream.Logging.ILogWriter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogWriter.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.Constructor">
+            <summary>Sets the shim of ConsoleLogWriter.ConsoleLogWriter()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.Dispose">
+            <summary>Sets the shim of ConsoleLogWriter.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.DisposeBoolean">
+            <summary>Sets the shim of ConsoleLogWriter.Dispose(Boolean native)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.WriteString">
+            <summary>Sets the shim of ConsoleLogWriter.Write(String message)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimConsoleLogWriter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.AllInstances.Dispose">
+            <summary>Sets the shim of ConsoleLogWriter.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of ConsoleLogWriter.Dispose(Boolean native)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogWriter.AllInstances.WriteString">
+            <summary>Sets the shim of ConsoleLogWriter.Write(String message)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimConsoleLogger">
+            <summary>Shim type of Cream.Logging.ConsoleLogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.#ctor(Cream.Logging.ConsoleLogger)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.Bind(Cream.Logging.ILogger)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimConsoleLogger.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogger.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimConsoleLogger.Constructor">
+            <summary>Sets the shim of ConsoleLogger.ConsoleLogger()</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimConsoleLogger.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimDefaultLogger">
+            <summary>Shim type of Cream.Logging.DefaultLogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.#ctor(Cream.Logging.DefaultLogger)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.Bind(Cream.Logging.ILogger)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimDefaultLogger.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimDefaultLogger.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimDefaultLogger.ConstructorIConfiguration">
+            <summary>Sets the shim of DefaultLogger.DefaultLogger(IConfiguration configuration)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimDefaultLogger.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimFileLogWriter">
+            <summary>Shim type of Cream.Logging.FileLogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.#ctor(Cream.Logging.FileLogWriter)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.Bind(Cream.Logging.ILogWriter)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimFileLogWriter.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.ConfigurationGet">
+            <summary>Sets the shim of FileLogWriter.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of FileLogWriter.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.ConstructorIConfiguration">
+            <summary>Sets the shim of FileLogWriter.FileLogWriter(IConfiguration configuration)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.Dispose">
+            <summary>Sets the shim of FileLogWriter.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.DisposeBoolean">
+            <summary>Sets the shim of FileLogWriter.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.InitLogStream">
+            <summary>Sets the shim of FileLogWriter.InitLogStream()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.LogFileGet">
+            <summary>Sets the shim of FileLogWriter.get_LogFile()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.LogFileSetFileInfo">
+            <summary>Sets the shim of FileLogWriter.set_LogFile(FileInfo value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.LogStreamGet">
+            <summary>Sets the shim of FileLogWriter.get_LogStream()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.LogStreamSetStreamWriter">
+            <summary>Sets the shim of FileLogWriter.set_LogStream(StreamWriter value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.WriteLockGet">
+            <summary>Sets the shim of FileLogWriter.get_WriteLock()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.WriteLockSetObject">
+            <summary>Sets the shim of FileLogWriter.set_WriteLock(Object value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.WriteString">
+            <summary>Sets the shim of FileLogWriter.Write(String message)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.ConfigurationGet">
+            <summary>Sets the shim of FileLogWriter.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of FileLogWriter.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.Dispose">
+            <summary>Sets the shim of FileLogWriter.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of FileLogWriter.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.InitLogStream">
+            <summary>Sets the shim of FileLogWriter.InitLogStream()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.LogFileGet">
+            <summary>Sets the shim of FileLogWriter.get_LogFile()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.LogFileSetFileInfo">
+            <summary>Sets the shim of FileLogWriter.set_LogFile(FileInfo value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.LogStreamGet">
+            <summary>Sets the shim of FileLogWriter.get_LogStream()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.LogStreamSetStreamWriter">
+            <summary>Sets the shim of FileLogWriter.set_LogStream(StreamWriter value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.WriteLockGet">
+            <summary>Sets the shim of FileLogWriter.get_WriteLock()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.WriteLockSetObject">
+            <summary>Sets the shim of FileLogWriter.set_WriteLock(Object value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimFileLogWriter.AllInstances.WriteString">
+            <summary>Sets the shim of FileLogWriter.Write(String message)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimLoggerBase">
+            <summary>Shim type of Cream.Logging.LoggerBase</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimLoggerBase.#ctor(Cream.Logging.LoggerBase)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimLoggerBase.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimLoggerBase.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimLoggerBase.Bind(Cream.Logging.ILogger)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.ShimLoggerBase.Bind(System.IDisposable)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.ConfigurationGet">
+            <summary>Sets the shim of LoggerBase.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of LoggerBase.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.Constructor">
+            <summary>Sets the shim of LoggerBase.LoggerBase()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.Dispose">
+            <summary>Sets the shim of LoggerBase.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.DisposeBoolean">
+            <summary>Sets the shim of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.FormatMessageStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.FormatMessage(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WriteString">
+            <summary>Sets the shim of LoggerBase.Write(String message)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WriteStringBuilderStringException">
+            <summary>Sets the shim of LoggerBase.Write(StringBuilder builder, String category, Exception ex)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WriteStringBuilderStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.Write(StringBuilder builder, String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WriteStringException">
+            <summary>Sets the shim of LoggerBase.Write(String category, Exception ex)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WriteStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.Write(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WritersGet">
+            <summary>Sets the shim of LoggerBase.get_Writers()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.WritersSetListOfILogWriter">
+            <summary>Sets the shim of LoggerBase.set_Writers(List`1&lt;ILogWriter&gt; value)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.ShimLoggerBase.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.ConfigurationGet">
+            <summary>Sets the shim of LoggerBase.get_Configuration()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.ConfigurationSetIConfiguration">
+            <summary>Sets the shim of LoggerBase.set_Configuration(IConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.Dispose">
+            <summary>Sets the shim of LoggerBase.Dispose()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.DisposeBoolean">
+            <summary>Sets the shim of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.FormatMessageStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.FormatMessage(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WriteString">
+            <summary>Sets the shim of LoggerBase.Write(String message)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WriteStringBuilderStringException">
+            <summary>Sets the shim of LoggerBase.Write(StringBuilder builder, String category, Exception ex)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WriteStringBuilderStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.Write(StringBuilder builder, String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WriteStringException">
+            <summary>Sets the shim of LoggerBase.Write(String category, Exception ex)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WriteStringStringBoolean">
+            <summary>Sets the shim of LoggerBase.Write(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WritersGet">
+            <summary>Sets the shim of LoggerBase.get_Writers()</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.ShimLoggerBase.AllInstances.WritersSetListOfILogWriter">
+            <summary>Sets the shim of LoggerBase.set_Writers(List`1&lt;ILogWriter&gt; value)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubConsoleLogWriter">
+            <summary>Stub type of Cream.Logging.ConsoleLogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogWriter.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogWriter.Dispose(System.Boolean)">
+            <summary>Sets the stub of ConsoleLogWriter.Dispose(Boolean native)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubConsoleLogWriter.DisposeBoolean">
+            <summary>Sets the stub of ConsoleLogWriter.Dispose(Boolean native)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogWriter.InitializeStub">
+            <summary>Initializes a new instance of type StubConsoleLogWriter</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogWriter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogWriter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogWriter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubConsoleLogger">
+            <summary>Stub type of Cream.Logging.ConsoleLogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogger.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogger.Dispose(System.Boolean)">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubConsoleLogger.DisposeBoolean">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubConsoleLogger.InitializeStub">
+            <summary>Initializes a new instance of type StubConsoleLogger</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogger.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogger.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubConsoleLogger.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubDefaultLogger">
+            <summary>Stub type of Cream.Logging.DefaultLogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubDefaultLogger.#ctor(Cream.Providers.IConfiguration)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubDefaultLogger.Dispose(System.Boolean)">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubDefaultLogger.DisposeBoolean">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubDefaultLogger.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultLogger</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubDefaultLogger.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubDefaultLogger.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubDefaultLogger.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubFileLogWriter">
+            <summary>Stub type of Cream.Logging.FileLogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubFileLogWriter.#ctor(Cream.Providers.IConfiguration)">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubFileLogWriter.Dispose(System.Boolean)">
+            <summary>Sets the stub of FileLogWriter.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubFileLogWriter.DisposeBoolean">
+            <summary>Sets the stub of FileLogWriter.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubFileLogWriter.InitializeStub">
+            <summary>Initializes a new instance of type StubFileLogWriter</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubFileLogWriter.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubFileLogWriter.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubFileLogWriter.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubILogWriter">
+            <summary>Stub type of Cream.Logging.ILogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogWriter.#ctor">
+            <summary>Initializes a new instance of type StubILogWriter</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogWriter.c::Cream#Logging#ILogWriter#Dispose">
+            <summary>Sets the stub of ILogWriter.Dispose()</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogWriter.c::Cream#Logging#ILogWriter#Write(System.String)">
+            <summary>Sets the stub of ILogWriter.Write(String message)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogWriter.Dispose">
+            <summary>Sets the stub of ILogWriter.Dispose()</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogWriter.WriteString">
+            <summary>Sets the stub of ILogWriter.Write(String message)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubILogger">
+            <summary>Stub type of Cream.Logging.ILogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.#ctor">
+            <summary>Initializes a new instance of type StubILogger</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.c::Cream#Logging#ILogger#Write(System.String)">
+            <summary>Sets the stub of ILogger.Write(String message)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.c::Cream#Logging#ILogger#Write(System.String,System.Exception)">
+            <summary>Sets the stub of ILogger.Write(String category, Exception ex)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.c::Cream#Logging#ILogger#Write(System.String,System.String,System.Boolean)">
+            <summary>Sets the stub of ILogger.Write(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.c::Cream#Logging#ILogger#Write(System.Text.StringBuilder,System.String,System.Exception)">
+            <summary>Sets the stub of ILogger.Write(StringBuilder builder, String category, Exception ex)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.c::Cream#Logging#ILogger#Write(System.Text.StringBuilder,System.String,System.String,System.Boolean)">
+            <summary>Sets the stub of ILogger.Write(StringBuilder builder, String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubILogger.global::System#IDisposable#Dispose">
+            <summary>Sets the stub of IDisposable.Dispose()</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.WriteString">
+            <summary>Sets the stub of ILogger.Write(String message)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.WriteStringBuilderStringException">
+            <summary>Sets the stub of ILogger.Write(StringBuilder builder, String category, Exception ex)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.WriteStringBuilderStringStringBoolean">
+            <summary>Sets the stub of ILogger.Write(StringBuilder builder, String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.WriteStringException">
+            <summary>Sets the stub of ILogger.Write(String category, Exception ex)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubILogger.WriteStringStringBoolean">
+            <summary>Sets the stub of ILogger.Write(String category, String message, Boolean timestamp)</summary>
+        </member>
+        <member name="T:Cream.Logging.Fakes.StubLoggerBase">
+            <summary>Stub type of Cream.Logging.LoggerBase</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubLoggerBase.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubLoggerBase.Dispose(System.Boolean)">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="F:Cream.Logging.Fakes.StubLoggerBase.DisposeBoolean">
+            <summary>Sets the stub of LoggerBase.Dispose(Boolean managed)</summary>
+        </member>
+        <member name="M:Cream.Logging.Fakes.StubLoggerBase.InitializeStub">
+            <summary>Initializes a new instance of type StubLoggerBase</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubLoggerBase.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubLoggerBase.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Logging.Fakes.StubLoggerBase.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.ShimCreamConfiguration">
+            <summary>Shim type of Cream.Providers.CreamConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimCreamConfiguration.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimCreamConfiguration.#ctor(Cream.Providers.CreamConfiguration)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimCreamConfiguration.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimCreamConfiguration.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AppSettingsGet">
+            <summary>Sets the shim of CreamConfiguration.get_AppSettings()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AppSettingsSetDictionaryOfStringString">
+            <summary>Sets the shim of CreamConfiguration.set_AppSettings(Dictionary`2&lt;String,String&gt; value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.ConnectionsGet">
+            <summary>Sets the shim of CreamConfiguration.get_Connections()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.ConnectionsSetDictionaryOfStringString">
+            <summary>Sets the shim of CreamConfiguration.set_Connections(Dictionary`2&lt;String,String&gt; value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.Constructor">
+            <summary>Sets the shim of CreamConfiguration.CreamConfiguration()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.LogFilePathGet">
+            <summary>Sets the shim of CreamConfiguration.get_LogFilePath()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.LogFilePathSetString">
+            <summary>Sets the shim of CreamConfiguration.set_LogFilePath(String value)</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.AppSettingsGet">
+            <summary>Sets the shim of CreamConfiguration.get_AppSettings()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.AppSettingsSetDictionaryOfStringString">
+            <summary>Sets the shim of CreamConfiguration.set_AppSettings(Dictionary`2&lt;String,String&gt; value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.ConnectionsGet">
+            <summary>Sets the shim of CreamConfiguration.get_Connections()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.ConnectionsSetDictionaryOfStringString">
+            <summary>Sets the shim of CreamConfiguration.set_Connections(Dictionary`2&lt;String,String&gt; value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.LogFilePathGet">
+            <summary>Sets the shim of CreamConfiguration.get_LogFilePath()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.LogFilePathSetString">
+            <summary>Sets the shim of CreamConfiguration.set_LogFilePath(String value)</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.ShimDefaultConfiguration">
+            <summary>Shim type of Cream.Providers.DefaultConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.#ctor(Cream.Providers.DefaultConfiguration)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.Bind(Cream.Providers.IConfiguration)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String[],``0,``0})">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,``0,``0})">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key, !!0 defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.ConfigurationDataGet">
+            <summary>Sets the shim of DefaultConfiguration.get_ConfigurationData()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.ConfigurationDataSetCreamConfiguration">
+            <summary>Sets the shim of DefaultConfiguration.set_ConfigurationData(CreamConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.Constructor">
+            <summary>Sets the shim of DefaultConfiguration.DefaultConfiguration()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.DecryptString">
+            <summary>Sets the shim of DefaultConfiguration.Decrypt(String cipherString)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.EncryptString">
+            <summary>Sets the shim of DefaultConfiguration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.GetConnectionStringString">
+            <summary>Sets the shim of DefaultConfiguration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingString">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.LoadString">
+            <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.SaveString">
+            <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.SetConnectionStringString">
+            <summary>Sets the shim of DefaultConfiguration.SetConnection(String name, String connectionString)</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.DefaultConfiguration,System.String[],``0,``0})">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.DefaultConfiguration,System.String,``0,``0})">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key, !!0 defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.ConfigurationDataGet">
+            <summary>Sets the shim of DefaultConfiguration.get_ConfigurationData()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.ConfigurationDataSetCreamConfiguration">
+            <summary>Sets the shim of DefaultConfiguration.set_ConfigurationData(CreamConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.DecryptString">
+            <summary>Sets the shim of DefaultConfiguration.Decrypt(String cipherString)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.EncryptString">
+            <summary>Sets the shim of DefaultConfiguration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetConnectionStringString">
+            <summary>Sets the shim of DefaultConfiguration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingString">
+            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.LoadString">
+            <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.SaveString">
+            <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.SetConnectionStringString">
+            <summary>Sets the shim of DefaultConfiguration.SetConnection(String name, String connectionString)</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.StubCreamConfiguration">
+            <summary>Stub type of Cream.Providers.CreamConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubCreamConfiguration.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubCreamConfiguration.InitializeStub">
+            <summary>Initializes a new instance of type StubCreamConfiguration</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubCreamConfiguration.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubCreamConfiguration.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubCreamConfiguration.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.StubDefaultConfiguration">
+            <summary>Stub type of Cream.Providers.DefaultConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubDefaultConfiguration.#ctor">
+            <summary>Initializes a new instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubDefaultConfiguration.InitializeStub">
+            <summary>Initializes a new instance of type StubDefaultConfiguration</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.StubIConfiguration">
+            <summary>Stub type of Cream.Providers.IConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.#ctor">
+            <summary>Initializes a new instance of type StubIConfiguration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.AttachBackingFieldToConfigurationData">
+            <summary>Attaches delegates to emulate StubIConfiguration.ConfigurationData as a property with a backing field.</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.ConfigurationDataGet">
+            <summary>Sets the stub of IConfiguration.get_ConfigurationData()</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.ConfigurationDataSetCreamConfiguration">
+            <summary>Sets the stub of IConfiguration.set_ConfigurationData(CreamConfiguration value)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Decrypt(System.String)">
+            <summary>Sets the stub of IConfiguration.Decrypt(String cipherText)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Encrypt(System.String)">
+            <summary>Sets the stub of IConfiguration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#GetConnectionString(System.String)">
+            <summary>Sets the stub of IConfiguration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#GetSetting``1(System.String[],``0)">
+            <summary>Sets the stub of IConfiguration.GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#GetSetting``1(System.String,``0)">
+            <summary>Sets the stub of IConfiguration.GetSetting(String keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Load(System.String)">
+            <summary>Sets the stub of IConfiguration.Load(String path)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#Save(System.String)">
+            <summary>Sets the stub of IConfiguration.Save(String name)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#SetConnection(System.String,System.String)">
+            <summary>Sets the stub of IConfiguration.SetConnection(String name, String connectionString)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.DecryptString">
+            <summary>Sets the stub of IConfiguration.Decrypt(String cipherText)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.EncryptString">
+            <summary>Sets the stub of IConfiguration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.GetConnectionStringString">
+            <summary>Sets the stub of IConfiguration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String[],``0,``0})">
+            <summary>Sets stubs of GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.StubIConfiguration.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,``0,``0})">
+            <summary>Sets stubs of GetSetting(String keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.LoadString">
+            <summary>Sets the stub of IConfiguration.Load(String path)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.SaveString">
+            <summary>Sets the stub of IConfiguration.Save(String name)</summary>
+        </member>
+        <member name="F:Cream.Providers.Fakes.StubIConfiguration.SetConnectionStringString">
+            <summary>Sets the stub of IConfiguration.SetConnection(String name, String connectionString)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.StubIConfiguration.c::Cream#Providers#IConfiguration#ConfigurationData">
+            <summary>Sets the stub of IConfiguration.get_ConfigurationData()</summary>
+        </member>
+    </members>
+</doc>

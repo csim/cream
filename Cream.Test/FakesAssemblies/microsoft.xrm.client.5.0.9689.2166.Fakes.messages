@@ -1,0 +1,192 @@
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceInstanceMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceElement: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.ConnectionReturnEventHandler: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.ConnectionResult: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.ObjectCacheElementCollection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.OrganizationServiceContextInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Caching.ObjectCacheManager: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Caching.CacheItemDetail: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Collections.Generic.ArgumentDictionary: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceElementCollection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.CrmConnectionStringSettingsCollection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.TypeExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.StringExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceContextElementCollection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.OrganizationServiceContextExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.OrganizationServiceContextUtility: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.V5: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Messages.OrganizationServiceContextExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Threading.MutexExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Threading.LockManager: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.CrmConfigurationManager: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Security.CrmEntityRight: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Messages.Extensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Threading.HttpSingleton`1: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.OrganizationServiceCacheSettings: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.AttributeInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.RelationshipInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Messages.CacheItemCategory: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.CrmEntityReference: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Caching.CacheItemPolicyDetail: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.ServiceConfigurationInstanceMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.ObjectCacheInstanceMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.ObjectCacheElement: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceCacheElement: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.KeyedRequest: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.EntityAttribute: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Caching.ChangeMonitorDetail: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceContextElement: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.OrganizationServiceExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationTypeCode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.RoundTo: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.DateTimeExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.EntityExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Collections.Generic.DictionaryExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.RelationshipExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.EntityInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.OrganizationServiceCacheElementCollection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.KnownTypesProvider: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.OrganizationServiceCacheMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.OrganizationServiceCacheReturnMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceIdManager: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationErrorCode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationFailedException: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationRequest: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationClientInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationAuthentication: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationResponse: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationResponseError: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.LiveDevice: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Services.Samples.DeviceUserName: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Reflection.MemberInfoExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Diagnostics.Tracing: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Runtime.Serialization.ObjectExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Runtime.ObjectExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Metadata.EntitySetInfo: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.PasswordBoxAssistant: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Configuration.CrmSection: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for Microsoft.Xrm.Client.Collections.Generic.ConnectionStringExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for XamlGeneratedNamespace.GeneratedInternalTypeHelper: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for <>f__AnonymousType0`2: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate stub for <>f__AnonymousType1`2: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.OrganizationServiceInstanceMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.OrganizationServiceElement+<>c__DisplayClass5: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Caching.IExtendedObjectCache: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.ConnectionReturnEventHandler: type is a delegate.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.ConnectionResult: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.ILockProvider: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.LockProvider+<>c__DisplayClass1`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.LockProvider+<>c__DisplayClass5`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.LockProvider+<>c__DisplayClass8`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.MutexLockProvider+<>c__DisplayClass1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Caching.ObjectCacheManager+<>c__DisplayClass1`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Caching.ObjectCacheManager+<>c__DisplayClass4`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.IInitializable: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass10: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass13: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass16: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass19: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass1c: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass1f: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass22: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClass6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClassa: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+<>c__DisplayClassd: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationService+InnerOrganizationService: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.TypeExtensions+ClassTypeAttributeType: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Security.ICrmEntitySecurityProvider: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Security.CrmEntitySecurityProvider+<>c__DisplayClass1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.IOrganizationServiceCache: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<>c__DisplayClass4`3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<>c__DisplayClass7`3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__19: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__23: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__2c: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__32: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__39: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__3f: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependencies>d__f: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetDependenciesEmpty>d__c: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCache+<GetLinkEntities>d__42: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass10: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass13: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass16: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass19: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass1`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClass7: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClassa`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+<>c__DisplayClassd: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextExtensions+Strings: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.OrganizationServiceContextUtility+<>c__DisplayClass1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.V5: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Caching.ObjectCacheProvider+<>c__DisplayClass6`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.MutexExtensions: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Security.CrmEntityRight: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClass12: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClass15: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClass6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClass9: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClassc: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+<>c__DisplayClassf: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DeploymentService+InnerDeploymentService: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Threading.HttpSingleton`1: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.Messages.CacheItemCategory: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.ServiceConfigurationInstanceMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.ObjectCacheInstanceMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.ICacheItemPolicyFactory: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.ObjectCacheElement+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.OrganizationServiceCacheElement+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.CrmConfigurationProvider+<>c__DisplayClass3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.CrmConfigurationProvider+<GetObjectCaches>d__6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Configuration.OrganizationServiceContextElement+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationTypeCode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.RoundTo: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass13`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass1e`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass24: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass27`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass2a: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass2d`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass31`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass35`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass37`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass3a`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass3e`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass40`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass43`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClass5: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClassa`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<>c__DisplayClasse`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+<GetRelatedEntities>d__16`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.EntityExtensions+Strings: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Collections.Generic.DictionaryExtensions+<>c__DisplayClass1`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Collections.Generic.DictionaryExtensions+<>c__DisplayClass5`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Metadata.EntityInfo+<>c__DisplayClass9: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Metadata.EntityInfo+<>c__DisplayClassc`1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationPage+<>c__DisplayClass15: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationPage+<>c__DisplayClass19: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationPage+<>c__DisplayClass1c: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationPage+<>c__DisplayClass3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.AuthenticationPage+<>c__DisplayClassb: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCacheMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.OrganizationServiceCacheReturnMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.Samples.DeviceIdManager: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.Samples.DeviceRegistrationErrorCode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Reflection.MemberInfoExtensions: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Runtime.ObjectExtensions: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.IOrganizationServiceContainer: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+<GetEntities>d__17: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+<GetEntities>d__a: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+<GetEntities>d__d: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+<GetEntitiesEmpty>d__7: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+UpdatableLog: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.CrmOrganizationServiceContext+UpdatableOperation: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Windows.Controls.ConnectionDialog.PasswordBoxAssistant: type is not visible to exported or assembly(microsoft.xrm.client.5.0.9689.2166.Fakes).
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DiscoveryService+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DiscoveryService+<>c__DisplayClass6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for Microsoft.Xrm.Client.Services.DiscoveryService+<>c__DisplayClassa: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for XamlGeneratedNamespace.GeneratedInternalTypeHelper: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for <>f__AnonymousType0`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\microsoft.xrm.client.fakes : warning : Cannot generate shim for <>f__AnonymousType1`2: type is not supported because of internal limitations.

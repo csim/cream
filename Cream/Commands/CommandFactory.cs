@@ -7,8 +7,8 @@ using Cream.Logging;
 using Ninject;
 using Ninject.Parameters;
 using Microsoft.Xrm.Client;
+using Microsoft.Xrm.Client;
 using Microsoft.Xrm.Client.Services;
-using System.Configuration;
 using Microsoft.Xrm.Sdk;
 
 namespace Cream.Commands
@@ -26,17 +26,38 @@ namespace Cream.Commands
             Logger = 4
         }
 
-        public OptionBase Options { get; private set; }
+        public OptionBase Options { get; set; }
 
         public IKernel Resolver { get; set; }
 
-        public CommandFactory(OptionBase options)
+        public CommandFactory(OptionBase options = null)
         {
-            Options = options;
             Resolver = new StandardKernel();
         }
 
-        public virtual void Bind(BindFlags flags = BindFlags.All)
+        public virtual void Bind(IConfiguration configuration, ILogger logger, IOrganizationService service, CrmOrganizationServiceContext context,  CrmConnection connection)
+        {
+            Resolver.Bind<IConfiguration>().ToMethod(i => configuration);
+            
+            Resolver.Bind<ILogger>().ToMethod(i => logger);
+            
+            Resolver.Bind<IOrganizationService>().ToMethod(i => service);
+
+            Resolver.Bind<CrmConnection>()
+                .ToMethod(i => connection);
+
+            Resolver.Bind<CrmOrganizationServiceContext>()
+                //.ToConstructor(i => new CrmOrganizationServiceContext(Resolver.Get<CrmConnection>()))
+                .ToMethod(i => context)
+                .InThreadScope();
+            
+            //Resolver.Bind<CrmOrganizationServiceContext>().ToMethod(i => context);
+            
+            _boundLogger = true;
+            _boundAllExceptionLogger = true;
+        }
+
+            public virtual void Bind(BindFlags flags = BindFlags.All)
         {
             Bind<
                 DefaultConfiguration,

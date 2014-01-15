@@ -64,12 +64,9 @@ namespace Cream
         }
     }
 
-    public interface IProgram {
-        void Execute(string[] args);
-    }
-
-    public class Program : IProgram
+    public class Program
     {
+        public CommandFactory Factory { get; private set; }
         public ApplicationInfo App { get; private set; }
 
         public Program()
@@ -85,9 +82,18 @@ namespace Cream
             prog.Execute(args);
         }
 
-        public void Execute(string[] args)
+        public void Execute(string[] args, CommandFactory factory = null)
         {
             var logCategory = App.Title;
+
+            if (factory == null)
+            {
+                Factory = new CommandFactory();
+            }
+            else
+            {
+                Factory = factory;
+            }
 
             Console.WriteLine("");
             try
@@ -98,6 +104,7 @@ namespace Cream
                         p.CaseSensitive = false;
                         p.HelpWriter = Console.Error;
                 });
+
                 parser.ParseArguments(args, options, ExecuteCommand);
             }
             catch (Exception ex)
@@ -110,15 +117,15 @@ namespace Cream
         private void ExecuteCommand(string verb, object options)
         {
             if (options == null || !(options is OptionBase)) return;
-            var opt = (OptionBase)options;
-            var factory = new CommandFactory(opt);
-            var logger = factory.GetLogger();
+            Factory.Options = (OptionBase)options;
+
+            var logger = Factory.GetLogger();
 
             using (logger) {
                 try
                 {
                     var startTime = DateTime.Now;
-                    var command = factory.GetCommand();
+                    var command = Factory.GetCommand();
                     if (command != null)
                     {
                         logger.Write(App.Title, "v{0}".Compose(App.Version));

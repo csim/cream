@@ -1,0 +1,46 @@
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.SetConnection: type is not visible to exported or assembly(Cream.Fakes).
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.PublishCustomization: type is not visible to exported or assembly(Cream.Fakes).
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.PluginStage: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.Commands.PluginMode: type is a value type.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.IntExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.StringExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.StringArrayExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.ByteExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.ListExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.DataRowExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.SqlDataReaderExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.ObjectExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.XmlExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.DateTimeExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.ExceptionExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.EntityExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for Cream.DataTableExtensions: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for <>f__AnonymousType0`3: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for <>f__AnonymousType1`2: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for <>f__AnonymousType2`2: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate stub for <>f__AnonymousType3`1: type is sealed.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.ICommand: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+<>c__DisplayClass5: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+<>c__DisplayClass8`4: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.CommandFactory+BindFlags: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.SetConnection: type is not visible to exported or assembly(Cream.Fakes).
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.PublishCustomization: type is not visible to exported or assembly(Cream.Fakes).
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.ResourceCommandBase`1+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.ResourceCommandBase`1+<>c__DisplayClass8: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RegisterAssembly+<>c__DisplayClass12: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RegisterAssembly+<>c__DisplayClassc: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.PluginStage: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.PluginMode: type is an enum.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RegisterStep+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RegisterWebResource+<>c__DisplayClass2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Logging.ILogger: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.IConfiguration: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass8: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Logging.ILogWriter: type is an interface.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType0`3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType1`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType2`2: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType3`1: type is not supported because of internal limitations.
