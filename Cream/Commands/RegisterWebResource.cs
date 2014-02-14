@@ -22,7 +22,6 @@ namespace Cream.Commands
     {
         [OptionArray('f', "filters", DefaultValue = new string[] { "*.html", "*.htm", "*.css", "*.js", "*.gif", "*.png", "*.jpg", "*.xml", "*.zap" }, HelpText = "Set of wildcard patterns.")]
         public override string[] Filters { get; set; }
-
         public override Type GetCommandType()
         {
             return typeof(RegisterWebResource);
@@ -168,7 +167,5 @@ namespace Cream.Commands
 
             return 0;
         }
-
     }
-
 }
