@@ -127,7 +127,7 @@
     </Compile>
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Providers\CreamConfiguration.cs" />
-    <Compile Include="Providers\DefaultConfiguration.cs" />
+    <Compile Include="Providers\Configuration.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Providers\IConfiguration.cs" />
     <Compile Include="Logging\ConsoleLogger.cs" />

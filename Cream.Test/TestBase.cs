@@ -38,7 +38,7 @@ namespace Cream.Test
                 ConfigurationDataGet = () => ConfigurationData
             };
 
-            RealConfigurationProvider = new DefaultConfiguration();
+            RealConfigurationProvider = new Configuration();
             RealConfigurationProvider.ConfigurationData = ConfigurationData;
 
             Connection = new CrmConnection();

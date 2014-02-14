@@ -2776,6 +2776,105 @@
         <member name="P:Cream.Logging.Fakes.StubLoggerBase.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
+        <member name="T:Cream.Providers.Fakes.ShimConfiguration">
+            <summary>Shim type of Cream.Providers.Configuration</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.#ctor(Cream.Providers.Configuration)">
+            <summary>Initializes a new shim for the given instance</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.Bind(Cream.Providers.IConfiguration)">
+            <summary>Binds the members of the interface to the shim.</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String[],``0,``0})">
+            <summary>Sets the shim of Configuration.GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,``0,``0})">
+            <summary>Sets the shim of Configuration.GetSetting(String key, !!0 defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.ConfigurationDataGet">
+            <summary>Sets the shim of Configuration.get_ConfigurationData()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.ConfigurationDataSetCreamConfiguration">
+            <summary>Sets the shim of Configuration.set_ConfigurationData(CreamConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.Constructor">
+            <summary>Sets the shim of Configuration.Configuration()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.DecryptString">
+            <summary>Sets the shim of Configuration.Decrypt(String cipherString)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.EncryptString">
+            <summary>Sets the shim of Configuration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.GetConnectionStringString">
+            <summary>Sets the shim of Configuration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.GetSettingString">
+            <summary>Sets the shim of Configuration.GetSetting(String key)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.LoadString">
+            <summary>Sets the shim of Configuration.Load(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.RemoveConnectionString">
+            <summary>Sets the shim of Configuration.RemoveConnection(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.SaveString">
+            <summary>Sets the shim of Configuration.Save(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.SetConnectionStringString">
+            <summary>Sets the shim of Configuration.SetConnection(String name, String connectionString)</summary>
+        </member>
+        <member name="T:Cream.Providers.Fakes.ShimConfiguration.AllInstances">
+            <summary>Define shims for all instances members</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.AllInstances.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.Configuration,System.String[],``0,``0})">
+            <summary>Sets the shim of Configuration.GetSetting(String[] keys, !!0 defaultValue)</summary>
+        </member>
+        <member name="M:Cream.Providers.Fakes.ShimConfiguration.AllInstances.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.Configuration,System.String,``0,``0})">
+            <summary>Sets the shim of Configuration.GetSetting(String key, !!0 defaultValue)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.ConfigurationDataGet">
+            <summary>Sets the shim of Configuration.get_ConfigurationData()</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.ConfigurationDataSetCreamConfiguration">
+            <summary>Sets the shim of Configuration.set_ConfigurationData(CreamConfiguration value)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.DecryptString">
+            <summary>Sets the shim of Configuration.Decrypt(String cipherString)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.EncryptString">
+            <summary>Sets the shim of Configuration.Encrypt(String clearText)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.GetConnectionStringString">
+            <summary>Sets the shim of Configuration.GetConnectionString(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.GetSettingString">
+            <summary>Sets the shim of Configuration.GetSetting(String key)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.LoadString">
+            <summary>Sets the shim of Configuration.Load(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.RemoveConnectionString">
+            <summary>Sets the shim of Configuration.RemoveConnection(String name)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.SaveString">
+            <summary>Sets the shim of Configuration.Save(String path)</summary>
+        </member>
+        <member name="P:Cream.Providers.Fakes.ShimConfiguration.AllInstances.SetConnectionStringString">
+            <summary>Sets the shim of Configuration.SetConnection(String name, String connectionString)</summary>
+        </member>
         <member name="T:Cream.Providers.Fakes.ShimCreamConfiguration">
             <summary>Shim type of Cream.Providers.CreamConfiguration</summary>
         </member>
@@ -2836,104 +2935,23 @@
         <member name="P:Cream.Providers.Fakes.ShimCreamConfiguration.AllInstances.LogFilePathSetString">
             <summary>Sets the shim of CreamConfiguration.set_LogFilePath(String value)</summary>
         </member>
-        <member name="T:Cream.Providers.Fakes.ShimDefaultConfiguration">
-            <summary>Shim type of Cream.Providers.DefaultConfiguration</summary>
+        <member name="T:Cream.Providers.Fakes.StubConfiguration">
+            <summary>Stub type of Cream.Providers.Configuration</summary>
         </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.#ctor">
-            <summary>Initializes a new shim instance</summary>
+        <member name="M:Cream.Providers.Fakes.StubConfiguration.#ctor">
+            <summary>Initializes a new instance</summary>
         </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.#ctor(Cream.Providers.DefaultConfiguration)">
-            <summary>Initializes a new shim for the given instance</summary>
+        <member name="M:Cream.Providers.Fakes.StubConfiguration.InitializeStub">
+            <summary>Initializes a new instance of type StubConfiguration</summary>
         </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.BehaveAsCurrent">
-            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        <member name="P:Cream.Providers.Fakes.StubConfiguration.CallBase">
+            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
         </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.BehaveAsNotImplemented">
-            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        <member name="P:Cream.Providers.Fakes.StubConfiguration.InstanceBehavior">
+            <summary>Gets or sets the instance behavior.</summary>
         </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.Bind(Cream.Providers.IConfiguration)">
-            <summary>Binds the members of the interface to the shim.</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String[],``0,``0})">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String[] keys, !!0 defaultValue)</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{System.String,``0,``0})">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key, !!0 defaultValue)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.Behavior">
-            <summary>Assigns the behavior for all methods of the shimmed type</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.ConfigurationDataGet">
-            <summary>Sets the shim of DefaultConfiguration.get_ConfigurationData()</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.ConfigurationDataSetCreamConfiguration">
-            <summary>Sets the shim of DefaultConfiguration.set_ConfigurationData(CreamConfiguration value)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.Constructor">
-            <summary>Sets the shim of DefaultConfiguration.DefaultConfiguration()</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.DecryptString">
-            <summary>Sets the shim of DefaultConfiguration.Decrypt(String cipherString)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.EncryptString">
-            <summary>Sets the shim of DefaultConfiguration.Encrypt(String clearText)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.GetConnectionStringString">
-            <summary>Sets the shim of DefaultConfiguration.GetConnectionString(String name)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.GetSettingString">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.LoadString">
-            <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.RemoveConnectionString">
-            <summary>Sets the shim of DefaultConfiguration.RemoveConnection(String name)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.SaveString">
-            <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.SetConnectionStringString">
-            <summary>Sets the shim of DefaultConfiguration.SetConnection(String name, String connectionString)</summary>
-        </member>
-        <member name="T:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances">
-            <summary>Define shims for all instances members</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingOf1StringArrayM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.DefaultConfiguration,System.String[],``0,``0})">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String[] keys, !!0 defaultValue)</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingOf1StringM0``1(Microsoft.QualityTools.Testing.Fakes.FakesDelegates.Func{Cream.Providers.DefaultConfiguration,System.String,``0,``0})">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key, !!0 defaultValue)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.ConfigurationDataGet">
-            <summary>Sets the shim of DefaultConfiguration.get_ConfigurationData()</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.ConfigurationDataSetCreamConfiguration">
-            <summary>Sets the shim of DefaultConfiguration.set_ConfigurationData(CreamConfiguration value)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.DecryptString">
-            <summary>Sets the shim of DefaultConfiguration.Decrypt(String cipherString)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.EncryptString">
-            <summary>Sets the shim of DefaultConfiguration.Encrypt(String clearText)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetConnectionStringString">
-            <summary>Sets the shim of DefaultConfiguration.GetConnectionString(String name)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.GetSettingString">
-            <summary>Sets the shim of DefaultConfiguration.GetSetting(String key)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.LoadString">
-            <summary>Sets the shim of DefaultConfiguration.Load(String path)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.RemoveConnectionString">
-            <summary>Sets the shim of DefaultConfiguration.RemoveConnection(String name)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.SaveString">
-            <summary>Sets the shim of DefaultConfiguration.Save(String path)</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.ShimDefaultConfiguration.AllInstances.SetConnectionStringString">
-            <summary>Sets the shim of DefaultConfiguration.SetConnection(String name, String connectionString)</summary>
+        <member name="P:Cream.Providers.Fakes.StubConfiguration.InstanceObserver">
+            <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:Cream.Providers.Fakes.StubCreamConfiguration">
             <summary>Stub type of Cream.Providers.CreamConfiguration</summary>
@@ -2951,24 +2969,6 @@
             <summary>Gets or sets the instance behavior.</summary>
         </member>
         <member name="P:Cream.Providers.Fakes.StubCreamConfiguration.InstanceObserver">
-            <summary>Gets or sets the instance observer.</summary>
-        </member>
-        <member name="T:Cream.Providers.Fakes.StubDefaultConfiguration">
-            <summary>Stub type of Cream.Providers.DefaultConfiguration</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.StubDefaultConfiguration.#ctor">
-            <summary>Initializes a new instance</summary>
-        </member>
-        <member name="M:Cream.Providers.Fakes.StubDefaultConfiguration.InitializeStub">
-            <summary>Initializes a new instance of type StubDefaultConfiguration</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.CallBase">
-            <summary>Gets or sets a value that indicates if the base method should be called instead of the fallback behavior</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.InstanceBehavior">
-            <summary>Gets or sets the instance behavior.</summary>
-        </member>
-        <member name="P:Cream.Providers.Fakes.StubDefaultConfiguration.InstanceObserver">
             <summary>Gets or sets the instance observer.</summary>
         </member>
         <member name="T:Cream.Providers.Fakes.StubIConfiguration">

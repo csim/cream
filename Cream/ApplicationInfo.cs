@@ -10,29 +10,41 @@ namespace Cream
     {
         public ApplicationInfo()
         {
-            Version = Assembly.GetCallingAssembly().GetName().Version;
+            var assm = Assembly.GetCallingAssembly();
+            Version = assm.GetName().Version;
 
             Title = "";
-            object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-            if (attributes.Length > 0)
+            var attrib = assm.GetCustomAttributes(typeof(AssemblyTitleAttribute), false).FirstOrDefault();
+            if (attrib == null)
             {
-                var titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                if (titleAttribute.Title.Length > 0) Title = titleAttribute.Title;
+                Title = ((AssemblyTitleAttribute)attrib).Title;
             } else {
                 Title = System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
             }
 
-            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-            ProductName = attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
+            attrib = assm.GetCustomAttributes(typeof(AssemblyProductAttribute), false).FirstOrDefault();
+            if (attrib != null)
+            {
+                ProductName = ((AssemblyProductAttribute)attrib).Product;
+            }
 
-            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-            Description = attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
+            attrib = assm.GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false).FirstOrDefault();
+            if (attrib != null)
+            {
+                Description = ((AssemblyDescriptionAttribute)attrib).Description;
+            }
 
-            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-            Copyright = attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+            attrib = assm.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false).FirstOrDefault();
+            if (attrib != null)
+            {
+                Copyright = ((AssemblyCopyrightAttribute)attrib).Copyright;
+            }
 
-            attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-            CompanyName = attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
+            attrib = assm.GetCustomAttributes(typeof(AssemblyCompanyAttribute), false).FirstOrDefault();
+            if (attrib != null)
+            {
+                CompanyName = ((AssemblyCompanyAttribute)attrib).Company;
+            }
         }
 
         public Version Version { get; private set; }

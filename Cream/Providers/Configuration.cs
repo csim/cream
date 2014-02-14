@@ -13,14 +13,14 @@
     /// <summary>
     /// Access values from the app.config file.
     /// </summary>
-    public class DefaultConfiguration : IConfiguration
+    public class Configuration : IConfiguration
     {
         private const string ENCRYPTION_KEY = "9jx2RBb3wOs5kPMHY5hPUzlbACPoefXq6QtysSeHeMYvZ1cYf7SXcqipdPKpYVTDLzKnoXz8s0waHZLN78nz";
 
         public CreamConfiguration ConfigurationData { get; set; }
 
 
-        public DefaultConfiguration()
+        public Configuration()
         {
         }
 

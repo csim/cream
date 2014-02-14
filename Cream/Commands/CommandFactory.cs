@@ -60,7 +60,7 @@ namespace Cream.Commands
             public virtual void Bind(BindFlags flags = BindFlags.All)
         {
             Bind<
-                DefaultConfiguration,
+                Configuration,
                 DefaultLogger,
                 OrganizationService,
                 CrmOrganizationServiceContext

@@ -37,10 +37,10 @@ C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim fo
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Commands.RegisterWebResource+<>c__DisplayClass2: type is not supported because of internal limitations.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Logging.ILogger: type is an interface.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.IConfiguration: type is an interface.
-C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass1: type is not supported because of internal limitations.
-C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass3: type is not supported because of internal limitations.
-C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass6: type is not supported because of internal limitations.
-C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.DefaultConfiguration+<>c__DisplayClass8: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.Configuration+<>c__DisplayClass1: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.Configuration+<>c__DisplayClass3: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.Configuration+<>c__DisplayClass6: type is not supported because of internal limitations.
+C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Providers.Configuration+<>c__DisplayClass8: type is not supported because of internal limitations.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for Cream.Logging.ILogWriter: type is an interface.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType0`3: type is not supported because of internal limitations.
 C:\Source\cream\Cream.Test\Fakes\Cream.fakes : warning : Cannot generate shim for <>f__AnonymousType1`2: type is not supported because of internal limitations.
