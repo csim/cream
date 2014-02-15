@@ -18,7 +18,7 @@ namespace Cream.Commands
 {
     public class SetConnectionOption : OptionBase
     {
-        [Option('n', "name", DefaultValue = "", Required = true, HelpText = "Name of the connection.")]
+        [Option('n', "name", DefaultValue = "default", Required = true, HelpText = "Name of the connection.")]
         public string Name { get; set; }
 
         [Option('v', "value", DefaultValue = "", HelpText = "Connection string value.")]
